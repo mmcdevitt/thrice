@@ -1,4 +1,4 @@
-Etsydemo::Application.routes.draw do
+Thrice::Application.routes.draw do
 
   devise_for :users
   resources :listings do

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Etsydemo::Application.config.secret_key_base = '60a47adb2fb63ddc0e1c8830ba552cb974d9f62d12fe3d798bb80fbe48ec4d4d33c18f233f0b7d79df1f1d2df3a6f87fb2f942dcf11496972bc4830ec624f638'
+Thrice::Application.config.secret_key_base = '60a47adb2fb63ddc0e1c8830ba552cb974d9f62d12fe3d798bb80fbe48ec4d4d33c18f233f0b7d79df1f1d2df3a6f87fb2f942dcf11496972bc4830ec624f638'

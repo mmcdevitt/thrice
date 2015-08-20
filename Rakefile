@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Etsydemo::Application.load_tasks
+Thrice::Application.load_tasks
