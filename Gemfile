@@ -2,7 +2,7 @@ source 'https://code.stripe.com'
 source 'https://rubygems.org'
 ruby "2.1.1"
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -15,14 +15,33 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem "figaro"
 gem 'devise'
 gem 'stripe'
+gem 'rails_admin'
+gem 'pg'
+gem 'haml-rails'
+gem 'faker'
+gem 'fabrication'
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
+group :development do
+  gem 'thin'
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'rspec-rails'
+  gem 'sqlite3',     '1.3.9'
+end
+
+group :test do
+  gem 'database_cleaner', '1.2.0'
+  gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 group :doc do
