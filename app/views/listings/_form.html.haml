@@ -1,0 +1,42 @@
+= form_for(@listing, :html => { :multipart => true }) do |f|
+  - if @listing.errors.any?
+    #error_explanation.alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+      %h4
+        = pluralize(@listing.errors.count, "error")
+        prohibited this listing from being saved:
+      %ul
+        - @listing.errors.full_messages.each do |msg|
+          %li= msg
+  #stripe_error.alert.alert-danger{:style => "display:none"}
+    %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+  .form-group
+    = f.label :name
+    %br/
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :description
+    %br/
+    = f.text_area :description, class: "form-control"
+  .form-group
+    = f.label :price
+    %br/
+    = f.text_field :price, class: "form-control"
+  .form-group
+    = f.label :image
+    %br/
+    = f.file_field :image, class: "form-control"
+  - if current_user.recipient.blank?
+    %br/
+    %h1 Bank Account Information
+    .form-group
+      = label_tag :country
+      = text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" }
+    .form-group
+      = label_tag :routing_number
+      = text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" }
+    .form-group
+      = label_tag :account_number
+      = text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" }
+  .form-group
+    = f.submit class: "btn btn-primary"

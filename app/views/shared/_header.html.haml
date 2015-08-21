@@ -1,0 +1,15 @@
+%header#header.app-header.navbar.b-b{:role => "menu"}
+  = render 'shared/top_header'
+  .collapse.pos-rlt.navbar-collapse.bg-white-only
+    .container
+      %ul.nav.navbar-nav
+        = link_to '#', class: 'navbar-brand text-lt' do
+          = image_tag('logo.png')
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Suits', '#'
+        %li= link_to 'Shirts', 'assets_path'
+        %li= link_to 'Pants', '#'
+        %li= link_to 'Socks', '#'
+        %li= link_to 'Ties', '#'
+        %li= link_to 'Shoes', '#'
+        %li= link_to 'Cart(0)', '#'

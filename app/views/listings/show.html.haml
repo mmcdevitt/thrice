@@ -1,0 +1,15 @@
+.row
+  .col-md-6
+    .thumbnail
+      = image_tag @listing.image.url
+  .col-md-6
+    %h3= @listing.name
+    %p= number_to_currency(@listing.price)
+    %p= @listing.description
+    %br/
+    .center
+      = link_to "Buy It Now", new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true }
+- if current_user == @listing.user
+  = link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link"
+  |
+= link_to 'Back', listings_path, class: "btn btn-link"

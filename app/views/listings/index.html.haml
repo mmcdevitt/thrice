@@ -1,0 +1,13 @@
+.center
+  .row
+    - @listings.each do |listing|
+      .col-md-3
+        .thumbnail
+          = link_to image_tag(listing.image.url), listing
+          .caption
+            %h3= listing.name
+            %p= number_to_currency(listing.price)
+            %p= "Sold by #{listing.user.name}"
+%br/
+- if user_signed_in?
+  = link_to "New Listing", new_listing_path, class: "btn btn-primary", data: { no_turbolink: true }
