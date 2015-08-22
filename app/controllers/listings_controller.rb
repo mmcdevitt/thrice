@@ -9,7 +9,8 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.unsold
+    @listings = Listing.all
+    @order_item = current_order.order_items.new
   end
 
   def show
@@ -73,7 +74,7 @@ class ListingsController < ApplicationController
     end
 
     def redirect_if_sold
-      redirect_to root_path if @listing.sold == true
+      redirect_to root_path if @listing.active == false
     end
 end
 

@@ -13,7 +13,7 @@ class Listing < ActiveRecord::Base
   validates_attachment_presence :image
 
   belongs_to :user
-  has_many :orders
+  has_many :order_items
 
-  scope :unsold, -> { where(sold: false) }
+  default_scope { where(active: true) }
 end

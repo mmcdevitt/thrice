@@ -5,6 +5,7 @@
     .app.app-header-fixed
       = render 'shared/header'
       = render 'shared/flash'
+      .main-image
       #content.app-content{:role => "main"}
         .app-content-body
           .hbox.hbox-auto-xs.hbox-auto-sm{"ng-init" => "\n            app.settings.asideFolded = false; \n            app.settings.asideDock = false;\n          "}
