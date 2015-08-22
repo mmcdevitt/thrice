@@ -21,9 +21,18 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
   color: #58666e;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
-
+.main-image {
+    background: url(/assets/bg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    border-bottom: 1px solid #EAF6FF;
+    height: 100%
+}
 *:focus {
   outline: 0 !important;
 }
@@ -681,7 +690,7 @@ body {
 .app {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   min-height: 100%;
 }
 

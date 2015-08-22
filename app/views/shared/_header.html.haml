@@ -1,9 +1,9 @@
-%header#header.app-header.navbar.b-b{:role => "menu"}
+%header#header.app-header.navbar{:role => "menu"}
   = render 'shared/top_header'
-  .collapse.pos-rlt.navbar-collapse.bg-white-only
+  .collapse.pos-rlt.navbar-collapse.bg-white-only.b-b
     .container
       %ul.nav.navbar-nav
-        = link_to '#', class: 'navbar-brand text-lt' do
+        = link_to root_path, class: 'navbar-brand text-lt' do
           = image_tag('logo.png')
       %ul.nav.navbar-nav.navbar-right
         %li= link_to 'Suits', '#'
