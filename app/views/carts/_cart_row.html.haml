@@ -2,6 +2,7 @@
   .row
     .col-xs-8
       %h4= listing.name
+      %p= "Seller: #{listing.user.name}"
     .col-xs-4
       = form_for order_item, remote: true do |f|
         %h4.text-right 
@@ -9,7 +10,6 @@
           %span{style: "color: green"}= number_to_currency order_item.unit_price 
         .row
           .col-xs-4
-            = f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1
             = f.hidden_field :listing_id, value: listing.id 
           .col-xs-8.text-right
             .btn-group

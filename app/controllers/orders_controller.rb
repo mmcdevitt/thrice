@@ -10,64 +10,35 @@ class OrdersController < ApplicationController
     @orders = Order.all.where(buyer: current_user).order("created_at DESC")
   end
 
-  # GET /orders/new
   def new
     @order = Order.new
-    @listing = Listing.find(params[:listing_id])
+    @current_cart = current_cart
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @listing = Listing.find(params[:listing_id])
-
-    @seller = @listing.user
-
-    @order.listing_id = @listing.id
+    @current_cart = current_cart
     @order.buyer_id = current_user.id
-    @order.seller_id = @seller.id
+    @order.subtotal = @current_cart.subtotal
+    @order.add_line_items_from_cart(@current_cart)
 
-
-    # Stripe.api_key = ENV["STRIPE_API_KEY"]
-    # token = params[:stripeToken]
-
-    # begin
-    #   charge = Stripe::Charge.create(
-    #     :amount => (@listing.price * 100).floor,
-    #     :currency => "usd",
-    #     :card => token
-    #     )
-    # rescue Stripe::CardError => e
-    #   flash[:danger] = e.message
-    # end
-
-    # transfer = Stripe::Transfer.create(
-    #   :amount => (@listing.price * 95).floor,
-    #   :currency => "usd",
-    #   :recipient => @seller.recipient
-    #   )
-
-    respond_to do |format|
-      if @order.save
-        @listing.update(sold: true)
-        format.html { redirect_to root_url, notice: "Thanks for ordering!" }
-        format.json { render action: 'show', status: :created, location: @order }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.save 
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      # @listing.update(active: false)
+      redirect_to root_url
+      flash[:success] = "Thank you for ordering."
+    else 
+      render 'new'
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :state)
+      params.require(:order).permit(:address, :city, :state, :buyer_id, :order_status_id, :subtotal)
     end
 end

@@ -17,9 +17,10 @@ Thrice::Application.routes.draw do
     get  '/password/new', to: 'devise/passwords#new', as: :password
   end
 
-  resources :listings do
-    resources :orders, only: [:new, :create]
-  end
+  resources :listings
+
+  get '/checkout', to: 'orders#new'
+  resource :orders, only: [:create]
 
   get "pages/about"
   get "pages/contact"

@@ -1,45 +1,7 @@
+= @current_cart.subtotal
 .row
-  .col-md-4
-    .thumbnail
-      = image_tag @listing.image.url
-    %h3= @listing.name
-    %h4= number_to_currency(@listing.price)
   .col-md-8
-    = form_for([@listing, @order]) do |f|
-      - if @order.errors.any?
-        #error_explanation.alert.alert-danger.alert-dismissable
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
-          %h4
-            = pluralize(@order.errors.count, "error")
-            prohibited this order from being saved:
-          %ul
-            - @order.errors.full_messages.each do |msg|
-              %li= msg
-      #stripe_error.alert.alert-danger{:style => "display:none"}
-        %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+    = form_for @order do |f|
       .form-group
-        = f.label :address
-        = f.text_field :address, class: "form-control"
-      .form-group
-        = f.label :city
-        = f.text_field :city, class: "form-control"
-      .form-group
-        = f.label :state
-        = f.text_field :state, class: "form-control"
-      .form-group
-        .row
-          .col-md-8
-            = label_tag :card_number, "Credit Card Number"
-            = text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" }
-          .col-md-4
-            = label_tag :card_code, "CVC"
-            = text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" }
-      .form-group
-        = label_tag nil, "Expiration Date"
-        .row
-          .col-md-3
-            = select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" }
-          .col-md-3
-            = select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" }
-      .form-group
+        = f.text_field :address
         = f.submit "Complete Order", class: "btn btn-success"

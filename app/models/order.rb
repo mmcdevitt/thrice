@@ -4,22 +4,24 @@ class Order < ActiveRecord::Base
   belongs_to :seller, class_name: "User"
   has_many :order_items
 
-  before_create :set_order_status
-  before_save :update_subtotal
+  after_save :set_order_items_active_false
 
-  # validates :address, :city, :state, presence: true
+  def order_total
+    
+  end
 
-  def subtotal
-    order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+  def add_line_items_from_cart(cart)
+    cart.order_items.each do |item|
+      item.cart_id = nil
+      order_items << item
+    end
   end
 
   private
 
-  def set_order_status
-    self.order_status_id = 1
+  def set_order_items_active_false
+    self.order_items.each do |item|
+      item.listing.update(active: false)
+    end
   end
-
-  def update_subtotal
-    self[:subtotal] = subtotal
-  end 
 end

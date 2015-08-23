@@ -8,7 +8,14 @@
     %p= @listing.description
     %br/
     .center
-      = link_to "Buy It Now", new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true }
+= form_for @order_item, remote: true do |f|
+  %h4.text-right
+    Unit Price: 
+    %span{style: "color: green"}= number_to_currency(@listing.price)
+  .input-group
+    .input-group-btn
+      = f.hidden_field :listing_id, value: @listing.id 
+      = f.submit "Add to Cart", class: "btn btn-primary" 
 - if current_user == @listing.user
   = link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link"
   |

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822185017) do
+ActiveRecord::Schema.define(version: 20150823000809) do
+
+  create_table "carts", force: true do |t|
+    t.integer  "order_status_id"
+    t.decimal  "subtotal",        precision: 12, scale: 3
+    t.decimal  "tax",             precision: 12, scale: 3
+    t.decimal  "shipping",        precision: 12, scale: 3
+    t.decimal  "total",           precision: 12, scale: 3
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "listings", force: true do |t|
     t.string   "name"
@@ -24,21 +34,21 @@ ActiveRecord::Schema.define(version: 20150822185017) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
-    t.boolean  "active"
+    t.boolean  "active",             default: true
   end
 
   create_table "order_items", force: true do |t|
     t.integer  "listing_id"
-    t.integer  "order_id"
     t.decimal  "unit_price",  precision: 12, scale: 3
-    t.integer  "quantity"
     t.decimal  "total_price", precision: 12, scale: 3
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "seller_id"
+    t.integer  "cart_id"
+    t.integer  "order_id"
   end
 
   add_index "order_items", ["listing_id"], name: "index_order_items_on_listing_id"
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
 
   create_table "order_statuses", force: true do |t|
     t.string   "name"
@@ -52,9 +62,7 @@ ActiveRecord::Schema.define(version: 20150822185017) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "listing_id"
     t.integer  "buyer_id"
-    t.integer  "seller_id"
     t.integer  "order_status_id"
     t.decimal  "subtotal",        precision: 12, scale: 3
     t.decimal  "tax",             precision: 12, scale: 3

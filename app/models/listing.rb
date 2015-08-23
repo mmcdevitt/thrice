@@ -15,5 +15,5 @@ class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :order_items
 
-  default_scope { where(active: true) }
+  scope :not_sold, -> { where(active: true) }
 end

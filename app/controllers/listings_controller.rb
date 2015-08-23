@@ -9,11 +9,12 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
-    @order_item = current_order.order_items.new
+    @listings = Listing.not_sold
+    @order_item = current_cart.order_items.new
   end
 
   def show
+    @order_item = current_cart.order_items.new
   end
 
   def new
