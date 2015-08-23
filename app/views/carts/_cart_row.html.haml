@@ -1,6 +1,6 @@
 %tr
   %td.item-image
-    = image_tag(listing.image.url, class: 'img-responsive', style: "height: 150px;")
+    = image_tag(listing.image.url(:small), class: 'img-responsive')
   %td
     %h5= listing.name
     %p 

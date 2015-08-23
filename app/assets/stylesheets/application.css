@@ -10,6 +10,7 @@
  *
  *= require custom
  *= require cart
+ *= require listings
  *= require app
  *= require_self
  */

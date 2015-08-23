@@ -1,0 +1,19 @@
+.item-widget
+  .row
+    - @listings.each do |listing|
+      .col-md-3
+        .item-image
+          = link_to image_tag(listing.image.url(:medium), class: 'img-responsive'), listing
+        .item-price
+          %p= number_to_currency(listing.price)
+        .item-title
+          %p= listing.name
+        .item-seller
+          %p
+            %span Listed by
+            = " #{listing.user.name}"
+        = form_for @order_item, remote: true do |f|
+          .input-group
+            .input-group-btn
+              = f.hidden_field :listing_id, value: listing.id 
+              = f.submit "Add to Cart", class: "btn btn-primary" 
