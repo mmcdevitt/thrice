@@ -1,22 +1,24 @@
-.row
-  .col-md-6
-    .thumbnail
-      = image_tag @listing.image.url
-  .col-md-6
-    %h3= @listing.name
-    %p= number_to_currency(@listing.price)
-    %p= @listing.description
-    %br/
-    .center
-= form_for @order_item, remote: true do |f|
-  %h4.text-right
-    Unit Price: 
-    %span{style: "color: green"}= number_to_currency(@listing.price)
-  .input-group
-    .input-group-btn
-      = f.hidden_field :listing_id, value: @listing.id 
-      = f.submit "Add to Cart", class: "btn btn-primary" 
-- if current_user == @listing.user
-  = link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link"
-  |
-= link_to 'Back', listings_path, class: "btn btn-link"
+.product-listing
+  .row
+    .col-md-6
+      = image_tag(@listing.image.url, class: 'img-responsive')
+    .col-md-6
+      %h2= @listing.name
+      .condition
+        %span Condition:
+        New with tags
+      .seller
+        %span Listed by
+        = link_to @listing.user.name, '#'
+      %h3.price
+        = number_to_currency(@listing.price)
+      .clearfix
+        .pull-left
+          = form_for @order_item, remote: true do |f|
+            = f.hidden_field :listing_id, value: @listing.id
+            = f.submit "Add to Cart", class: "btn btn-info btn-lg"
+        %button.btn.btn-default.btn-lg.m-l
+          = "Message #{@listing.user.name}"
+      .description
+        %p
+          = @listing.description

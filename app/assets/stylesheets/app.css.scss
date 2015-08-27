@@ -37,11 +37,12 @@ body {
   outline: 0 !important;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, 
+.h1, .h2, .h3, .h4, .h5, .h6,
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
+  color: #333;
 }
 
 a {
@@ -2219,7 +2220,10 @@ fieldset[disabled] .btn-black.active {
 .btn-groups .btn {
   margin-bottom: 5px;
 }
-
+.btn {
+  border-radius: 2px;
+  font-weight: 700;
+}
 .list-icon i {
   display: inline-block;
   width: 40px;
