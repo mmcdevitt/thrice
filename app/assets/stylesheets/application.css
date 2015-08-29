@@ -12,5 +12,9 @@
  *= require cart
  *= require listings
  *= require app
+ *= require checkout
+ *= require icon
+ *= require font
+ *= require font-awesome.min
  *= require_self
  */

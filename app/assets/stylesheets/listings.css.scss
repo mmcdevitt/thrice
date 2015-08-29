@@ -1,19 +1,24 @@
 .item-widget {
+  font-family: 'BrandonText_Bold';
   img {
-    margin-bottom:5px;
+    margin-bottom:10px;
+  }
+  p {
+    margin: 0 0 5px 0;
   }
   .item-price {
     p {
       color: #333;
-      margin: 0 0 3px 0;
     }
   }
   .item-title {
     font-size: 11px;
     text-transform: uppercase;
+    color: #333;
+
   }
   .item-seller {
-    font-size: 10px;
+    font-size: 12px;
     span {
       color: #999;
     }
@@ -22,7 +27,6 @@
 
 .product-listing {
   h2 {
-    font-weight: bold;
     margin-bottom: 8px;
   }
   p {
@@ -37,12 +41,46 @@
       color:#999;
     }
   }
+  .seller {
+    margin-bottom: 20px;
+  }
   .price {
-    font-weight: bold;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 20px 0;
+    font-family: 'BrandonText';
+    color: #999;
   }
   .description {
-    padding:30px 0;
     line-height: 23px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    margin-bottom: 30px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
