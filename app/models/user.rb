@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   has_many :listings, dependent: :destroy
   has_many :sales, class_name: "Order", foreign_key: "seller_id"
   has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+
+  # Before Thrice's 10% cut
+  def sub_total_earnings
+    self.listings.sold.sum(:price)
+  end
+
+  # After Thrice's 10% cut
+  def total_earnings
+    sub_total_earnings * 0.9
+  end
 end

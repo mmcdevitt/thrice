@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  layout :order_layout
+  layout :order_layout, only: :new
 
   def sales
-    @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    @order_items = OrderItem.all.where(seller: current_user).order("created_at DESC")
   end
 
   def purchases
@@ -41,7 +41,12 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:address, :city, :state, :buyer_id, :order_status_id, :subtotal)
+      params.require(:order).permit(
+        :address, :city, :state, :buyer_id, 
+        :order_status_id, :subtotal, :tax, :shipping, :total, :first_name,
+        :last_name, :second_address, :zipcode, :phone_number, :cc_name,
+        :cc_number, :expiry_month, :expiry_year, :cc_cvv
+        )
     end
 
     def order_layout

@@ -6,6 +6,7 @@ class Listing < ActiveRecord::Base
   has_many :order_items
 
   scope :not_sold, -> { where(active: true) }
+  scope :sold, -> { where(sold: true) }
 
   has_attached_file :image, :default_url => "/assets/office1.jpg", styles: {
     large: "300x200#",

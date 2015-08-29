@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
 
   after_save :set_order_items_active_false
+  after_save :listing_is_sold?
 
   def order_total
     
@@ -22,6 +23,12 @@ class Order < ActiveRecord::Base
   def set_order_items_active_false
     self.order_items.each do |item|
       item.listing.update(active: false)
+    end
+  end
+
+  def listing_is_sold?
+    self.order_items.each do |item|
+      item.listing.update(sold: true)
     end
   end
 end

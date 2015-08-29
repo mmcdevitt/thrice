@@ -8,60 +8,60 @@
             .row
               .col-md-6
                 .form-group
-                  %label First Name
-                  %input.form-control
+                  = f.label :first_name
+                  = f.text_field :first_name, class: 'form-control'
               .col-md-6
                 .form-group
-                  %label Last Name
-                  %input.form-control
+                  = f.label :last_name
+                  = f.text_field :last_name, class: 'form-control'
             .form-group
               = f.label :address
               = f.text_field :address, class: 'form-control'
             .form-group
-              %label Apt, Suite, etc.
-              %input.form-control
+              = f.label :second_address, 'Apt, Suite, etc.'
+              = f.text_field :second_address, class: 'form-control'
             .row
               .col-md-4
                 .form-group
-                  %label City
-                  %input.form-control
+                  = f.label :city
+                  = f.text_field :city, class: 'form-control'
               .col-md-4
                 .form-group
-                  %label State
-                  %input.form-control
+                  = f.label :state
+                  = f.text_field :state, class: 'form-control'
               .col-md-4
                 .form-group
-                  %label Zipcode
-                  %input.form-control
+                  = f.label :zipcode
+                  = f.text_field :zipcode, class: 'form-control'
             .form-group
-              %label Phone Number
-              %input.form-control
+              = f.label :phone_number
+              = f.text_field :phone_number, class: 'form-control'
           .billing-info
             %h5 Billing
             .row
               .col-md-12
                 .form-group
-                  %label Name (As it appears on your card)
-                  %input.form-control
+                  = f.label :cc_name, 'Name (As it appears on your card)'
+                  = f.text_field :cc_name, class: 'form-control'
               .col-md-12
                 .form-group
-                  %label Card Number
-                  %input.form-control
+                  = f.label :cc_number
+                  = f.text_field :cc_number, class: 'form-control'
             .row
               .col-md-4
                 .form-group
-                  %label Expiration
-                  %input.form-control
+                  = f.label :expiry_month
+                  = f.text_field :expiry_month, class: 'form-control'
               .col-md-4
                 .form-group
-                  %label Year
-                  %input.form-control
+                  = f.label :expiry_year
+                  = f.text_field :expiry_year, class: 'form-control'
               .col-md-4
                 .form-group
-                  %label CVV
-                  %input.form-control
+                  = f.label :cc_cvv
+                  = f.text_field :cc_cvv, class: 'form-control'
         .col-md-4
-          %h5{style: 'margin-bottom:30px;'} Order Details
+          %h5.text-center{style: 'margin-bottom:30px;'} Order Details
           %ul.list-group.no-radius
             %li
               %span.pull-right= number_to_currency @current_cart.subtotal

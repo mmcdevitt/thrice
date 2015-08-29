@@ -1,21 +1,42 @@
 .center
   %h2 Your Sales History
+.row
+  .col-sm-3
+    .panel
+      .panel-body
+        %h6 Total Sales 
+        = current_user.listings.sold.count
+  .col-sm-3
+    .panel
+      .panel-body
+        %h6 Total Earnings 
+        = number_to_currency current_user.sub_total_earnings
+  .col-sm-3
+    .panel
+      .panel-body
+        %h6 Pending 
+        = number_to_currency current_user.total_earnings
+  .col-sm-3
+    .panel
+      .panel-body
+        %h6 Available 
+        = current_user.listings.sold.count
 %table.table.table-striped.table-bordered
   %tr
     %th.center Image
     %th.center Item
     %th.center Price
     %th.center Customer
-    %th.center Status
+    %th.center You Made
     %th.center Date Sold
-  - @orders.each do |order|
+  - @order_items.each do |item|
     %tr
-      %td.center= image_tag order.listing.image.url(:thumb)
-      %td.center= order.listing.name
-      %td.center= number_to_currency(order.listing.price)
-      %td.center= order.buyer.name
-      %td.center= order.listing.sold
-      %td.center= order.created_at.strftime("%B %-d, %Y")
+      %td.center= image_tag item.listing.image.url(:thumb)
+      %td.center= item.listing.name
+      %td.center= number_to_currency(item.listing.price)
+      %td.center= User.find(item.order.buyer_id).name
+      %td.center= number_to_currency(item.listing.price * 0.9)
+      %td.center= item.created_at.strftime("%B %-d, %Y")
 %br/
 - if user_signed_in?
   = link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true }

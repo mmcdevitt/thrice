@@ -2,6 +2,7 @@ class OrderItem < ActiveRecord::Base
   belongs_to :listing
   belongs_to :cart
   belongs_to :order
+  belongs_to :seller, class_name: 'User'
 
   validate  :product_present
   validate  :order_present
