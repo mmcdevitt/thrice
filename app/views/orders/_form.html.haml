@@ -1,68 +1,81 @@
 .checkout
-  = form_for @order do |f|
-    .row
-      .col-md-4
-        .row
-          .col-md-6
+  .container
+    = form_for @order do |f|
+      .row
+        .col-md-8.checkout-details
+          .shipping-address
+            %h5 Shipping Address
+            .row
+              .col-md-6
+                .form-group
+                  %label First Name
+                  %input.form-control
+              .col-md-6
+                .form-group
+                  %label Last Name
+                  %input.form-control
             .form-group
-              %label First Name
-              %input.form-control
-          .col-md-6
+              = f.label :address
+              = f.text_field :address, class: 'form-control'
             .form-group
-              %label Last Name
+              %label Apt, Suite, etc.
               %input.form-control
-        .form-group
-          = f.label :address
-          = f.text_field :address, class: 'form-control'
-        .form-group
-          %label Address Line 2
-          %input.form-control
-        .row
-          .col-md-4
+            .row
+              .col-md-4
+                .form-group
+                  %label City
+                  %input.form-control
+              .col-md-4
+                .form-group
+                  %label State
+                  %input.form-control
+              .col-md-4
+                .form-group
+                  %label Zipcode
+                  %input.form-control
             .form-group
-              %label City
+              %label Phone Number
               %input.form-control
-          .col-md-4
-            .form-group
-              %label State
-              %input.form-control
-          .col-md-4
-            .form-group
-              %label Zipcode
-              %input.form-control
-        .form-group
-          %label Phone Number
-          %input.form-control
-      .col-md-4
-        .row
-          .col-md-12
-            .form-group
-              %label Name (As it appears on your card)
-              %input.form-control
-          .col-md-12
-            .form-group
-              %label Card Number
-              %input.form-control
-        .row
-          .col-md-4
-            .form-group
-              %label Expiration
-              %input.form-control
-          .col-md-4
-            .form-group
-              %label Year
-              %input.form-control
-          .col-md-4
-            .form-group
-              %label CVV
-              %input.form-control
-      .col-md-4
-        %p Order Summary
-        .total
-          .pull-left Subtotal
-          .pull-right
-            %p= number_to_currency @current_cart.subtotal
-        = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg"
+          .billing-info
+            %h5 Billing
+            .row
+              .col-md-12
+                .form-group
+                  %label Name (As it appears on your card)
+                  %input.form-control
+              .col-md-12
+                .form-group
+                  %label Card Number
+                  %input.form-control
+            .row
+              .col-md-4
+                .form-group
+                  %label Expiration
+                  %input.form-control
+              .col-md-4
+                .form-group
+                  %label Year
+                  %input.form-control
+              .col-md-4
+                .form-group
+                  %label CVV
+                  %input.form-control
+        .col-md-4
+          %h5{style: 'margin-bottom:30px;'} Order Details
+          %ul.list-group.no-radius
+            %li
+              %span.pull-right= number_to_currency @current_cart.subtotal
+              = pluralize(@current_cart.order_items.size, 'Item')
+            %li
+              %span.pull-right= number_to_currency(0)
+              Shipping
+            %li
+              %span.pull-right= number_to_currency(0)
+              Tax
+            %li.bold.total
+              %span.pull-right= number_to_currency @current_cart.subtotal
+              Total
+          = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg"
 
 
 

@@ -9,6 +9,39 @@
     font-family: 'BrandonText_Bold';
     text-transform: uppercase;
   }
+  .checkout-details {
+    padding: 0 100px;
+  }
+  form {
+    label {
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+    .form-control {
+      height:40px;
+      border:2px solid #e2e2e2;
+    }
+    .shipping-address,
+    .billing-info {
+      h5 {
+        text-align: center;
+        margin: 0 0 30px 0;
+      }
+    }
+    .billing-info {
+      margin-top: 50px;
+    }
+  }
+  ul {
+    list-style:none;
+    li {
+      padding:5px 0px;
+    }
+    .total {
+      padding: 30px 0;
+      font-size: 20px;
+    }
+  }
 }
 .secure-checkout {
   text-align: center;
