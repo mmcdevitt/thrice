@@ -1,6 +1,6 @@
 .center
   %h2 Your Sales History
-.row
+.row.text-center
   .col-sm-3
     .panel
       .panel-body
@@ -37,6 +37,3 @@
       %td.center= User.find(transaction.order.buyer_id).name
       %td.center= number_to_currency(transaction.total)
       %td.center= transaction.created_at.strftime("%B %-d, %Y")
-%br/
-- if user_signed_in?
-  = link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true }

@@ -5192,7 +5192,7 @@ a.text-#000000:hover {
 .top-header {
   background: #2d323d;
   color: #fff;
-  padding: 5px 0;
+  padding: 8px 0 5px;
   font-size:11px;
   ul.top-header-nav {
     list-style: none;
@@ -5221,7 +5221,10 @@ a.text-#000000:hover {
   }
 }
 
-
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+  color: #2EDACF;
+}
 
 
 
