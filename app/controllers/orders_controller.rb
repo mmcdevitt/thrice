@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   layout :order_layout, only: :new
 
   def sales
-    @order_items = OrderItem.all.where(seller: current_user).order("created_at DESC")
+    @transactions = Transaction.all.where(seller: current_user).order("created_at DESC")
   end
 
   def purchases
@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       # @listing.update(active: false)
+      create_transaction
       redirect_to root_url
       flash[:success] = "Thank you for ordering."
     else
@@ -52,4 +53,53 @@ class OrdersController < ApplicationController
     def order_layout
       'order'
     end
+
+    def create_transaction
+      @order.order_items.all.each do |item|
+        Transaction.create(
+          order_id: @order.id, 
+          seller_id: item.seller_id, 
+          buyer_id: current_user.id, 
+          order_item_id: item.id,
+          subtotal: item.total_price,
+          total: item.total_price * 0.9
+          )
+      end
+    end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

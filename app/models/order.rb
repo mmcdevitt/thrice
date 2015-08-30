@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :buyer, class_name: "User"
   belongs_to :seller, class_name: "User"
   has_many :order_items
+  has_many :transactions
 
   after_save :set_order_items_active_false
   after_save :listing_is_sold?

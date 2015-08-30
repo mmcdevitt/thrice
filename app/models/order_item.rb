@@ -3,6 +3,7 @@ class OrderItem < ActiveRecord::Base
   belongs_to :cart
   belongs_to :order
   belongs_to :seller, class_name: 'User'
+  has_many :transactions
 
   validate  :product_present
   validate  :order_present
