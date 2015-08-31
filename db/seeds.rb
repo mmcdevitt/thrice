@@ -27,7 +27,7 @@ Listing.create(
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp) 
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly) 
-    11.5oz Yarn Dye Recycled Fiber Slub'
+    11.5oz Yarn Dye Recycled Fiber Slub',
   price: '599.99',
   user_id: 1
   )
@@ -36,7 +36,7 @@ Listing.create(
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp) 
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly) 
-    11.5oz Yarn Dye Recycled Fiber Slub'
+    11.5oz Yarn Dye Recycled Fiber Slub',
   price: '5499.99',
   user_id: 2
   )
@@ -45,7 +45,7 @@ Listing.create(
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp) 
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly) 
-    11.5oz Yarn Dye Recycled Fiber Slub'
+    11.5oz Yarn Dye Recycled Fiber Slub',
   price: '399.99',
   user_id: 3
   )
