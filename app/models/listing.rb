@@ -3,6 +3,7 @@ class Listing < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
 
   belongs_to :user
+  belongs_to :category
   has_many :order_items
 
   scope :not_sold, -> { where(active: true) }
