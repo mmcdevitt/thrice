@@ -1,17 +1,18 @@
 .top-header
-  .container
-    .row
-      .col-lg-6
-        Marketplace for Used Premium Mens Clothes
-      .col-lg-6
-        .pull-right
-          %ul.top-header-nav
-            .right
-              - if current_user
-                %li= link_to 'Logout', destroy_user_session_path, method: :delete
-              - else
-                %li= link_to 'Login', login_path
-                %li= link_to 'Sign Up', register_path
-              %li= link_to 'How it Works', '#'
-              %li= link_to 'Sell', new_listing_path
-              %li= link_to 'Sales', sales_path
+  .row
+    .col-lg-6
+      Marketplace for Used Premium Mens Clothes
+    .col-lg-6
+      .pull-right
+        %ul.top-header-nav
+          .right
+            - if current_user
+              %li= link_to 'Logout', destroy_user_session_path, method: :delete
+            - else
+              %li= link_to 'Login', login_path
+              %li= link_to 'Sign Up', register_path
+            %li= link_to 'How it Works', '#'
+            %li= link_to 'Sell', new_listing_path
+            %li= link_to 'Sales', sales_path
+            %li.cart-text
+              = render 'layouts/cart_text'

@@ -1,1 +1,3 @@
-= link_to "Cart(#{current_cart.order_items.size})", cart_path
+= link_to cart_path do
+  %i.i.i-cart.text-muted
+  = "My Cart(#{current_cart.order_items.size})"

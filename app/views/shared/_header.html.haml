@@ -1,16 +1,16 @@
 %header#header.app-header.navbar{:role => "menu"}
   = render 'shared/top_header'
-  .collapse.pos-rlt.navbar-collapse
-    .container
-      %ul.nav.navbar-nav
-        = link_to root_path, class: 'navbar-brand text-lt' do
-          = image_tag('logo.png')
-      %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'Suits', '#'
-        %li= link_to 'Shirts', 'assets_path'
-        %li= link_to 'Pants', '#'
-        %li= link_to 'Socks', '#'
-        %li= link_to 'Ties', '#'
-        %li= link_to 'Shoes', '#'
-        %li.cart-text= render 'layouts/cart_text'
-        
+  .m-t-lg
+    .collapse.pos-rlt.navbar-collapse
+      .container
+        %ul.nav.navbar-nav
+          = link_to root_path, class: 'navbar-brand text-lt' do
+            = image_tag('logo.png')
+        .text-center
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to 'Suits', '#'
+            %li= link_to 'Shirts', 'assets_path'
+            %li= link_to 'Pants', '#'
+            %li= link_to 'Accessories', '#'
+            %li= link_to 'Ties', '#'
+            %li= link_to 'Shoes', '#'
