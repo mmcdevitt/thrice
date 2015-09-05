@@ -31,7 +31,7 @@ body {
   background-color: #fff;
 }
 .main-image {
-    background: url(/assets/bg.jpeg);
+    background: url(/assets/bg.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -356,7 +356,16 @@ a.list-group-item.hover {
 .nav > li > a:focus {
   background-color: #f6f8f8;
 }
-
+.nav {
+  text-align: center;
+  li {
+    display: inline-block;
+    a {
+      color: #fff;
+      padding: 10px 20px;
+    }
+  }
+}
 .nav.nav-lg > li > a {
   padding: 20px 20px;
 }
@@ -5226,10 +5235,54 @@ a.text-#000000:hover {
   color: #2EDACF;
 }
 
+.btn-border {
+  border-width: 3px;
+  border-radius: 3px;
+  background: transparent;
+}
+.btn-border-white {
+  border-color: #fff;
+  color: white;
+}
 
+#page {
+    display:table;
+    overflow:hidden;
+    margin:0px auto;
+}
+*:first-child+html #page {
+    position:relative;
+}/*ie7*/
+* html #page {
+    position:relative;
+}/*ie6*/
 
+#content_container{
+    display:table-cell;
+    vertical-align: middle;
+}
+*:first-child+html #content_container{
+    position:absolute;
+    top:50%;
+    }/*ie7*/
+* html #content_container{
+    position:absolute;
+    top:50%;
+    }/*ie6*/
 
+*:first-child+html #content{
+    position:relative;
+    top:-50%;
+    }/*ie7*/
+* html #content{
+    position:relative;
+    top:-50%;
+    }/*ie6*/
 
+#page{
+    height:100%;
+    /*width:365px;*/
+}
 
 
 

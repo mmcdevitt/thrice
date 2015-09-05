@@ -6,6 +6,14 @@
       = render 'shared/flash'
       .main-image
         = render 'shared/header'
+        #wrapper
+          #page
+            #content_container
+              #content
+                %section.text-center.hero
+                  %h1 Look great and pay less
+                  %p.bold MARKETPLACE FOR USED PREMIUM MENS CLOTHES
+                  %button.btn.btn-border.btn-border-white.btn-lg Shop now
       #content.app-content{:role => "main"}
         .app-content-body
           .hbox.hbox-auto-xs.hbox-auto-sm{"ng-init" => "\n            app.settings.asideFolded = false; \n            app.settings.asideDock = false;\n          "}
