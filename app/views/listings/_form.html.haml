@@ -10,21 +10,149 @@
           %li= msg
   #stripe_error.alert.alert-danger{:style => "display:none"}
     %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
-  .form-group
-    = f.label :name
-    %br/
-    = f.text_field :name, class: "form-control"
-  .form-group
-    = f.label :description
-    %br/
-    = f.text_area :description, class: "form-control"
-  .form-group
-    = f.label :price
-    %br/
-    = f.text_field :price, class: "form-control"
-  .form-group
-    = f.label :image
-    %br/
-    = f.file_field :image, class: "form-control"
-  .form-group
-    = f.submit class: "btn btn-primary"
+  .row.item-row
+    .col-sm-2
+      %h6 Item type
+    .col-sm-10
+      .btn-group{"data-toggle" => "buttons"}
+        - Category.all.each do |category|
+          %label.btn.btn-lg.btn-default
+            = f.radio_button :category, category.id
+            = category.title
+  .row.item-row
+    .col-sm-2
+      %h6 Product Information
+    .col-sm-10
+      .form-group
+        %label.control-label Designer
+        %input{type: 'text', class: 'form-control', placeholder: 'Enter designer name'}
+      .row
+        .col-sm-6
+          .form-group
+            %label.control-label Size
+            %input{type: 'text', class: 'form-control'}
+        .col-sm-6
+          .form-group
+            %label.control-label Color
+            %input{type: 'text', class: 'form-control'}
+  .row.item-row
+    .col-sm-2
+      %h6 Product Condition
+    .col-sm-10
+      .row
+        .col-sm-3
+          .form-group
+            %label.control-label{style: 'display:block'} Are the tags still attached?
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                Yes
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                No
+        .col-sm-3
+          .form-group
+            %label.control-label{style: 'display:block'} Is there any wear and tear?
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                Yes
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                No
+  .row.item-row
+    .col-sm-2
+      %h6 Product Description
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  .row.item-row
+    .col-sm-2
+      %h6 Pricing
+    .col-sm-10
+      .row
+        .col-lg-3
+          .form-group
+            %label.control-label Selling Price
+            %input.form-control{type: 'text', placeholder: '49.99', id: 'selling_price'}
+  .row.item-row
+    .col-sm-2
+      %h6 Pricing Breakdown
+    .col-sm-10.text-center
+      .row
+        .col-sm-6
+          #buyer_pays.pricing-breakdown $0.00
+          %p.text-muted What buyer pays
+        .col-sm-6
+          #earnings.pricing-breakdown $0.00
+          %p.text-muted What you make
+          %span.text-muted *after Thrice's 10% fee
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:javascript
+  $(document).ready(function() {
+    $('#selling_price').keyup(function() {
+      $('#buyer_pays').text('$' + Math.round($(this).val() * 100) / 100);
+      $('#earnings').text('$' + Math.round($(this).val() * 0.90 * 100) / 100);
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ html, body, #wrapper {
   height: 100%;
 }
 body {
-  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
@@ -60,7 +60,11 @@ a:focus {
 label {
   font-weight: normal;
 }
-
+.control-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+}
 small,
 .small {
   font-size: 13px;
@@ -80,7 +84,9 @@ small,
 .badge {
   background-color: #cfdadd;
 }
-
+textarea.form-control {
+  height:250px;
+}
 .badge.up {
   position: relative;
   top: -10px;
@@ -715,7 +721,7 @@ body {
 }
 
 .app-header-fixed {
-  padding-top: 77px;
+  padding-top: 119px;
 }
 
 .app-header-fixed .app-header {
@@ -1775,7 +1781,6 @@ html {
   text-transform: uppercase;
   font-size: 10px;
   padding: 7px 12px 6px 12px;
-  font-family: 'BrandonText_Bold';
 }
 
 .btn-link {
@@ -5275,7 +5280,10 @@ a.text-#000000:hover {
     height:100%;
     /*width:365px;*/
 }
-
+.form-control {
+  height:40px;
+  border:2px solid #e2e2e2;
+}
 
 
 
