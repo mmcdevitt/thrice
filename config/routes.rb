@@ -3,7 +3,7 @@ Thrice::Application.routes.draw do
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
-  resources :users, :only => :show
+
 
   devise_for :users
 
@@ -16,6 +16,8 @@ Thrice::Application.routes.draw do
 
     get  '/password/new', to: 'devise/passwords#new', as: :password
   end
+
+  resources :users, :only => :show
 
   resources :listings
 

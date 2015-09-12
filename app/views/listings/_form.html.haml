@@ -26,17 +26,5 @@
     = f.label :image
     %br/
     = f.file_field :image, class: "form-control"
-  - if current_user.recipient.blank?
-    %br/
-    %h1 Bank Account Information
-    .form-group
-      = label_tag :country
-      = text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" }
-    .form-group
-      = label_tag :routing_number
-      = text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" }
-    .form-group
-      = label_tag :account_number
-      = text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" }
   .form-group
     = f.submit class: "btn btn-primary"

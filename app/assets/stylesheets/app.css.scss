@@ -30,16 +30,7 @@ body {
   color: #58666e;
   background-color: #fff;
 }
-.main-image {
-    background: url(/assets/bg.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: #fff;
-    border-bottom: 1px solid #EAF6FF;
-    height: 100%
-}
+
 *:focus {
   outline: 0 !important;
 }
@@ -51,11 +42,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: "BrandonText_Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  color: #333;
+  color: #2d323d;
 }
 
 a {
-  color: #363f44;
+  color: #2d323d;
   text-decoration: none;
   cursor: pointer;
 }
@@ -361,7 +352,7 @@ a.list-group-item.hover {
   li {
     display: inline-block;
     a {
-      color: #fff;
+      /*color: #fff;*/
       padding: 10px 20px;
     }
   }
@@ -5195,13 +5186,14 @@ a.text-#000000:hover {
 .navbar {
   border-bottom: 1px solid #d4d9df !important;
   border: none !important;
-  font-family: 'BrandonText_Bold';
+  font-family: 'Montserrat';
   text-transform: uppercase;
+  font-weight: 700;
 }
 .top-header {
   background: #2d323d;
   color: #fff;
-  padding: 8px 8px 5px 8px;
+  padding: 12px;
   font-size:11px;
   ul.top-header-nav {
     list-style: none;

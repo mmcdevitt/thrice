@@ -1,11 +1,28 @@
-.hero {
-  h1 {
-    color:#fff;
-    font-size: 40px;
+.homepage {
+  .nav li a {
   }
-  p {
-    font-size: 12px;
-    text-transform: uppercase;
-    margin: 17px 0 21px;
+  .hero {
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin: 17px 0 21px;
+    }
   }
+}
+.nav li a {
+  padding: 15px 20px;
+  font-weight: 500;
+}
+.main-image {
+  background: url(/assets/bg-2.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #2d323d;
+  border-bottom: 1px solid #EAF6FF;
+  height: 100%
 }
