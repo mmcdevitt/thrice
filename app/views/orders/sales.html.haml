@@ -1,4 +1,4 @@
-.center
+.center.m-b
   %h2 Your Sales History
 .row.text-center
   .col-sm-3
@@ -21,19 +21,24 @@
       .panel-body
         %h6 Available 
         = current_user.listings.sold.count
-%table.table.table-striped.table-bordered
-  %tr
-    %th.center Image
-    %th.center Item
-    %th.center Price
-    %th.center Customer
-    %th.center You Made
-    %th.center Date Sold
-  - @transactions.each do |transaction|
-    %tr
-      %td.center= image_tag transaction.order_item.listing.image.url(:thumb)
-      %td.center= transaction.order_item.listing.name
-      %td.center= number_to_currency(transaction.subtotal)
-      %td.center= User.find(transaction.order.buyer_id).name
-      %td.center= number_to_currency(transaction.total)
-      %td.center= transaction.created_at.strftime("%B %-d, %Y")
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        = link_to 'List new Item', 'new_admin_client_path', class: 'btn btn-info'
+  %table.table
+    %thead
+      %tr
+        %th Item
+        %th Price
+        %th Customer
+        %th You Made
+        %th Date Sold
+    %tbody
+      - @transactions.each do |transaction|
+        %tr
+          %td= transaction.order_item.listing.name
+          %td= number_to_currency(transaction.subtotal)
+          %td= User.find(transaction.order.buyer_id).name
+          %td= number_to_currency(transaction.total)
+          %td= transaction.created_at.strftime("%B %-d, %Y")

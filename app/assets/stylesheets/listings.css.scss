@@ -27,6 +27,9 @@
 .item-row {
   border-bottom: 1px solid #ddd;
   padding: 30px 0;
+  &:last-child {
+    border-bottom: none;
+  }
   h6 {
     color: #bdbdbd;
     font-size: 11px;

@@ -803,7 +803,7 @@ body {
 .app-content-body {
   float: left;
   width: 100%;
-  padding-bottom: 50px;
+  /*padding-bottom: 50px;*/
 }
 
 .app-footer {
@@ -5284,6 +5284,50 @@ a.text-#000000:hover {
   height:40px;
   border:2px solid #e2e2e2;
 }
+
+.table-wrap {
+  border: 1px solid #d4d9de;
+  border-radius:2px;
+  .table-wrap-header {
+    padding:10px;
+    border-bottom: 1px solid #eaedf1;
+  }
+}
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 10px;
+  border-top: 1px solid #eaedf1;
+  font-size: 13px;
+  &:first-child {
+    background:#f5f5f5;
+    width:270px;
+    font-weight: 700;
+    color: #333;
+    border-right: solid 1px #eaedf1;
+  }
+}
+.table {
+  margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

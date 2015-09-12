@@ -12,7 +12,7 @@
     %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
   .row.item-row
     .col-sm-2
-      %h6 Item type
+      %h6 Category
     .col-sm-10
       .btn-group{"data-toggle" => "buttons"}
         - Category.all.each do |category|
@@ -86,7 +86,28 @@
           #earnings.pricing-breakdown $0.00
           %p.text-muted What you make
           %span.text-muted *after Thrice's 10% fee
-
+  .row.item-row
+    .col-sm-2
+      %h6 Save as Draft?
+    .col-sm-10
+      .row
+        .col-sm-3
+          .form-group
+            %label.control-label{style: 'display:block'} Save listing as a draft?
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                Yes
+              %label.btn.btn-lg.btn-default
+                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                No
+        .col-sm-3
+  .item-row.text-center
+    = f.submit 'Publish Listing', class: 'btn btn-info btn-lg'
+    %p.m-t 
+      %span.text-muted 
+        By clicking "Publising Listing" you are agreeing to the 
+        = link_to 'Terms of Service.', ''
 
 
 

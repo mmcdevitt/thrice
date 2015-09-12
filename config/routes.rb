@@ -1,8 +1,11 @@
 Thrice::Application.routes.draw do
 
+  get 'seller' => "listings#seller"
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
-
+  get '/:title', to: 'categories#show', as: :category
 
 
   devise_for :users
@@ -26,9 +29,6 @@ Thrice::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
-  get 'seller' => "listings#seller"
-  get 'sales' => "orders#sales"
-  get 'purchases' => "orders#purchases"
 
   root 'home_pages#index'
 

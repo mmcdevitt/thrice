@@ -1,6 +1,6 @@
 %header#header.app-header.navbar{:role => "menu"}
   = render 'shared/top_header'
-  .wrapper
+  #navbar_white.wrapper
     .row.collapse.pos-rlt.navbar-collapse
       .col-sm-2
         %ul.nav.navbar-nav
@@ -8,18 +8,9 @@
             %img{:alt => "Logo", :src => "/assets/logo-dark.png"}
       .col-sm-8
         %ul.nav.text-center
-          %li
-            %a{:href => "#"} Suits
-          %li
-            %a{:href => "assets_path"} Shirts
-          %li
-            %a{:href => "#"} Pants
-          %li
-            %a{:href => "#"} Accessories
-          %li
-            %a{:href => "#"} Ties
-          %li
-            %a{:href => "#"} Shoes
+          - Category.all.each do |category|
+            %li
+              = link_to category.title, category
       .col-sm-2
         .pull-right
           %ul.nav.text-center
