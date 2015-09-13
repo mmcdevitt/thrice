@@ -9,7 +9,7 @@ class Listing < ActiveRecord::Base
   scope :not_sold, -> { where(active: true) }
   scope :sold, -> { where(sold: true) }
 
-  has_attached_file :image, :default_url => "/assets/office1.jpg", styles: {
+  has_attached_file :image, :default_url => "/assets/thrice-logo-bg.jpg", styles: {
     large: "300x200#",
     medium: "300x300#",
     small: "150x150#",

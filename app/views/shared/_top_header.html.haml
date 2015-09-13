@@ -3,14 +3,25 @@
     .col-lg-6
       Marketplace for Used Premium Mens Clothes
     .col-lg-6
-      .pull-right
-        %ul.top-header-nav
-          .right
-            - if current_user
-              %li= link_to 'Logout', destroy_user_session_path, method: :delete
-            - else
-              %li= link_to 'Login', login_path
-              %li= link_to 'Sign Up', register_path
-            %li= link_to 'How it Works', '#'
-            %li= link_to 'Sell', new_listing_path
-            %li= link_to 'Sales', sales_path
+      %ul.top-header-nav.navbar-right{style: 'margin:0'}
+        - if current_user
+          %li.dropdown
+            %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
+              %span.hidden-sm.hidden-md
+              = current_user.name
+              %i.i.i-arrow-down5
+            %ul.dropdown-menu
+              %li= link_to 'Watch List', ''
+              %li= link_to 'Your Listings', listings_path
+              %li= link_to 'Your Purchases', purchases_path
+              %li= link_to 'Your Sales', sales_path
+              %li= link_to 'Payout', '#'
+              %li= link_to 'Profile Settings', '#'
+              %li.divider
+              %li
+                = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Login', login_path
+          %li= link_to 'Sign Up', register_path
+        %li= link_to 'How it Works', '#'
+        %li= link_to 'Sell', sell_path

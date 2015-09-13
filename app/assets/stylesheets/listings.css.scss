@@ -1,5 +1,6 @@
 .item-widget {
   font-family: 'BrandonText_Bold';
+  font-size: 12px;
   img {
     margin-bottom:10px;
   }
@@ -7,7 +8,10 @@
     margin: 0 0 5px 0;
   }
   .item-price {
-    p {
+    p, a {
+      color: #999;
+    }
+    a:hover {
       color: #333;
     }
   }
