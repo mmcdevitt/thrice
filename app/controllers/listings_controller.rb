@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.not_sold
+    @listings = current_user.listings.not_sold
     @order_item = current_cart.order_items.new
   end
 
@@ -65,7 +65,21 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image, :sold)
+      params.require(:listing).permit(
+        :name, 
+        :description, 
+        :image, 
+        :sold,
+        :active,
+        :category_id,
+        :designer_name,
+        :size_id,
+        :color,
+        :tags_attached,
+        :wear_and_tear,
+        :selling_price,
+        :published
+        )
     end
 
     def check_user

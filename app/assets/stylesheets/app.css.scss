@@ -30,7 +30,9 @@ body {
   color: #58666e;
   background-color: #fff;
 }
-
+section {
+  padding:30px 0;
+}
 *:focus {
   outline: 0 !important;
 }
@@ -522,7 +524,7 @@ a.list-group-item.hover {
 }
 
 .table > thead > tr > th {
-  padding: 8px 15px;
+  padding: 10px;
   border-bottom: 1px solid #d4d9de;
 }
 

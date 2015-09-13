@@ -5,10 +5,10 @@
     .col-md-4.col-md-offset-1
       %h3= @listing.name
       %h3.price
-        = number_to_currency(@listing.price)
+        = number_to_currency(@listing.selling_price)
       .condition
         %span Condition:
-        New with tags
+        = @listing.tags_attached
       .seller
         %span Listed by
         = link_to @listing.user.name, '#'

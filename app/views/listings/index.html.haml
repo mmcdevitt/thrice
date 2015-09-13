@@ -1,21 +1,35 @@
-.center
-  .row
-    - @listings.each do |listing|
-      .col-md-3
-        .thumbnail
-          = link_to image_tag(listing.image.url), listing
-          .caption
-            %h3= listing.name
-            %p= number_to_currency(listing.price)
-            %p= "Sold by #{listing.user.name}"
-            = form_for @order_item, remote: true do |f|
-              %h4.text-right
-                Unit Price: 
-                %span{style: "color: green"}= number_to_currency(listing.price)
-              .input-group
-                .input-group-btn
-                  = f.hidden_field :listing_id, value: listing.id 
-                  = f.submit "Add to Cart", class: "btn btn-primary" 
-%br/
-- if user_signed_in?
-  = link_to "New Listing", new_listing_path, class: "btn btn-primary", data: { no_turbolink: true }
+- if @listings.empty?
+  .jumbotron.text-center
+    %h2 You have no listings created
+    = link_to 'Create New Listing', new_listing_path, class: "btn btn-info bold"
+- else 
+  %section.text-center
+    %h2 Your Listings
+  .table-wrap
+    .table-wrap-header
+      .clearfix
+        .pull-right
+          = link_to 'List new Item', sell_path, class: 'btn btn-info'
+    %table.table
+      %thead
+        %tr
+          %th Item
+          %th Designer
+          %th Price
+          %th Category
+          %th Status
+          %th Date Created
+          %th Actions
+      %tbody
+        - @listings.each do |listing|
+          %tr
+            %td= listing.name
+            %td= listing.designer_name
+            %td= number_to_currency(listing.selling_price)
+            %td= listing.category.title.capitalize
+            %td= listing_status(listing)
+            %td= listing.created_at.strftime("%B %-d, %Y")
+            %td 
+              =link_to 'Show', listing
+              =link_to 'Edit', edit_listing_path(listing)
+              =link_to 'Delete', listing, method: :delete

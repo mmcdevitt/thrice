@@ -16,25 +16,28 @@
     .col-sm-10
       .btn-group{"data-toggle" => "buttons"}
         - Category.all.each do |category|
-          %label.btn.btn-lg.btn-default
-            = f.radio_button :category, category.id
+          %label{class: 'btn btn-lg btn-default'}
+            = f.radio_button :category_id, category.id
             = category.title
   .row.item-row
     .col-sm-2
       %h6 Product Information
     .col-sm-10
       .form-group
+        %label.control-label Name
+        = f.text_field :name, class: 'form-control', placeholder: 'Enter name'
+      .form-group
         %label.control-label Designer
-        %input{type: 'text', class: 'form-control', placeholder: 'Enter designer name'}
+        = f.text_field :designer_name, class: 'form-control', placeholder: 'Enter designer name'
       .row
         .col-sm-6
           .form-group
             %label.control-label Size
-            %input{type: 'text', class: 'form-control'}
+            = f.text_field :size_id, class: 'form-control', placeholder: 'Enter size'
         .col-sm-6
           .form-group
             %label.control-label Color
-            %input{type: 'text', class: 'form-control'}
+            = f.text_field :color, class: 'form-control', placeholder: 'Enter color'
   .row.item-row
     .col-sm-2
       %h6 Product Condition
@@ -44,21 +47,21 @@
           .form-group
             %label.control-label{style: 'display:block'} Are the tags still attached?
             .btn-group{"data-toggle" => "buttons"}
-              %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+              %label{class: 'btn btn-lg btn-default'}
+                = f.radio_button :tags_attached, true
                 Yes
-              %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+              %label{class: 'btn btn-lg btn-default'}
+                = f.radio_button :tags_attached, false
                 No
         .col-sm-3
           .form-group
             %label.control-label{style: 'display:block'} Is there any wear and tear?
             .btn-group{"data-toggle" => "buttons"}
               %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                = f.radio_button :wear_and_tear, true
                 Yes
               %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                = f.radio_button :wear_and_tear, false
                 No
   .row.item-row
     .col-sm-2
@@ -73,14 +76,14 @@
         .col-lg-3
           .form-group
             %label.control-label Selling Price
-            %input.form-control{type: 'text', placeholder: '49.99', id: 'selling_price'}
+            = f.text_field :selling_price, class: 'form-control', placeholder: '49.99', id: 'selling_price'
   .row.item-row
     .col-sm-2
       %h6 Pricing Breakdown
     .col-sm-10.text-center
       .row
         .col-sm-6
-          #buyer_pays.pricing-breakdown $0.00
+          #buyer_pays.pricing-breakdown= number_to_currency @listing.selling_price
           %p.text-muted What buyer pays
         .col-sm-6
           #earnings.pricing-breakdown $0.00
@@ -96,10 +99,10 @@
             %label.control-label{style: 'display:block'} Save listing as a draft?
             .btn-group{"data-toggle" => "buttons"}
               %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                = f.radio_button :published, true
                 Yes
               %label.btn.btn-lg.btn-default
-                %input#listing_category_1{:name => "listing[category]", :type => "radio", :value => "1"}
+                = f.radio_button :published, false
                 No
         .col-sm-3
   .item-row.text-center
@@ -153,6 +156,8 @@
       $('#buyer_pays').text('$' + Math.round($(this).val() * 100) / 100);
       $('#earnings').text('$' + Math.round($(this).val() * 0.90 * 100) / 100);
     });
+
+    $('input[type=radio]:checked').parent().addClass('active')
   });
 
 
