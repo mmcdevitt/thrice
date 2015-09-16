@@ -14,8 +14,8 @@ class OrderItem < ActiveRecord::Base
   def unit_price
     if persisted?
       self[:unit_price]
-    else 
-      listing.price 
+    else
+      listing.selling_price
     end
   end
 
@@ -23,7 +23,7 @@ class OrderItem < ActiveRecord::Base
     unit_price
   end
 
-  private 
+  private
 
   def product_present
     errors.add(:listing, 'is not valid or is not active.') if listing.nil?

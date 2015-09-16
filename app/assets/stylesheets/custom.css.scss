@@ -44,7 +44,24 @@ body {
     margin: 0px;
   }
 }
-
-.jumbotron {
-  background-color: #f5f5f5;
+.container {
+  .jumbotron {
+    background-color: #f5f5f5;
+    border-radius: 0px;
+    text-align: center;
+    p {
+      margin: 10px 0 10px 0;
+      font-size:12px;
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+

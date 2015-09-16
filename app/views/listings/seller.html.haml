@@ -11,7 +11,7 @@
         = image_tag listing.image.url(:thumb)
       %td= listing.name
       %td= listing.description
-      %td= number_to_currency(listing.price)
+      %td= number_to_currency(listing.selling_price)
       %td
         .btn-group
           %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}

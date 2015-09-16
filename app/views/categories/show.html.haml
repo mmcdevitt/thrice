@@ -1,1 +1,7 @@
-= render 'shared/item_widget'
+- if @listings.empty?
+  .jumbotron.b-a
+    %h4
+      = "There are no #{@category.title} at the moment!"
+    = link_to 'Sell ' + @category.title, sell_path, class: 'btn btn-info'
+- else
+  = render 'shared/item_widget'
