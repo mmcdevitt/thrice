@@ -5,7 +5,7 @@
       .col-sm-2
         %ul.nav.navbar-nav
           %a.navbar-brand.text-lt{:href => "/"}
-            %img{:alt => "Logo", :src => "/assets/logo-dark.png"}
+            = image_tag('thrice-logo-test3.png')
       .col-sm-8
         %ul.nav.text-center
           - Category.all.each do |category|
