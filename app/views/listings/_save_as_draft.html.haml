@@ -1,0 +1,16 @@
+.row.item-row
+  .col-sm-2
+    %h6 Save as Draft?
+  .col-sm-10
+    .row
+      .col-sm-3
+        .form-group
+          %label.control-label{style: 'display:block'} Save listing as a draft?
+          .btn-group{"data-toggle" => "buttons"}
+            %label.btn.btn-lg.btn-default
+              = f.radio_button :published, true
+              Yes
+            %label.btn.btn-lg.btn-default
+              = f.radio_button :published, false
+              No
+      .col-sm-3

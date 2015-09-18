@@ -1,0 +1,14 @@
+.row.item-row
+  .col-sm-2
+    %h6 Product Description
+  .col-sm-10
+    = f.text_area :description, class: 'form-control'
+.row.item-row
+  .col-sm-2
+    %h6 Pricing
+  .col-sm-10
+    .row
+      .col-lg-3
+        .form-group
+          %label.control-label Selling Price
+          = f.text_field :selling_price, class: 'form-control', placeholder: '49.99', id: 'selling_price'

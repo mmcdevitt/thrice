@@ -21,6 +21,7 @@ gem 'haml-rails'
 gem 'faker'
 gem 'fabrication'
 gem "breadcrumbs_on_rails"
+gem 'jquery-fileupload-rails', '0.4.1'
 
 group :production do
   gem 'rails_12factor'

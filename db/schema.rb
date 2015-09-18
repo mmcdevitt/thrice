@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917223157) do
+ActiveRecord::Schema.define(version: 20150918013849) do
 
   create_table "carts", force: true do |t|
     t.integer  "order_status_id"
@@ -44,20 +44,16 @@ ActiveRecord::Schema.define(version: 20150917223157) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.integer  "user_id"
-    t.boolean  "active",                                      default: true
-    t.boolean  "sold",                                        default: false
+    t.boolean  "active",                                 default: true
+    t.boolean  "sold",                                   default: false
     t.integer  "category_id"
     t.string   "designer_name"
     t.integer  "size_id"
     t.string   "color"
     t.boolean  "tags_attached"
     t.boolean  "wear_and_tear"
-    t.decimal  "selling_price",      precision: 12, scale: 3
+    t.decimal  "selling_price", precision: 12, scale: 3
     t.boolean  "published"
   end
 

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-fileupload
+//= require jquery-fileupload/vendor/tmpl
 //= require bootstrap
 //= require turbolinks
 //= require header

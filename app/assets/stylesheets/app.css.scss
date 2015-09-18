@@ -117,7 +117,14 @@ textarea.form-control {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
-
+.btn-square {
+  width: 150px;
+  height: 148px;
+  margin-right: 16px;
+  margin-bottom: 0px;
+  float: left;
+  padding-top: 44px !important;
+}
 blockquote {
   border-color: #dee5e7;
 }

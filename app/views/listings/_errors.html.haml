@@ -1,0 +1,9 @@
+- if @listing.errors.any?
+  #error_explanation.alert.alert-danger.alert-dismissable
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+    %h4
+      = pluralize(@listing.errors.count, "error")
+      prohibited this listing from being saved:
+    %ul
+      - @listing.errors.full_messages.each do |msg|
+        %li= msg

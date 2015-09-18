@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.html { redirect_to images_path(@listing), notice: 'Listing was successfully created.' }
         format.json { render action: 'show', status: :created, location: @listing }
       else
         format.html { render action: 'new' }
@@ -66,9 +66,8 @@ class ListingsController < ApplicationController
 
     def listing_params
       params.require(:listing).permit(
-        :name, 
-        :description, 
-        :image, 
+        :name,
+        :description,
         :sold,
         :active,
         :category_id,

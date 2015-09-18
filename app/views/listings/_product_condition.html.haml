@@ -1,0 +1,25 @@
+.row.item-row
+  .col-sm-2
+    %h6 Product Condition
+  .col-sm-10
+    .row
+      .col-sm-3
+        .form-group
+          %label.control-label{style: 'display:block'} Are the tags still attached?
+          .btn-group{"data-toggle" => "buttons"}
+            %label{class: 'btn btn-lg btn-default'}
+              = f.radio_button :tags_attached, true
+              Yes
+            %label{class: 'btn btn-lg btn-default'}
+              = f.radio_button :tags_attached, false
+              No
+      .col-sm-3
+        .form-group
+          %label.control-label{style: 'display:block'} Is there any wear and tear?
+          .btn-group{"data-toggle" => "buttons"}
+            %label.btn.btn-lg.btn-default
+              = f.radio_button :wear_and_tear, true
+              Yes
+            %label.btn.btn-lg.btn-default
+              = f.radio_button :wear_and_tear, false
+              No

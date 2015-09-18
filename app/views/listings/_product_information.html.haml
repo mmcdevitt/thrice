@@ -1,0 +1,19 @@
+.row.item-row
+  .col-sm-2
+    %h6 Product Information
+  .col-sm-10
+    .form-group
+      %label.control-label Name
+      = f.text_field :name, class: 'form-control', placeholder: 'Enter name'
+    .form-group
+      %label.control-label Designer
+      = f.text_field :designer_name, class: 'form-control', placeholder: 'Enter designer name'
+    .row
+      .col-sm-6
+        .form-group
+          %label.control-label Size
+          = f.text_field :size_id, class: 'form-control', placeholder: 'Enter size'
+      .col-sm-6
+        .form-group
+          %label.control-label Color
+          = f.text_field :color, class: 'form-control', placeholder: 'Enter color'

@@ -1,0 +1,12 @@
+.row.item-row
+  .col-sm-2
+    %h6 Pricing Breakdown
+  .col-sm-10.text-center
+    .row
+      .col-sm-6
+        #buyer_pays.pricing-breakdown= number_to_currency @listing.selling_price
+        %p.text-muted What buyer pays
+      .col-sm-6
+        #earnings.pricing-breakdown $0.00
+        %p.text-muted What you make
+        %span.text-muted *after Thrice's 10% fee

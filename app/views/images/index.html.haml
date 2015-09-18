@@ -1,0 +1,18 @@
+- @images.each do |image|
+  = image.image_file_name
+.row.item-row
+  .col-sm-2
+    %h6 Photos
+  .col-sm-10
+    = form_for [@listing, Image.new], html: { multipart: true, id: 'fileupload' } do |f|
+      = f.fields_for :images do |builder|
+        = builder.file_field :image, as: :file, class: "filestyle", id: "image_uploader", style: "position: fixed; left: -500px;"
+        .bootstrap-filestyle{:style => "display: inline;"}
+          %label.btn.btn-default.btn-square.fileinput-button{:for => "image_uploader"}
+            %i.i.i-images
+            %br/
+            %span Upload Image
+        %table
+          %tbody.files{"data-target" => "#modal-gallery", "data-toggle" => "modal-gallery"}
+        .fileupload-loading
+= render 'uploader'
