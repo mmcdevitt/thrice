@@ -1,0 +1,126 @@
+.wrapper.m-b
+  %h4.text-center Upload Photos
+.row
+  = render 'shared/listing_aside'
+  .col-sm-10
+    .row.item-row
+      .col-sm-12
+        = form_for [@listing, ListingImage.new], html: { multipart: true, id: 'fileupload' } do |f|
+          = f.file_field :listing_image, as: :file, class: "filestyle", id: "image_uploader", style: "position: fixed; left: -500px;"
+          .bootstrap-filestyle{:style => "display: inline;"}
+            %label.btn.btn-default.btn-square.fileinput-button{:for => "image_uploader"}
+              %i.i.i-images
+              %br/
+              %span Upload Image
+          %table
+            %tbody.files{"data-target" => "#modal-gallery", "data-toggle" => "modal-gallery"}
+          .fileupload-loading
+:javascript
+  var fileUploadErrors = {
+  maxFileSize: 'File is too big',
+  minFileSize: 'File is too small',
+  acceptFileTypes: 'Filetype not allowed',
+  maxNumberOfFiles: 'Max number of files exceeded',
+  uploadedBytes: 'Uploaded bytes exceed file size',
+  emptyResult: 'Empty file upload result'
+  };
+/ The template to display files available for upload
+%script#template-upload{:type => "text/x-tmpl"}
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+  <tr class="template-upload fade pull-left">
+  {% if (file.error) { %}
+  <td class="error" colspan="2">
+  <span class="label label-important">
+  {%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+  {% } else if (o.files.valid && !i) { %}
+  <td>
+  <div class="img-thumbnail" style="width:150px; height:150px;">
+  <span class="text-center">Uploading</span>
+  <div style="position:relative; left:28%; top:20%">
+  <div id="floatingCirclesG">
+  <div class="f_circleG" id="frotateG_01">
+  </div>
+  <div class="f_circleG" id="frotateG_02">
+  </div>
+  <div class="f_circleG" id="frotateG_03">
+  </div>
+  <div class="f_circleG" id="frotateG_04">
+  </div>
+  <div class="f_circleG" id="frotateG_05">
+  </div>
+  <div class="f_circleG" id="frotateG_06">
+  </div>
+  <div class="f_circleG" id="frotateG_07">
+  </div>
+  <div class="f_circleG" id="frotateG_08">
+  </div>
+  </div>
+  </div>
+  </div>
+  </td>
+  <td class="start">{% if (!o.options.autoUpload) { %}
+  <button class="btn btn-primary" style="display:none">
+  <i class="icon-upload icon-white"></i>
+  <span>{%=locale.fileupload.start%}</span>
+  </button>
+  {% } %}</td>
+  {% } else { %}
+  <td colspan="2"></td>
+  {% } %}
+  </tr>
+  {% } %}
+%script#template-download{:type => "text/x-tmpl"}
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+  <div class="template-download fade pull-left">
+  {% if (file.error) { %}
+  <td></td>
+  <td class="name"><span>{%=file.name%}</span></td>
+  <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+  <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+  {% } else { %}
+  <div class="pull-left">
+  <div class="preview m-r">
+  {% if (file.thumbnail_url) { %}
+  <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img class="img-thumbnail" src="{%=file.thumbnail_url%}"></a>
+  {% } %}</div>
+
+
+
+  {% } %}
+  <div class="delete m-b m-t">
+  <button class="btn btn-default no-text-shadow" data-type="{%=file.delete_type%}" data-url="listing_images/{%=file.delete_url%}">
+  <i class="i i-trashcan"></i>
+  </button>
+  </div>
+  </div>
+  </div>
+  {% } %}
+%script{:charset => "utf-8", :type => "text/javascript"}
+  $(function () {
+  \// Initialize the jQuery File Upload widget:
+  $('#fileupload').fileupload();
+  \//
+  \// Load existing files:
+  $.getJSON($('#fileupload').prop('action'), function (files) {
+  var fu = $('#fileupload').data('blueimpFileupload'),
+  template;
+  fu._adjustMaxNumberOfFiles(-files.length);
+  console.log(files);
+  template = fu._renderDownload(files)
+  \.appendTo($('#fileupload .files'));
+  \// Force reflow:
+  fu._reflow = fu._transition && template.length &&
+  template[0].offsetWidth;
+  template.addClass('in');
+  $('#loading').remove();
+  });
+
+  });
+:javascript
+  $("#fileupload").change(function() {
+        $(".start .btn").click();
+      });
+
+     // $('.col .nav li a').click(function() {
+     //    location.reload();
+     //  });

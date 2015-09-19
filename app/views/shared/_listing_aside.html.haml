@@ -1,0 +1,11 @@
+.col-sm-2
+  %aside#aside.app-aside.edit-listing
+    .navi-wrap
+      %nav.navi.clearfix
+        %ul.nav.listing-nav
+          %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
+            %span Links
+          %li
+            = link_to 'Edit Listing', edit_listing_path(@listing)
+          %li
+            = link_to 'Upload Photos', listings_images_path(@listing)

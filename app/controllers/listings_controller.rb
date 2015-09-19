@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
   before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
   before_action :redirect_if_sold, only: [:show]
+  add_breadcrumb "Home", :root_path
 
   def seller
     @listings = Listing.where(user: current_user).order("created_at DESC")
@@ -15,6 +16,7 @@ class ListingsController < ApplicationController
 
   def show
     @order_item = current_cart.order_items.new
+    @listing_image = @listing.listing_images.first
   end
 
   def new
@@ -22,6 +24,9 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb 'Listings', listings_path
+    add_breadcrumb @listing.name, @listing
+    add_breadcrumb "Edit", ''
   end
 
   def create

@@ -1,10 +1,11 @@
 %tr
   %td.item-image
-    = image_tag(listing.image.url(:small), class: 'img-responsive')
+    - if listing.listing_images.first && listing.listing_images.first.listing_image_file_name != nil
+      = image_tag(listing.listing_images.first.listing_image.url(:small), class: 'img-responsive')
   %td
     %h5= listing.name
-    %p 
-      %span Condition: 
+    %p
+      %span Condition:
       New with tags
   %td
     %h6= listing.user.name

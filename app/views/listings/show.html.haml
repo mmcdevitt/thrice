@@ -1,7 +1,8 @@
 .product-listing
   .row
     .col-md-7
-      = image_tag(@listing.image.url, class: 'img-responsive')
+      - if @listing_image
+        = image_tag(@listing_image.listing_image.url, class: 'img-responsive')
     .col-md-4.col-md-offset-1
       %h3= @listing.name
       %h3.price

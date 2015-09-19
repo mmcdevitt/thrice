@@ -1,5 +1,4 @@
 .item-widget {
-  font-family: 'BrandonText_Bold';
   font-size: 12px;
   img {
     margin-bottom:10px;
@@ -80,7 +79,21 @@
     margin-bottom: 30px;
   }
 }
-
+.edit-listing {
+  .listing-nav {
+    text-align:left !important;
+    li a {
+      text-transform:uppercase !important;
+      font-size:12px;
+    }
+    .nav-sm-title {
+      text-transform: uppercase;
+      color: #b3b3b3;
+      font-weight: 700;
+      font-size: 10px;
+    }
+  }
+}
 
 
 

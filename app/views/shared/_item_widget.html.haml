@@ -3,8 +3,8 @@
     - @listings.each do |listing|
       .col-md-3
         .item-image
-          - if listing.images.first
-            = link_to image_tag(listing.images.first.url(:medium), class: 'img-responsive'), listing
+          - if listing.listing_images.first && listing.listing_images.first.listing_image_file_name != nil
+            = link_to image_tag(listing.listing_images.first.listing_image.url(:medium), class: 'img-responsive'), listing
         .item-title
           %p= listing.name
         .item-price

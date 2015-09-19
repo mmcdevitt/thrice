@@ -4,4 +4,12 @@ module ListingsHelper
     listing.sold == true ? 'Sold' : 'Active'
   end
 
+  def listing_btn_title
+    if params[:action] == 'new'
+      'Continue'
+    elsif params[:action] == 'edit'
+      'Update Listing'
+    end
+  end
+
 end

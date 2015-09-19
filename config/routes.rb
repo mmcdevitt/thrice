@@ -4,7 +4,8 @@ Thrice::Application.routes.draw do
   get 'sales', to: "orders#sales"
   get 'purchases', to: "orders#purchases"
   get 'sell', to: 'listings#new'
-  get 'sell/:listing_id/photos', to: 'images#index', as: :images
+  get 'sell/:listing_id/photos', to: 'listing_images#index', as: :images
+  get 'listings/:listing_id/photos', to: 'listing_images#index', as: :listings_images
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
@@ -25,7 +26,7 @@ Thrice::Application.routes.draw do
   resources :users, :only => :show
 
   resources :listings do
-    resources :images
+    resources :listing_images
   end
 
   get '/checkout', to: 'orders#new'

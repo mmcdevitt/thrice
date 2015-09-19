@@ -1,2 +1,6 @@
-%h1= "Edit #{@listing.name}"
-= render 'form'
+.wrapper.m-b
+  %h4.text-center Edit your Listing
+.row
+  = render 'shared/listing_aside'
+  .col-sm-10
+    = render 'form'
