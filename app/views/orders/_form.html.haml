@@ -1,83 +1,21 @@
+= content_for :head do 
+  %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
+  :javascript
+    var key = #{ENV['stripe_publishable_key']}
+    Stripe.setPublishableKey(key);
+  = javascript_include_tag 'orders'
 .checkout
   .container
-    = form_for @order do |f|
+    = form_for @order, :html => { id: 'payment-form' } do |f|
+      %span.payment-errors
       .row
         .col-md-8.checkout-details
-          .shipping-address
-            %h5 Shipping Address
-            .row
-              .col-md-6
-                .form-group
-                  = f.label :first_name
-                  = f.text_field :first_name, class: 'form-control'
-              .col-md-6
-                .form-group
-                  = f.label :last_name
-                  = f.text_field :last_name, class: 'form-control'
-            .form-group
-              = f.label :address
-              = f.text_field :address, class: 'form-control'
-            .form-group
-              = f.label :second_address, 'Apt, Suite, etc.'
-              = f.text_field :second_address, class: 'form-control'
-            .row
-              .col-md-4
-                .form-group
-                  = f.label :city
-                  = f.text_field :city, class: 'form-control'
-              .col-md-4
-                .form-group
-                  = f.label :state
-                  = f.text_field :state, class: 'form-control'
-              .col-md-4
-                .form-group
-                  = f.label :zipcode
-                  = f.text_field :zipcode, class: 'form-control'
-            .form-group
-              = f.label :phone_number
-              = f.text_field :phone_number, class: 'form-control'
-          .billing-info
-            %h5 Billing
-            .row
-              .col-md-12
-                .form-group
-                  = f.label :cc_name, 'Name (As it appears on your card)'
-                  = f.text_field :cc_name, class: 'form-control'
-              .col-md-12
-                .form-group
-                  = f.label :cc_number
-                  = f.text_field :cc_number, class: 'form-control'
-            .row
-              .col-md-4
-                .form-group
-                  = f.label :expiry_month
-                  = f.text_field :expiry_month, class: 'form-control'
-              .col-md-4
-                .form-group
-                  = f.label :expiry_year
-                  = f.text_field :expiry_year, class: 'form-control'
-              .col-md-4
-                .form-group
-                  = f.label :cc_cvv
-                  = f.text_field :cc_cvv, class: 'form-control'
+          = render 'shipping_address', f: f
+          = render 'billing_info', f: f
         .col-md-4
-          %h5.text-center{style: 'margin-bottom:30px;'} Order Details
-          %ul.list-group.no-radius
-            %li
-              %span.pull-right= number_to_currency @current_cart.subtotal
-              = pluralize(@current_cart.order_items.size, 'Item')
-            %li
-              %span.pull-right= number_to_currency(0)
-              Shipping
-            %li
-              %span.pull-right= number_to_currency(0)
-              Tax
-            %li.bold.total
-              %span.pull-right= number_to_currency @current_cart.subtotal
-              Total
-          = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg"
-
-
+          = render 'order_details'
+          = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg payment_submit"
+      
 
 
 

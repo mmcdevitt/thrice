@@ -1,14 +1,14 @@
 class HomePagesController < ApplicationController
-  layout :layout
+  layout :homepage_layout
   
   def index
-    @listings = Listing.not_sold
+    @listings = Listing.active
     @order_item = current_cart.order_items.new
   end
 
   private
 
-  def layout
+  def homepage_layout
     'home_page'
   end
 end

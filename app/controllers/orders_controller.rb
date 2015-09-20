@@ -19,20 +19,29 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @current_cart = current_cart
+    @current_cart = current_cart 
     @order.buyer_id = current_user.id
     @order.subtotal = @current_cart.subtotal
     @order.add_line_items_from_cart(@current_cart)
+    @total = (@order.subtotal * 100).floor
 
-    if @order.save
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      # @listing.update(active: false)
-      create_transaction
-      redirect_to root_url
-      flash[:success] = "Thank you for ordering."
-    else
-      render 'new'
+    token = params[:stripeToken]
+
+    charge = StripeWrapper::Charge.create(
+        :amount => @total, 
+        :card => token,
+        :description => "Thrice Charge - Order ##{@order.id}"
+      )
+
+    if charge.successful?
+      if @order.save
+        flash[:success] = 'Thank you for your payment.'
+        destroy_cart
+        create_transaction
+        redirect_to root_url
+      end
+    else 
+      flash[:danger] = charge.message
     end
   end
 
@@ -45,8 +54,7 @@ class OrdersController < ApplicationController
       params.require(:order).permit(
         :address, :city, :state, :buyer_id, 
         :order_status_id, :subtotal, :tax, :shipping, :total, :first_name,
-        :last_name, :second_address, :zipcode, :phone_number, :cc_name,
-        :cc_number, :expiry_month, :expiry_year, :cc_cvv
+        :last_name, :second_address, :zipcode, :phone_number
         )
     end
 
@@ -65,6 +73,11 @@ class OrdersController < ApplicationController
           total: item.total_price * 0.9
           )
       end
+    end
+
+    def destroy_cart
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
     end
 end
 

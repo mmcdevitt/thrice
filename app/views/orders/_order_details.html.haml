@@ -1,0 +1,14 @@
+%h5.text-center{style: 'margin-bottom:30px;'} Order Details
+%ul.list-group.no-radius
+  %li
+    %span.pull-right= number_to_currency @current_cart.subtotal
+    = pluralize(@current_cart.order_items.size, 'Item')
+  %li
+    %span.pull-right= number_to_currency(0)
+    Shipping
+  %li
+    %span.pull-right= number_to_currency(0)
+    Tax
+  %li.bold.total
+    %span.pull-right= number_to_currency @current_cart.subtotal
+    Total

@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
   has_many :listing_images, :dependent => :destroy
 
-  scope :not_sold, -> { where(active: true) }
+  scope :active, -> { where(sold: false, published: true ) }
   scope :sold, -> { where(sold: true) }
 
   accepts_nested_attributes_for :listing_images,

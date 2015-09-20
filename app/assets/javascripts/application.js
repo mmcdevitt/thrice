@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require header
+//= require alert
 //= require_tree .

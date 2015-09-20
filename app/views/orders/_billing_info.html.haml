@@ -1,0 +1,28 @@
+.billing-info
+  %h5 Billing
+  .row
+    .col-md-12
+      .form-group
+        = f.label :cc_name, 'Name (As it appears on your card)'
+        = f.text_field :cc_name, class: 'form-control'
+    .col-md-12
+      .form-group
+        = f.label :cc_number, 'Credit Card Number'
+        / = f.text_field :cc_number, class: 'form-control card-number'
+        %input.form-control.card-number{name: nil, type: 'text', data: {stripe: 'number'}}
+  .row
+    .col-md-4
+      .form-group
+        = f.label :expiry_month
+        / = f.text_field :expiry_month, class: 'form-control card-expiry-month'
+        %input.form-control.card-expiry-month{name: nil, type: 'text', data: {stripe: 'exp-month'}}
+    .col-md-4
+      .form-group
+        = f.label :expiry_year
+        / = f.text_field :expiry_year, class: 'form-control card-expiry-year'
+        %input.form-control.card-expiry-year{name: nil, type: 'text', data: {stripe: 'exp-year'}}
+    .col-md-4
+      .form-group
+        = f.label :cc_cvv, 'CVC Code'
+        / = f.text_field :cc_cvv, class: 'form-control card-cvc'
+        %input.form-control.card-cvc{name: nil, type: 'text', data: {stripe: 'cvc'}}
