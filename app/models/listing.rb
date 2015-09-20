@@ -16,4 +16,15 @@ class Listing < ActiveRecord::Base
                                 allow_destroy: true
 
 
+  def condition
+    if self.tags_attached && !self.wear_and_tear
+      'New with Tags'
+    elsif self.tags_attached && self.wear_and_tear
+      'Used with Tags'
+    elsif !self.tags_attached && self.wear_and_tear
+      'New without Tags'
+    elsif !self.tags_attached && !self.wear_and_tear
+      'Used without Tags'
+    end
+  end
 end

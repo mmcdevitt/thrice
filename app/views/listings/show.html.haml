@@ -2,14 +2,14 @@
   .row
     .col-md-7
       - if @listing_image
-        = image_tag(@listing_image.listing_image.url, class: 'img-responsive')
+        = image_tag(@listing_image.listing_image.url(:large), class: 'img-responsive', style: 'width:100%')
     .col-md-4.col-md-offset-1
       %h3= @listing.name
       %h3.price
         = number_to_currency(@listing.selling_price)
       .condition
         %span Condition:
-        = @listing.tags_attached
+        = @listing.condition
       .seller
         %span Listed by
         = link_to @listing.user.name, '#'
@@ -21,4 +21,4 @@
         = f.submit "Add to Cart", class: "btn btn-info btn-lg btn-block"
       .description
         %h6 Return Policy
-        %p= @listing.description
+        %p Return's accepted

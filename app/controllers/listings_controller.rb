@@ -17,6 +17,8 @@ class ListingsController < ApplicationController
   def show
     @order_item = current_cart.order_items.new
     @listing_image = @listing.listing_images.first
+    add_breadcrumb @listing.category.title, @listing.category
+    add_breadcrumb @listing.name, ''
   end
 
   def new
