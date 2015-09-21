@@ -7,22 +7,18 @@
         = f.text_field :cc_name, class: 'form-control'
     .col-md-12
       .form-group
-        = f.label :cc_number, 'Credit Card Number'
-        / = f.text_field :cc_number, class: 'form-control card-number'
+        %label Credit Card Number
         %input.form-control.card-number{name: nil, type: 'text', data: {stripe: 'number'}}
   .row
     .col-md-4
       .form-group
-        = f.label :expiry_month
-        / = f.text_field :expiry_month, class: 'form-control card-expiry-month'
-        %input.form-control.card-expiry-month{name: nil, type: 'text', data: {stripe: 'exp-month'}}
+        %label Month
+        = select_month(Date.today, {add_month_numbers: true}, name: nil, class: 'form-control card-expiry-month')
     .col-md-4
       .form-group
-        = f.label :expiry_year
-        / = f.text_field :expiry_year, class: 'form-control card-expiry-year'
-        %input.form-control.card-expiry-year{name: nil, type: 'text', data: {stripe: 'exp-year'}}
+        %label Year
+        = select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 20}, name: nil, class: 'form-control card-expiry-year')
     .col-md-4
       .form-group
         = f.label :cc_cvv, 'CVC Code'
-        / = f.text_field :cc_cvv, class: 'form-control card-cvc'
         %input.form-control.card-cvc{name: nil, type: 'text', data: {stripe: 'cvc'}}

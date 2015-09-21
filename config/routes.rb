@@ -31,6 +31,7 @@ Thrice::Application.routes.draw do
 
   get '/checkout', to: 'orders#new'
   resource :orders, only: [:create]
+  get '/confirmation', to: 'orders#confirmation', as: :order_confirmation
 
   get "pages/about"
   get "pages/contact"

@@ -16,6 +16,10 @@ class OrdersController < ApplicationController
     add_breadcrumb "Your Purchase History", ''
   end
 
+  def confirmation
+
+  end
+
   def new
     @order = Order.new
     @current_cart = current_cart
@@ -32,18 +36,18 @@ class OrdersController < ApplicationController
     token = params[:stripeToken]
 
     charge = StripeWrapper::Charge.create(
-        :amount => @total, 
+        :amount => @total,
         :card => token,
         :description => "Thrice Charge - Order ##{@order.id}"
       )
 
-    if charge.successful? 
+    if charge.successful?
       @order.save
       destroy_cart
       create_transaction
-      redirect_to root_path
+      redirect_to order_confirmation_path
       flash[:success] = 'Thank you for your payment.'
-    else 
+    else
       flash[:danger] = charge.message
     end
   end
@@ -55,7 +59,7 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(
-        :address, :city, :state, :buyer_id, 
+        :address, :city, :state, :buyer_id,
         :order_status_id, :subtotal, :tax, :shipping, :total, :first_name,
         :last_name, :second_address, :zipcode, :phone_number
         )
@@ -68,9 +72,9 @@ class OrdersController < ApplicationController
     def create_transaction
       @order.order_items.all.each do |item|
         Transaction.create(
-          order_id: @order.id, 
-          seller_id: item.seller_id, 
-          buyer_id: current_user.id, 
+          order_id: @order.id,
+          seller_id: item.seller_id,
+          buyer_id: current_user.id,
           order_item_id: item.id,
           subtotal: item.total_price,
           total: item.total_price * 0.9

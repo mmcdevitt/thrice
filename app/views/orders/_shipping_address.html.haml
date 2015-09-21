@@ -23,7 +23,7 @@
     .col-md-4
       .form-group
         = f.label :state
-        = f.text_field :state, class: 'form-control'
+        = select_tag :state, options_for_select(us_states), class: 'form-control'
     .col-md-4
       .form-group
         = f.label :zipcode
