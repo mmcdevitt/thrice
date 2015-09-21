@@ -1,8 +1,7 @@
 = content_for :head do 
   %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
   :javascript
-    var key = #{ENV['stripe_publishable_key']}
-    Stripe.setPublishableKey(key);
+    Stripe.setPublishableKey('pk_test_eXBPkJRncUJHAKMq1Y1BnhB3');
   = javascript_include_tag 'orders'
 .checkout
   .container

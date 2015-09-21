@@ -10,17 +10,21 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = current_user.listings.not_sold
+    @listings = current_user.listings.active
     @order_item = current_cart.order_items.new
+    add_breadcrumb "Your Listings", ''
   end
 
   def show
     @order_item = current_cart.order_items.new
     @listing_image = @listing.listing_images.first
+    add_breadcrumb @listing.category.title, @listing.category
+    add_breadcrumb @listing.name, ''
   end
 
   def new
     @listing = Listing.new
+    add_breadcrumb "List an Item", ''
   end
 
   def edit
