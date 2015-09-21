@@ -2,14 +2,18 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  add_breadcrumb "Home", :root_path
+
   layout :order_layout, only: :new
 
   def sales
     @transactions = Transaction.all.where(seller: current_user).order("created_at DESC")
+    add_breadcrumb "Your Sales", ''
   end
 
   def purchases
     @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    add_breadcrumb "Your Purchase History", ''
   end
 
   def new
@@ -19,10 +23,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @current_cart = current_cart 
+    # @current_cart = current_cart
     @order.buyer_id = current_user.id
-    @order.subtotal = @current_cart.subtotal
-    @order.add_line_items_from_cart(@current_cart)
+    @order.subtotal = current_cart.subtotal
+    @order.add_line_items_from_cart(current_cart)
     @total = (@order.subtotal * 100).floor
 
     token = params[:stripeToken]
@@ -33,13 +37,12 @@ class OrdersController < ApplicationController
         :description => "Thrice Charge - Order ##{@order.id}"
       )
 
-    if charge.successful?
-      if @order.save
-        flash[:success] = 'Thank you for your payment.'
-        destroy_cart
-        create_transaction
-        redirect_to root_url
-      end
+    if charge.successful? 
+      @order.save
+      destroy_cart
+      create_transaction
+      redirect_to root_path
+      flash[:success] = 'Thank you for your payment.'
     else 
       flash[:danger] = charge.message
     end
@@ -76,7 +79,7 @@ class OrdersController < ApplicationController
     end
 
     def destroy_cart
-      Cart.destroy(session[:cart_id])
+      current_cart.destroy
       session[:cart_id] = nil
     end
 end

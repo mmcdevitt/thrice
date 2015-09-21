@@ -10,8 +10,9 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = current_user.listings.not_sold
+    @listings = current_user.listings.active
     @order_item = current_cart.order_items.new
+    add_breadcrumb "Your Listings", ''
   end
 
   def show
@@ -23,6 +24,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    add_breadcrumb "List an Item", ''
   end
 
   def edit
