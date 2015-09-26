@@ -17,13 +17,13 @@ module StripeWrapper
             description: options[:description]
           )
         new(response, :success)
-      rescue Stripe::CardError => e 
+      rescue Stripe::CardError => e
         new(e, :danger)
       end
     end
 
     def successful?
-      status == :success 
+      status == :success
     end
 
     def error_message

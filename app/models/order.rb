@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   after_save :listing_is_sold?
 
   def order_total
-    
+
   end
 
   def add_line_items_from_cart(cart)
@@ -17,6 +17,10 @@ class Order < ActiveRecord::Base
       item.cart_id = nil
       order_items << item
     end
+  end
+
+  def shipping_address
+    self.address.capitalize + " " + self.city.capitalize + ", " + self.state.upcase
   end
 
   private

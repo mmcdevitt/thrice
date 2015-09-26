@@ -7,7 +7,7 @@ Thrice::Application.routes.draw do
   get 'sell/:listing_id/photos', to: 'listing_images#index', as: :images
   get 'listings/:listing_id/photos', to: 'listing_images#index', as: :listings_images
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy, :show]
 
 
 
@@ -30,8 +30,11 @@ Thrice::Application.routes.draw do
   end
 
   get '/checkout', to: 'orders#new'
-  resource :orders, only: [:create]
-  get '/confirmation', to: 'orders#confirmation', as: :order_confirmation
+  resources :orders, only: [:create, :show] do
+    member do
+      get '/confirmation', to: 'orders#confirmation', as: :order_confirmation
+    end
+  end
 
   get "pages/about"
   get "pages/contact"

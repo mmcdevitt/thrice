@@ -2,7 +2,7 @@
   .jumbotron.text-center
     %h2 You have no listings created
     = link_to 'Create New Listing', new_listing_path, class: "btn btn-info bold"
-- else 
+- else
   %section.text-center
     %h2 Your Listings
   .table-wrap
@@ -29,7 +29,12 @@
             %td= listing.category.title.capitalize
             %td= listing_status(listing)
             %td= listing.created_at.strftime("%B %-d, %Y")
-            %td 
+            %td
               =link_to 'Show', listing
               =link_to 'Edit', edit_listing_path(listing)
               =link_to 'Delete', listing, method: :delete
+/ = form_for_filterrific @filterrific do |f|
+/   %div
+/     %h3 Select Cuisine:
+/     .row
+/       = f.select(:with_category, @filterrific.select_options[:with_category], { include_blank: '- Any -' } )

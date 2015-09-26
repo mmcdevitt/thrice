@@ -10,11 +10,36 @@ class Listing < ActiveRecord::Base
 
   scope :active, -> { where(sold: false, published: true ) }
   scope :sold, -> { where(sold: true) }
+  # scope :with_category, lambda { |categories| where(category_id: [*categories]) }
+  # scope :sorted_by, lambda { |sort_key|
+  #   # Sorts students by sort_key
+  # }
 
   accepts_nested_attributes_for :listing_images,
                                 reject_if: proc { |attributes| attributes['image'].blank? },
                                 allow_destroy: true
 
+
+  # filterrific(
+  #   default_filter_params: { sorted_by: 'created_at_desc' },
+  #   available_filters: [
+  #     :sorted_by,
+  #     :with_category
+  #   ]
+  # )
+
+  # def self.options_for_sorted_by
+  #   [
+  #     ['Name (a-z)', 'name_asc'],
+  #     ['Registration date (newest first)', 'created_at_desc'],
+  #     ['Registration date (oldest first)', 'created_at_asc'],
+  #     ['Country (a-z)', 'country_name_asc']
+  #   ]
+  # end
+
+  # def self.options_for_select
+  #   order('LOWER(name)').map { |e| [e.name, e.id] }
+  # end
 
   def condition
     if self.tags_attached && !self.wear_and_tear

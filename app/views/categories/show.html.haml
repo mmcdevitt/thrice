@@ -5,3 +5,11 @@
     = link_to 'Sell ' + @category.title, sell_path, class: 'btn btn-info'
 - else
   = render 'shared/item_widget'
+/ = form_for @filterrific do |f|
+/   %div
+/     %h3 Select Cuisine:
+/     .row
+/       - @filterrific.select_options[:with_size].each do |c|
+/         .col-md-4
+/           = check_box_tag("filterrific[with_size][]",c)
+/           = c

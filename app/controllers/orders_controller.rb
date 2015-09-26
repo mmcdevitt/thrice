@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirmation]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :confirmation]
 
   add_breadcrumb "Home", :root_path
 
@@ -17,7 +18,10 @@ class OrdersController < ApplicationController
   end
 
   def confirmation
+  end
 
+  def show
+    add_breadcrumb "Order ##{@order.id}", ''
   end
 
   def new
@@ -41,51 +45,57 @@ class OrdersController < ApplicationController
         :description => "Thrice Charge - Order ##{@order.id}"
       )
 
-    if charge.successful?
-      @order.save
+    if charge.successful? && @order.save
       destroy_cart
       create_transaction
       redirect_to order_confirmation_path
-      flash[:success] = 'Thank you for your payment.'
+      flash[:success] = 'Payment was successful.'
     else
       flash[:danger] = charge.message
     end
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    def order_params
-      params.require(:order).permit(
-        :address, :city, :state, :buyer_id,
-        :order_status_id, :subtotal, :tax, :shipping, :total, :first_name,
-        :last_name, :second_address, :zipcode, :phone_number
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(
+      :address, :city, :state, :buyer_id,
+      :order_status_id, :subtotal, :tax, :shipping, :total, :first_name,
+      :last_name, :second_address, :zipcode, :phone_number
+      )
+  end
+
+  def order_layout
+    'order'
+  end
+
+  def create_transaction
+    @order.order_items.all.each do |item|
+      Transaction.create(
+        order_id: @order.id,
+        seller_id: item.seller_id,
+        buyer_id: current_user.id,
+        order_item_id: item.id,
+        subtotal: item.total_price,
+        total: item.total_price * 0.9
         )
     end
+  end
 
-    def order_layout
-      'order'
-    end
+  def destroy_cart
+    current_cart.destroy
+    session[:cart_id] = nil
+  end
 
-    def create_transaction
-      @order.order_items.all.each do |item|
-        Transaction.create(
-          order_id: @order.id,
-          seller_id: item.seller_id,
-          buyer_id: current_user.id,
-          order_item_id: item.id,
-          subtotal: item.total_price,
-          total: item.total_price * 0.9
-          )
-      end
+  def correct_user
+    if current_user.id != @order.buyer_id
+      redirect_to root_path
     end
-
-    def destroy_cart
-      current_cart.destroy
-      session[:cart_id] = nil
-    end
+  end
 end
 
 

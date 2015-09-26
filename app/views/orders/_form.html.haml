@@ -1,8 +1,8 @@
-= content_for :head do 
+= content_for :head do
   %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
   :javascript
     Stripe.setPublishableKey('pk_test_eXBPkJRncUJHAKMq1Y1BnhB3');
-  = javascript_include_tag 'orders'
+  / = javascript_include_tag 'orders'
 .checkout
   .container
     = form_for @order, :html => { id: 'payment-form' } do |f|
@@ -14,7 +14,7 @@
         .col-md-4
           = render 'order_details'
           = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg payment_submit"
-      
+
 
 
 

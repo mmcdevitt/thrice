@@ -1,4 +1,9 @@
 class OrderItemsController < ApplicationController
+
+  def show
+    @order_item = OrderItem.find(params[:id])
+  end
+
   def create
     @order = current_cart
     @order_item = @order.order_items.new(order_item_params)
@@ -21,7 +26,7 @@ class OrderItemsController < ApplicationController
   end
 
   private
-  
+
   def order_item_params
     params.require(:order_item).permit(:listing_id, :order_id)
   end
