@@ -23,7 +23,13 @@
     .col-md-4
       .form-group
         = f.label :state
-        = select_tag :state, options_for_select(us_states), class: 'form-control'
+        .btn-group.m-r
+          .dropdown
+            %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:12px 16px;"}
+              %span.dropdown-label{"data-placeholder" => "Please select"} Select State
+              %span.caret{:style => "margin-left:30px;"}
+            %ul.dropdown-menu.dropdown-select.max-height-400
+              = render 'states', f: f
     .col-md-4
       .form-group
         = f.label :zipcode

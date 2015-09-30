@@ -1,4 +1,6 @@
 class Listing < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
+
   validates :name, :description, presence: true
   # validates :price, numericality: { greater_than: 0 }
 
@@ -40,6 +42,14 @@ class Listing < ActiveRecord::Base
   # def self.options_for_select
   #   order('LOWER(name)').map { |e| [e.name, e.id] }
   # end
+
+  def seller_name
+    self.user.name
+  end
+
+  def to_currency
+    number_to_currency self.selling_price
+  end
 
   def condition
     if self.tags_attached && !self.wear_and_tear

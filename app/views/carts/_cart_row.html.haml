@@ -6,9 +6,9 @@
     %h5= listing.name
     %p
       %span Condition:
-      New with tags
+      = listing.condition
   %td
-    %h6= listing.user.name
+    %h6= listing.seller_name
   %td
-    %h6= number_to_currency order_item.total_price
+    %h6= order_item.to_currency
   %td= link_to "x", order_item, { method: :delete, remote: true }

@@ -6,13 +6,13 @@
     .col-md-4.col-md-offset-1
       %h3= @listing.name
       %h3.price
-        = number_to_currency(@listing.selling_price)
+        = @listing.to_currency
       .condition
         %span Condition:
         = @listing.condition
       .seller
         %span Listed by
-        = link_to @listing.user.name, '#'
+        = link_to @listing.seller_name, '#'
       .description
         %h6 Description
         %p= @listing.description

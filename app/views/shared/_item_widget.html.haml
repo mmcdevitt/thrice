@@ -9,9 +9,9 @@
           %p= listing.name
         .item-price
           %p
-            = number_to_currency(listing.selling_price)
+            = listing.to_currency
             %span{style: 'margin: 0 10px'}= "|"
-            = link_to listing.user.name, listing.user
+            = link_to listing.seller_name, listing.user
         / = form_for @order_item, remote: true do |f|
         /   = f.hidden_field :listing_id, value: listing.id
         /   = f.submit "Add to Cart", class: "btn btn-info"

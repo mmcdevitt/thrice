@@ -4,23 +4,23 @@
   .col-sm-3
     .panel
       .panel-body
-        %h6 Total Sales 
+        %h6 Total Sales
         = current_user.total_sales
   .col-sm-3
     .panel
       .panel-body
-        %h6 Total Earnings 
-        = number_to_currency(current_user.sub_total_earnings)
+        %h6 Total Earnings
+        = current_user.sub_total_earnings
   .col-sm-3
     .panel
       .panel-body
-        %h6 Pending 
-        = number_to_currency(current_user.total_earnings)
+        %h6 Pending
+        = current_user.total_earnings
   .col-sm-3
     .panel
       .panel-body
-        %h6 Available 
-        = current_user.listings.sold.count
+        %h6 Available
+        = current_user.listings_sold
 .table-wrap
   .table-wrap-header
     .clearfix
@@ -37,8 +37,8 @@
     %tbody
       - @transactions.each do |transaction|
         %tr
-          %td= transaction.order_item.listing.name
-          %td= number_to_currency(transaction.subtotal)
-          %td= User.find(transaction.order.buyer_id).name
-          %td= number_to_currency(transaction.total)
-          %td= transaction.created_at.strftime("%B %-d, %Y")
+          %td= link_to transaction.name, transaction.order_item
+          %td= transaction.to_currency
+          %td= transaction.buyer_name
+          %td= transaction.after_thrice_cut
+          %td= transaction.order_date

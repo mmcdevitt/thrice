@@ -1,4 +1,6 @@
 class OrderItem < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
+
   belongs_to :listing
   belongs_to :cart
   belongs_to :order
@@ -21,6 +23,22 @@ class OrderItem < ActiveRecord::Base
 
   def total_price
     unit_price
+  end
+
+  def name
+    self.listing.name
+  end
+
+  def to_currency
+    number_to_currency self.listing.selling_price
+  end
+
+  def seller_name
+    self.seller.name
+  end
+
+  def order_date
+    self.created_at.strftime("%B %-d, %Y")
   end
 
   private

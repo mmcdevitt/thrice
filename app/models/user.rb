@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,15 +14,19 @@ class User < ActiveRecord::Base
 
   # Before Thrice's 10% cut
   def sub_total_earnings
-    Transaction.where(seller_id: self).sum(:subtotal)
+    number_to_currency Transaction.where(seller_id: self).sum(:subtotal)
   end
 
   # After Thrice's 10% cut
   def total_earnings
-    Transaction.where(seller_id: self).sum(:total)
+    number_to_currency Transaction.where(seller_id: self).sum(:total)
   end
 
   def total_sales
     Transaction.where(seller_id: self).count
+  end
+
+  def listings_sold
+    self.listings.sold.count
   end
 end
