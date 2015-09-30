@@ -1,15 +1,37 @@
-%h5 Thank you for your order.
+%h4 Thank you for your order.
 %p
   A confirmation email has been sent to
   = @order.buyer.email
-%div= "Order #: #{@order.id}"
-%div= number_to_currency @order.subtotal
-%div= @order.created_at.strftime("%B %-d, %Y")
-%div
-  Shipping Address:
-  = @order.shipping_address
-%div
-  - @order.order_items.all.each do |item|
-    = item.listing.name
-    = item.listing.user.name
-    = number_to_currency item.total_price
+.order-details
+  %p
+    Order Number:
+    %span.bold= "#{@order.id}"
+  %p
+    Date of Order:
+    %span.bold= "#{@order.created_at.strftime("%B %-d, %Y")}"
+  %p
+    Shipping Address:
+    %span.bold= @order.shipping_address
+.order-confirmation
+  %table.table
+    %thead
+      %tr
+        %th Item
+        %th Seller
+        %th
+          .pull-right Total
+    %tbody
+      - @order.order_items.all.each do |item|
+        %tr
+          %td
+            = link_to item.listing.name, item.listing
+          %td
+            = link_to item.listing.user.name, item.listing.user
+          %td
+            .pull-right
+              = number_to_currency item.total_price
+      %tr
+        %td
+        %td
+        %td
+          %h4.pull-right= number_to_currency @order.subtotal

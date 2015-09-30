@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
   end
 
   def shipping_address
-    self.address.capitalize + " " + self.city.capitalize + ", " + self.state.upcase
+    self.address.capitalize + " " + self.city.capitalize + ", " + self.state + " " + self.zipcode
   end
 
   private

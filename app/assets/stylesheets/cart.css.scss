@@ -4,7 +4,8 @@
     margin:0;
   }
 }
-.cart-item {
+.cart-item,
+.order-confirmation {
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 30px;
   .table {
@@ -37,9 +38,35 @@
         }
       }
     }
-    > tbody > tr > td:first-child {
-      background: #fff;
-      border: none;
-    }
   }
 }
+.cart-item > tbody > tr > td:first-child {
+  background: #fff;
+  border: none;
+}
+.order-confirmation > .table > tbody > tr > td:first-child {
+  background: #fff;
+  border-right: none;
+}
+.order-confirmation {
+  border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

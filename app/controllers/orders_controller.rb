@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
     if charge.successful? && @order.save
       destroy_cart
       create_transaction
-      redirect_to order_confirmation_path
+      redirect_to confirmation_order_path(@order)
       flash[:success] = 'Payment was successful.'
     else
       flash[:danger] = charge.message

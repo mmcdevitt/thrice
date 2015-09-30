@@ -32,7 +32,7 @@ Thrice::Application.routes.draw do
   get '/checkout', to: 'orders#new'
   resources :orders, only: [:create, :show] do
     member do
-      get '/confirmation', to: 'orders#confirmation', as: :order_confirmation
+      get '/confirmation', to: 'orders#confirmation'
     end
   end
 
