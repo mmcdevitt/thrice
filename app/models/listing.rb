@@ -43,23 +43,4 @@ class Listing < ActiveRecord::Base
   #   order('LOWER(name)').map { |e| [e.name, e.id] }
   # end
 
-  def seller_name
-    self.user.name
-  end
-
-  def to_currency
-    number_to_currency self.selling_price
-  end
-
-  def condition
-    if self.tags_attached && !self.wear_and_tear
-      'New with Tags'
-    elsif self.tags_attached && self.wear_and_tear
-      'Used with Tags'
-    elsif !self.tags_attached && self.wear_and_tear
-      'New without Tags'
-    elsif !self.tags_attached && !self.wear_and_tear
-      'Used without Tags'
-    end
-  end
 end

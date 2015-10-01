@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
 
   def show
-    @order_item = OrderItem.find(params[:id])
+    @order_item = OrderItem.find(params[:id]).decorate
   end
 
   def create

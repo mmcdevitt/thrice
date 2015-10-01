@@ -25,10 +25,10 @@
           %tr
             %td= listing.name
             %td= listing.designer_name
-            %td= number_to_currency(listing.selling_price)
-            %td= listing.category.title.capitalize
-            %td= listing_status(listing)
-            %td= listing.created_at.strftime("%B %-d, %Y")
+            %td= listing.to_currency
+            %td= listing.category_name
+            %td= listing.listing_status
+            %td= listing.date_created
             %td
               =link_to 'Show', listing
               =link_to 'Edit', edit_listing_path(listing)

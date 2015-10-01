@@ -25,22 +25,6 @@ class OrderItem < ActiveRecord::Base
     unit_price
   end
 
-  def name
-    self.listing.name
-  end
-
-  def to_currency
-    number_to_currency self.listing.selling_price
-  end
-
-  def seller_name
-    self.seller.name
-  end
-
-  def order_date
-    self.created_at.strftime("%B %-d, %Y")
-  end
-
   private
 
   def product_present

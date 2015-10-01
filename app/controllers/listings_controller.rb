@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
     # @listings = @filterrific.find.page(params[:page])
     # @listings = current_user.listings.filterrific_find(@filterrific).page(params[:page]).with_category
 
-    @listings = current_user.listings.all
+    @listings = current_user.listings.all.decorate
     @order_item = current_cart.order_items.new
     add_breadcrumb "Your Listings", ''
 
@@ -86,7 +86,7 @@ class ListingsController < ApplicationController
 
   private
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = Listing.find(params[:id]).decorate
     end
 
     def listing_params

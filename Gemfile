@@ -23,6 +23,7 @@ gem "breadcrumbs_on_rails", '2.3.1'
 gem 'jquery-fileupload-rails', '0.4.1'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'filterrific'
+gem 'draper'
 
 group :production do
   gem 'rails_12factor'

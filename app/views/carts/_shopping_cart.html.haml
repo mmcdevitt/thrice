@@ -18,7 +18,7 @@
           %th
       %tbody
         - @order_items.each do |order_item|
-          = render 'carts/cart_row', listing: order_item.listing, order_item: order_item, show_total: true
+          = render 'carts/cart_row', listing: order_item.listing.decorate, order_item: order_item, show_total: true
   .col-sm-offset-8.col-sm-4
     %p Order Summary
     .row
