@@ -24,6 +24,8 @@ gem 'jquery-fileupload-rails', '0.4.1'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'filterrific'
 gem 'draper'
+gem 'sidekiq'
+gem 'redis-rails'
 
 group :production do
   gem 'rails_12factor'

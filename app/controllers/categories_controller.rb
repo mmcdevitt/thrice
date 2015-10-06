@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     # }
     @category = Category.find_by_title(params[:title])
     # @categories = Category.filterrific_find(@filterrific).page(params[:page]).with_size
-    @listings = @category.listings.all.decorate
+    @listings = @category.listings.active.decorate
     @order_item = current_cart.order_items.new
 
     add_breadcrumb @category.title.capitalize, @category.title

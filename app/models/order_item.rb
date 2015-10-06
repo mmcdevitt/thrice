@@ -11,7 +11,12 @@ class OrderItem < ActiveRecord::Base
   validate  :order_present
 
   before_save :finalize
+
   after_create :save_seller_id
+
+  after_save :set_listing_active_false
+
+  after_destroy :set_listing_active_true
 
   def unit_price
     if persisted?
@@ -23,6 +28,10 @@ class OrderItem < ActiveRecord::Base
 
   def total_price
     unit_price
+  end
+
+  def is_listing_order_item?
+    self.listing.active == false && self.listing.sold == false
   end
 
   private
@@ -46,4 +55,28 @@ class OrderItem < ActiveRecord::Base
     self.seller_id = seller.id
     self.save
   end
+
+  def set_listing_active_false
+    self.listing.update(active: false)
+  end
+
+  def set_listing_active_true
+    self.listing.update(active: true)
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
