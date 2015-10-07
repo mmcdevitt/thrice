@@ -1,7 +1,10 @@
 class OrderItemsController < ApplicationController
+  add_breadcrumb 'Home', :root_path
+  add_breadcrumb 'Order Item', '/'
 
   def show
     @order_item = OrderItem.find(params[:id]).decorate
+    add_breadcrumb @order_item.listing.name, '/'
   end
 
   def create
