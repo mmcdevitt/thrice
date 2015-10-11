@@ -26,6 +26,7 @@ gem 'filterrific'
 gem 'draper'
 gem 'sidekiq'
 gem 'redis-rails'
+gem 'jquery-turbolinks'
 
 group :production do
   gem 'rails_12factor'

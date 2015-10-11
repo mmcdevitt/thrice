@@ -22,6 +22,73 @@ OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
 
+Option.create(name: 'size')
+Option.create(name: 'color')
+
+# Sizes for Suits
+OptionItem.create(value: '36 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '36 R',      option_id: 1, category_id: 1)
+OptionItem.create(value: '38 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '38 R',      option_id: 1, category_id: 1)
+OptionItem.create(value: '40 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '40 R',      option_id: 1, category_id: 1)
+OptionItem.create(value: '42 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '42 R',      option_id: 1, category_id: 1)
+OptionItem.create(value: '44 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '44 R',      option_id: 1, category_id: 1)
+OptionItem.create(value: '46 S',      option_id: 1, category_id: 1)
+OptionItem.create(value: '46 R',      option_id: 1, category_id: 1)
+
+# Sizes for Shirts
+OptionItem.create(value: 'xs',        option_id: 1, category_id: 2)
+OptionItem.create(value: 'sm',        option_id: 1, category_id: 2)
+OptionItem.create(value: 'md',        option_id: 1, category_id: 2)
+OptionItem.create(value: 'lg',        option_id: 1, category_id: 2)
+OptionItem.create(value: 'xl',        option_id: 1, category_id: 2)
+OptionItem.create(value: 'xxl',       option_id: 1, category_id: 2)
+OptionItem.create(value: '14.5 x 32', option_id: 1, category_id: 2)
+OptionItem.create(value: '14.5 x 33', option_id: 1, category_id: 2)
+OptionItem.create(value: '14.5 x 34', option_id: 1, category_id: 2)
+OptionItem.create(value: '14.5 x 35', option_id: 1, category_id: 2)
+OptionItem.create(value: '14.5 x 36', option_id: 1, category_id: 2)
+OptionItem.create(value: '15 x 32',   option_id: 1, category_id: 2)
+OptionItem.create(value: '15 x 33',   option_id: 1, category_id: 2)
+OptionItem.create(value: '15 x 34',   option_id: 1, category_id: 2)
+OptionItem.create(value: '15 x 35',   option_id: 1, category_id: 2)
+OptionItem.create(value: '15 x 36',   option_id: 1, category_id: 2)
+OptionItem.create(value: '15.5 x 32', option_id: 1, category_id: 2)
+OptionItem.create(value: '15.5 x 33', option_id: 1, category_id: 2)
+OptionItem.create(value: '15.5 x 34', option_id: 1, category_id: 2)
+OptionItem.create(value: '15.5 x 35', option_id: 1, category_id: 2)
+OptionItem.create(value: '15.5 x 36', option_id: 1, category_id: 2)
+OptionItem.create(value: '16 x 32',   option_id: 1, category_id: 2)
+OptionItem.create(value: '16 x 33',   option_id: 1, category_id: 2)
+OptionItem.create(value: '16 x 34',   option_id: 1, category_id: 2)
+OptionItem.create(value: '16 x 35',   option_id: 1, category_id: 2)
+OptionItem.create(value: '16 x 36',   option_id: 1, category_id: 2)
+OptionItem.create(value: '16.5 x 32', option_id: 1, category_id: 2)
+OptionItem.create(value: '16.5 x 33', option_id: 1, category_id: 2)
+OptionItem.create(value: '16.5 x 34', option_id: 1, category_id: 2)
+OptionItem.create(value: '16.5 x 35', option_id: 1, category_id: 2)
+OptionItem.create(value: '16.5 x 36', option_id: 1, category_id: 2)
+OptionItem.create(value: '17 x 32',   option_id: 1, category_id: 2)
+OptionItem.create(value: '17 x 33',   option_id: 1, category_id: 2)
+OptionItem.create(value: '17 x 34',   option_id: 1, category_id: 2)
+OptionItem.create(value: '17 x 35',   option_id: 1, category_id: 2)
+OptionItem.create(value: '17 x 36',   option_id: 1, category_id: 2)
+OptionItem.create(value: '17.5 x 32', option_id: 1, category_id: 2)
+OptionItem.create(value: '17.5 x 33', option_id: 1, category_id: 2)
+OptionItem.create(value: '17.5 x 34', option_id: 1, category_id: 2)
+OptionItem.create(value: '17.5 x 35', option_id: 1, category_id: 2)
+OptionItem.create(value: '17.5 x 36', option_id: 1, category_id: 2)
+
+# Size for Pants
+OptionItem.create(value: '28 x 32', option_id: 1, category_id: 3)
+OptionItem.create(value: '28 x 33', option_id: 1, category_id: 3)
+OptionItem.create(value: '28 x 34', option_id: 1, category_id: 3)
+OptionItem.create(value: '28 x 35', option_id: 1, category_id: 3)
+OptionItem.create(value: '28 x 36', option_id: 1, category_id: 3)
+
 Listing.create(
   name: 'Lorem ipsum dolor sit amter ipsum dolor',
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
@@ -29,7 +96,8 @@ Listing.create(
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '599.99',
-  user_id: 1
+  user_id: 1,
+  category_id: 1
   )
 Listing.create(
   name: 'Lorem ipsum dolor sit amter ipsum dolor',
@@ -38,7 +106,8 @@ Listing.create(
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '5499.99',
-  user_id: 2
+  user_id: 2,
+  category_id: 1
   )
 Listing.create(
   name: 'Lorem ipsum dolor sit amter ipsum dolor',
@@ -47,5 +116,6 @@ Listing.create(
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '399.99',
-  user_id: 3
+  user_id: 3,
+  category_id: 1
   )

@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
   has_many :listings
+  has_many :options
+  has_many :option_items
 
   # scope :with_size, lambda { |sizes| self.listings.where(size_id: [*sizes]) }
 

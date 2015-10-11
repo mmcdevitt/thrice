@@ -97,7 +97,7 @@ class ListingsController < ApplicationController
         :active,
         :category_id,
         :designer_name,
-        :size_id,
+        :option_item_id,
         :color,
         :tags_attached,
         :wear_and_tear,

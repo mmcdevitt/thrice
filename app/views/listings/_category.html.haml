@@ -2,8 +2,10 @@
   .col-sm-2
     %h6 Category
   .col-sm-10
-    .btn-group{"data-toggle" => "buttons"}
+    #category_group.btn-group{"data-toggle" => "buttons"}
       - Category.all.each do |category|
         %label{class: 'btn btn-lg btn-default'}
-          = f.radio_button :category_id, category.id
+          = f.radio_button :category_id, category.id, id: "category_#{category.id}"
           = category.title
+
+

@@ -11,9 +11,61 @@
     .row
       .col-sm-6
         .form-group
-          %label.control-label Size
-          = f.text_field :size_id, class: 'form-control', placeholder: 'Enter size'
+          %label.control-label{style: 'display:block'} Size
+          .btn-group.m-r
+            .dropdown
+              %button.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:12px 16px;"}
+                %span.dropdown-label{"data-placeholder" => "Please select"} Select Size
+                %span.caret{:style => "margin-left:30px;"}
+              %ul.dropdown-menu.dropdown-select.max-height-400
+                - Category.all.each do |category|
+                  .category-span{id: "category_size_#{category.id}"}
+                    %li= category.title
+                    - category.option_items.all.each do |item|
+                      %li{'data-categoryid' => category.id}
+                        %a{:href => "#"}
+                          = item.value
+                          = f.radio_button :option_item_id, item.id
+
       .col-sm-6
         .form-group
           %label.control-label Color
           = f.text_field :color, class: 'form-control', placeholder: 'Enter color'
+:javascript
+  $(document).ready(function () {
+    var categoryId = $('#category_group label > input:checked').attr('value');
+    $('#category_group input:not(:first)').addClass('inactive');
+    $('.category-span').hide();
+    if ( $('#category_group label > input').is(':checked') ) {
+      $('#category_size_' + categoryId).show();
+    } else {
+      $('.category-span:first').show();
+    }
+    $('#category_group label input').change(function() {
+      var $id = $(this).attr('value');
+      console.log($id);
+      if ( $(this).hasClass('inactive') ){
+        $('#category_group input').addClass('inactive');
+        $(this).removeClass('inactive');
+        $('.category-span').hide();
+        $('#category_size_'+ $id).fadeIn('slow');
+      }
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
