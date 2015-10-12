@@ -19,4 +19,5 @@
 //= require turbolinks
 //= require header
 //= require alert
+//= require app
 //= require_tree .
