@@ -90,32 +90,35 @@ OptionItem.create(value: '28 x 35', option_id: 1, category_id: 3)
 OptionItem.create(value: '28 x 36', option_id: 1, category_id: 3)
 
 Listing.create(
-  name: 'Lorem ipsum dolor sit amter ipsum dolor',
+  name: 'Ted Baker Suit',
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp)
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '599.99',
   user_id: 1,
-  category_id: 1
+  category_id: 1,
+  published: true
   )
 Listing.create(
-  name: 'Lorem ipsum dolor sit amter ipsum dolor',
+  name: 'Burberry Blazer',
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp)
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '5499.99',
   user_id: 2,
-  category_id: 1
+  category_id: 1,
+  published: true
   )
 Listing.create(
-  name: 'Lorem ipsum dolor sit amter ipsum dolor',
+  name: 'JCrew Pants',
   description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
     Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp)
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '399.99',
   user_id: 3,
-  category_id: 1
+  category_id: 1,
+  published: true
   )

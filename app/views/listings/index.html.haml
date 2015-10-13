@@ -23,18 +23,26 @@
       %tbody
         - @listings.each do |listing|
           %tr
-            %td= listing.name
+            %td= link_to listing.name, listing
             %td= listing.designer_name
             %td= listing.to_currency
             %td= listing.category_name
             %td= listing.listing_status
             %td= listing.date_created
             %td
-              =link_to 'Show', listing
-              =link_to 'Edit', edit_listing_path(listing)
-              =link_to 'Delete', listing, method: :delete
-/ = form_for_filterrific @filterrific do |f|
-/   %div
-/     %h3 Select Cuisine:
-/     .row
-/       = f.select(:with_category, @filterrific.select_options[:with_category], { include_blank: '- Any -' } )
+              .pull-right
+                =link_to edit_listing_path(listing) do
+                  %i.fa.fa-edit.fa-fw.m-r-xs{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit Listing"}
+                %a{"data-target" => "#listing_#{listing.id}", "data-toggle" => "modal", :href => ""}
+                  %i.fa.fa-times.fa-fw{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete Page"}
+              .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "listing_#{listing.id}", :role => "dialog", :tabindex => "-1"}
+                .modal-dialog
+                  .modal-content
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+                      %h4#myModalLabel.modal-title Are you sure?
+                    .modal-body
+                      Once the page is deleted, it's gone forever!
+                    .modal-footer
+                      %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+                      = link_to "Delete", listing, method: :delete, class: "btn btn-danger"

@@ -17,8 +17,6 @@ gem 'devise'
 gem 'rails_admin'
 gem 'pg'
 gem 'haml-rails'
-gem 'faker'
-gem 'fabrication'
 gem "breadcrumbs_on_rails", '2.3.1'
 gem 'jquery-fileupload-rails', '0.4.1'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
@@ -36,6 +34,8 @@ group :development do
   gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'faker'
+  gem 'fabrication'
 end
 
 group :development, :test do

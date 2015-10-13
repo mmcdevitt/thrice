@@ -20,7 +20,7 @@
               %ul.dropdown-menu.dropdown-select.max-height-400
                 - Category.all.each do |category|
                   .category-span{id: "category_size_#{category.id}"}
-                    %li= category.title
+                    %h6.m-l-sm= category.title.upcase
                     - category.option_items.all.each do |item|
                       %li{'data-categoryid' => category.id}
                         %a{:href => "#"}

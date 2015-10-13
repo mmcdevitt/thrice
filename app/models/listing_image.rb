@@ -1,7 +1,7 @@
 class ListingImage < ActiveRecord::Base
   belongs_to :listing
 
-  has_attached_file :listing_image, :default_url => "/assets/thrice-logo-bg.jpg", styles: {
+  has_attached_file :listing_image, :default_url => "assets/thrice-logo-bg.jpg", styles: {
     large: "650x500#",
     medium: "300x300#",
     small: "150x150#",
