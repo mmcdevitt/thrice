@@ -1,0 +1,5 @@
+%h4
+  = "#{@user.username}"
+  %small (5.0/5.0)
+%p= "Items for sale: #{@user.listings.count}"
+= render 'shared/item_widget'

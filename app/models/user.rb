@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_many :listings, dependent: :destroy
   has_many :sales, class_name: "Order", foreign_key: "seller_id"
@@ -28,5 +28,9 @@ class User < ActiveRecord::Base
 
   def listings_sold
     self.listings.sold.count
+  end
+
+  def to_param
+    username
   end
 end

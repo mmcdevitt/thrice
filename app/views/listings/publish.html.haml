@@ -1,0 +1,10 @@
+.wrapper.m-b
+  %h4.text-center Publish listing
+.row
+  = render 'shared/listing_aside'
+  .col-sm-10
+    .row
+      .col-sm-12
+        = form_for @listing do |f|
+          = render 'save_as_draft.html.haml', f: f
+          = render 'submit', :f => f

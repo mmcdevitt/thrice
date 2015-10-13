@@ -5,9 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(email: 'mmcdevi1@gmail.com', password: 'koploplo', name: 'mmcdevi1')
-User.create(email: 'mmcdevi2@gmail.com', password: 'koploplo', name: 'koplop')
-User.create(email: 'mmcdevi3@gmail.com', password: 'koploplo', name: 'johnson')
+User.create(email: 'mmcdevi1@gmail.com', password: 'koploplo', username: 'mmcdevi1', first_name: 'Michael', last_name: 'McDevitt')
+User.create(email: 'mmcdevi2@gmail.com', password: 'koploplo', username: 'koplop', first_name: 'Michael', last_name: 'McDevitt')
+User.create(email: 'mmcdevi3@gmail.com', password: 'koploplo', username: 'johnson', first_name: 'Michael', last_name: 'McDevitt')
 
 Category.create(title: 'suits')
 Category.create(title: 'shirts')
@@ -107,7 +107,7 @@ Listing.create(
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '5499.99',
-  user_id: 2,
+  user_id: 1,
   category_id: 1,
   published: true
   )
@@ -118,7 +118,7 @@ Listing.create(
     95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
     11.5oz Yarn Dye Recycled Fiber Slub',
   selling_price: '399.99',
-  user_id: 3,
+  user_id: 1,
   category_id: 1,
   published: true
   )

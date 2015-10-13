@@ -8,14 +8,15 @@
           %li.dropdown
             %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
               %span.hidden-sm.hidden-md
-              = current_user.name
+              = current_user.username
               %i.i.i-arrow-down5
             %ul.dropdown-menu
-              %li= link_to 'Watch List', ''
+              / %li= link_to 'Watch List', ''
               %li= link_to 'Your Listings', listings_path
               %li= link_to 'Your Purchases', purchases_path
               %li= link_to 'Your Sales', sales_path
               %li= link_to 'Payout', '#'
+              %li= link_to 'My Profile', user_profile_path(current_user)
               %li= link_to 'Profile Settings', '#'
               %li.divider
               %li

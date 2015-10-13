@@ -5,13 +5,15 @@
         .item-image
           - if listing.listing_images.first && listing.listing_images.first.listing_image_file_name != nil
             = link_to image_tag(listing.listing_images.first.listing_image.url(:medium), class: 'img-responsive'), listing
+          - else
+            = link_to image_tag('/assets/thrice-logo-bg.jpg', class: 'img-responsive')
         .item-title
-          %p= listing.name
+          = link_to listing.name, listing
         .item-price
           %p
             = listing.to_currency
             %span{style: 'margin: 0 10px'}= "|"
-            = link_to listing.seller_name, listing.user
+            = link_to listing.seller_name, user_profile_path(listing.user)
         / = form_for @order_item, remote: true do |f|
         /   = f.hidden_field :listing_id, value: listing.id
         /   = f.submit "Add to Cart", class: "btn btn-info"

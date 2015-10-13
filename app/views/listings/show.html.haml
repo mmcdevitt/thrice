@@ -7,6 +7,9 @@
       %h3= @listing.name
       %h3.price
         = @listing.to_currency
+      .size
+        %span Size:
+        = OptionItem.where(id: @listing.option_item_id).first.value
       .condition
         %span Condition:
         = @listing.condition

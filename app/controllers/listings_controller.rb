@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
-  before_filter :check_user, only: [:edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
   # before_action :redirect_if_sold, only: [:show]
   add_breadcrumb "Home", :root_path
 
@@ -32,6 +32,10 @@ class ListingsController < ApplicationController
   end
 
   def show
+    if !@listing.published? && @listing.user != current_user
+      redirect_to root_path
+    end
+
     @order_item = current_cart.order_items.new
     @listing_image = @listing.listing_images.first
     add_breadcrumb @listing.category.title, @listing.category
@@ -82,6 +86,10 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url }
       format.json { head :no_content }
     end
+  end
+
+  def publish
+
   end
 
   private

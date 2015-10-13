@@ -16,7 +16,7 @@ class ListingDecorator < Draper::Decorator
   end
 
   def seller_name
-    user.name
+    user.username
   end
 
   def to_currency
@@ -24,7 +24,15 @@ class ListingDecorator < Draper::Decorator
   end
 
   def listing_status
-    sold == true ? 'Sold' : 'Active'
+    if sold == false && published == true
+      'Active'
+    elsif published == false
+      'Not published'
+    elsif sold == true
+      'Sold'
+    else
+      'Inactive'
+    end
   end
 
   def date_created

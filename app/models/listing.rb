@@ -11,6 +11,7 @@ class Listing < ActiveRecord::Base
   has_many :listing_images, :dependent => :destroy
 
   scope :active, -> { where(sold: false, published: true ) }
+  scope :published?, -> { where(published: true) }
   scope :sold, -> { where(sold: true) }
   # scope :with_category, lambda { |categories| where(category_id: [*categories]) }
   # scope :sorted_by, lambda { |sort_key|

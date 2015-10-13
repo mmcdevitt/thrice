@@ -23,7 +23,7 @@
             %li= link_to "Sales History", sales_path
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            = current_user.name
+            = current_user.username
             %b.caret
           %ul.dropdown-menu
             %li= link_to "Purchase History", purchases_path
