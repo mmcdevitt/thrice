@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
     self.listings.sold.count
   end
 
+  def active_listings
+    self.listings.active
+  end
+
+  def number_of_active_listings
+    self.active_listings.count
+  end
+
   def to_param
     username
   end
