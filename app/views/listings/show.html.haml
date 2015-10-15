@@ -3,6 +3,8 @@
     .col-md-7
       - if @listing_image
         = image_tag(@listing_image.listing_image.url(:large), class: 'img-responsive', style: 'width:100%')
+      - else
+        = image_tag('thrice-logo-bg.jpg', class: 'img-responsive')
     .col-md-4.col-md-offset-1
       %h3= @listing.name
       %h3.price
