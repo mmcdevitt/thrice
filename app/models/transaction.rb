@@ -15,7 +15,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def buyer_name
-    User.find(self.order.buyer_id).name
+    User.find(self.order.buyer_id).username
   end
 
   def order_date

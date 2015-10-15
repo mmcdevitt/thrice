@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def purchases
-    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    @orders = Order.all.where(buyer: current_user).order("created_at DESC").decorate
     add_breadcrumb "Your Purchase History", ''
   end
 
