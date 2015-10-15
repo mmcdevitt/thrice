@@ -17,12 +17,11 @@
   font-weight: 500;
 }
 .main-image {
-  background: url(/assets/bg-2.jpg);
+  background: image-url("bg-2.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #2d323d;
-  border-bottom: 1px solid #EAF6FF;
   height: 100%
 }
