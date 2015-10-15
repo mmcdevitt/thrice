@@ -28,6 +28,7 @@ gem 'jquery-turbolinks'
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :development do
