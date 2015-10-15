@@ -12,7 +12,7 @@ class OrderItemDecorator < Draper::Decorator
   end
 
   def buyer_name
-    order.buyer.name
+    order.buyer.username
   end
 
   def shipping_address

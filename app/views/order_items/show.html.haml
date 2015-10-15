@@ -31,7 +31,7 @@
         %td
           = link_to @order_item.listing.name, @order_item.listing
         %td
-          = link_to @order_item.buyer_name, @order_item.order.buyer
+          = link_to @order_item.buyer_name, user_profile_path(@order_item.order.buyer)
         %td
           .pull-right
             = number_to_currency @order_item.total_price

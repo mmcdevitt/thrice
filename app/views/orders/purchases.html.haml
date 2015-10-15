@@ -16,7 +16,7 @@
       - @orders.each do |order|
         - order.order_items.all.each do |item|
           %tr
-            %td= item.name
-            %td= item.to_currency
-            %td= item.seller_name
-            %td= item.order_date
+            %td= item.listing.name
+            %td= item.listing.selling_price
+            %td= item.listing.user.username
+            %td= item.created_at.strftime("%B %-d, %Y")
