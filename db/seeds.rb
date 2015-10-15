@@ -98,7 +98,8 @@ Listing.create(
   selling_price: '599.99',
   user_id: 1,
   category_id: 1,
-  published: true
+  published: true,
+  option_item_id: 1
   )
 Listing.create(
   name: 'Burberry Blazer',
@@ -109,7 +110,8 @@ Listing.create(
   selling_price: '5499.99',
   user_id: 1,
   category_id: 1,
-  published: true
+  published: true,
+  option_item_id: 1
   )
 Listing.create(
   name: 'JCrew Pants',
@@ -120,5 +122,18 @@ Listing.create(
   selling_price: '399.99',
   user_id: 1,
   category_id: 1,
-  published: true
+  published: true,
+  option_item_id: 1
+  )
+Listing.create(
+  name: 'Armani Suit',
+  description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
+    Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp)
+    95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
+    11.5oz Yarn Dye Recycled Fiber Slub',
+  selling_price: '1399.99',
+  user_id: 1,
+  category_id: 1,
+  published: true,
+  option_item_id: 1
   )
