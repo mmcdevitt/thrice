@@ -14,7 +14,7 @@ class OrderItemsController < ApplicationController
       if @order_item.is_listing_order_item?
         # Must get sidekiq on production, this is only
         # for development
-        @order_item.delay_for(6.minute).destroy
+        @order_item.delay_for(1.minute).destroy
       end
     end
     session[:cart_id] = @order.id
