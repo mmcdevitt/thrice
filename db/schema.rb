@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013202254) do
+ActiveRecord::Schema.define(version: 20151016021511) do
 
   create_table "carts", force: true do |t|
     t.integer  "order_status_id"
@@ -146,6 +146,10 @@ ActiveRecord::Schema.define(version: 20151013202254) do
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "shipping_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

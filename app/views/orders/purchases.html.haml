@@ -16,7 +16,7 @@
       - @orders.each do |order|
         - order.order_items.all.each do |item|
           %tr
-            %td= item.listing.name
+            %td= link_to item.listing.name, confirmation_order_path(order)
             %td= item.listing.selling_price
             %td= item.listing.user.username
             %td= item.created_at.strftime("%B %-d, %Y")

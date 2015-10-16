@@ -9,11 +9,11 @@ Thrice::Application.routes.draw do
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy, :show]
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   devise_scope :user do
     get  '/register', to: 'devise/registrations#new', as: :register
-    get  '/dashboard/profile/edit', to: 'devise/registrations#edit', as: :edit
+    get  '/profile/edit', to: 'devise/registrations#edit', as: :profile_edit
     get  '/login', to: 'devise/sessions#new', as: :login
     get  '/logout', to: 'devise/sessions#destroy', as: :logout
     get  '/password/new', to: 'devise/passwords#new', as: :password

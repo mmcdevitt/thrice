@@ -1,34 +1,39 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
-  .form-group
-    = f.label :name
-    = f.text_field :name, :autofocus => true, class: "form-control"
-  .form-group
-    = f.label :email
-    %br/
-    = f.email_field :email, class: "form-control"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    .form-group
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .form-group
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, :autocomplete => "off", class: "form-control"
-  .form-group
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, class: "form-control"
-  .form-group
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, class: "form-control"
-  .form-group
-    = f.submit "Update", class: "btn btn-primary"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger"}
-= link_to "Back", :back
+.wrapper.m-b
+  %h4.text-center Edit Profile
+.row
+  .col-sm-8.col-sm-offset-2
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      %section
+        Basic Information
+      .form-group
+        %label.control-label First Name
+        = f.text_field :first_name, class: "form-control"
+      .form-group
+        %label.control-label Last Name
+        = f.text_field :last_name, class: "form-control"
+      .form-group
+        %label.control-label Username
+        = f.text_field :username, class: "form-control"
+      .form-group
+        %label.control-label Email
+        = f.email_field :email, class: "form-control"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        .form-group
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      %section
+        Shipping Address
+      .form-group
+        %label.control-label Shipping Address
+        = f.text_field :shipping_address, class: "form-control"
+      .form-group
+        %label.control-label City
+        = f.text_field :city, class: "form-control"
+      .form-group
+        %label.control-label State
+        = f.text_field :state, class: "form-control"
+      .form-group
+        %label.control-label Zipcode
+        = f.text_field :zipcode, class: "form-control"
+      .form-group
+        = f.submit "Update", class: "btn btn-info btn-lg"
