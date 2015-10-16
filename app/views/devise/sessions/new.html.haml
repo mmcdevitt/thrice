@@ -2,10 +2,10 @@
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .form-group
     = f.label :email
-    = f.email_field :email, :autofocus => true, class: "form-control", placeholder: "demo@baserails.com"
+    = f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Your email"
   .form-group
     = f.label :password
-    = f.password_field :password, class: "form-control", placeholder: "baserails"
+    = f.password_field :password, class: "form-control", placeholder: "Password"
   - if devise_mapping.rememberable?
     .form-group
       = f.check_box :remember_me

@@ -14,7 +14,6 @@ gem "paperclip", "~> 3.0"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem "figaro"
 gem 'devise'
-gem 'rails_admin'
 gem 'pg'
 gem 'haml-rails'
 gem "breadcrumbs_on_rails", '2.3.1'

@@ -11,4 +11,6 @@
     %h6= listing.seller_name
   %td
     %h6= order_item.to_currency
-  %td= link_to "x", order_item, { method: :delete, remote: true }
+  %td
+    = link_to order_item, { method: :delete, remote: true } do
+      %i.fa.fa-times.fa-fw{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete Item"}
