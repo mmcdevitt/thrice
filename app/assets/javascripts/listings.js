@@ -5,6 +5,12 @@ $(document).ready(function() {
   });
 
   $('input[type=radio]:checked').parent().addClass('active')
+
+  $('#go_to_cart_btn').hide();
+  $('#submit-btn').click(function() {
+    $(this).hide();
+    $('#go_to_cart_btn').show();
+  });
 });
 
 
