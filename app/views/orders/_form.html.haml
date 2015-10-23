@@ -1,8 +1,7 @@
 = content_for :head do
   %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
   :javascript
-    Stripe.setPublishableKey('pk_live_iDD7pN3bSkrwZvzn5c26pivr');
-  / = javascript_include_tag 'orders'
+    Stripe.setPublishableKey("#{Figaro.env.stripe_publishable_key}");
 .checkout
   .container
     = form_for @order, :html => { id: 'payment-form' } do |f|
