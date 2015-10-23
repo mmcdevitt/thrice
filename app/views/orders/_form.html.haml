@@ -3,7 +3,7 @@
   :javascript
     Stripe.setPublishableKey("#{Figaro.env.stripe_publishable_key}");
 .checkout
-  .container
+  .container.helloworld
     = form_for @order, :html => { id: 'payment-form' } do |f|
       %span.payment-errors
       .row
