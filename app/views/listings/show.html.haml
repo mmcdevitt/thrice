@@ -26,7 +26,7 @@
         = form_for @order_item, remote: true do |f|
           = f.hidden_field :listing_id, value: @listing.id
           = f.submit "Add to Cart", class: "btn btn-info btn-lg btn-block", id: 'submit-btn'
-          = link_to "Go to Cart", cart_path, class: "btn btn-info btn-lg btn-block", id: 'go_to_cart_btn'
+          = link_to "Added to Cart", cart_path, class: "btn btn-info btn-lg btn-block", id: 'added_to_cart_btn'
       .description
         %h6 Return Policy
         %p Return's accepted
