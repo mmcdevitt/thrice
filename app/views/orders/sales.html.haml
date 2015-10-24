@@ -37,7 +37,7 @@
     %tbody
       - @transactions.each do |transaction|
         %tr
-          %td= link_to transaction.name, transaction.order_item
+          %td= link_to transaction.order_item.listing.name, transaction.order_item
           %td= transaction.to_currency
           %td= transaction.buyer_name
           %td= transaction.after_thrice_cut
