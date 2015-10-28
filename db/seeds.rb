@@ -99,7 +99,10 @@ Listing.create(
   user_id: 1,
   category_id: 1,
   published: true,
-  option_item_id: 1
+  option_item_id: 1,
+  designer_name: 'Tommy Hilfiger',
+  tags_attached: true,
+  wear_and_tear: false
   )
 Listing.create(
   name: 'Burberry Blazer',
@@ -111,7 +114,10 @@ Listing.create(
   user_id: 1,
   category_id: 1,
   published: true,
-  option_item_id: 1
+  option_item_id: 1,
+  designer_name: 'Armani Exchange',
+  tags_attached: true,
+  wear_and_tear: false
   )
 Listing.create(
   name: 'JCrew Pants',
@@ -123,17 +129,50 @@ Listing.create(
   user_id: 1,
   category_id: 1,
   published: true,
-  option_item_id: 1
+  option_item_id: 1,
+  designer_name: 'Ralph Lauren',
+  tags_attached: true,
+  wear_and_tear: false
   )
 Listing.create(
   name: 'Armani Suit',
-  description: 'Limited edition, only 150 pieces made. Tailored to 27" inseam for ankle length wear, slim tapered fit. Barely worn.
-    Japanese 3×1 Denim(Recycled Fiber Weft / Midnight Grey Yarn Dye Warp)
-    95% Cotton ; 5% Recycled Fiber (Cotton,Acrylic, Poly)
-    11.5oz Yarn Dye Recycled Fiber Slub',
+  description: 'Limited edition, only 150 pieces made. Tailored to 27',
   selling_price: '1399.99',
   user_id: 1,
   category_id: 1,
   published: true,
-  option_item_id: 1
+  option_item_id: 1,
+  designer_name: 'Diesel',
+  tags_attached: true,
+  wear_and_tear: false
   )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
