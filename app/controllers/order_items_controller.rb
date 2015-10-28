@@ -11,9 +11,7 @@ class OrderItemsController < ApplicationController
     @order = current_cart
     @order_item = @order.order_items.new(order_item_params)
     if @order.save
-      if @order_item.is_listing_order_item?
-        # Must get sidekiq on production, this is only
-        # for development
+      if @order_item.order_id == nil
         @order_item.delay_for(1.minute).destroy
       end
     end

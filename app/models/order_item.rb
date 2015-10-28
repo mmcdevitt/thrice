@@ -31,8 +31,12 @@ class OrderItem < ActiveRecord::Base
   end
 
   def is_listing_order_item?
-    self.listing.active == false && self.listing.sold == false
+    self.listing.sold == false
   end
+
+  # def is_not_sold
+  #   self.d
+  # end
 
   private
 
