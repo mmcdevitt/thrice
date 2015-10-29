@@ -1,3 +1,7 @@
+- if @listing.sold
+  .panel
+    .panel-body.text-center
+      Item is sold
 .product-listing
   .row
     .col-md-7
@@ -22,7 +26,7 @@
       .description
         %h6 Description
         %p= @listing.description
-      - unless @listing.order_items.count > 0
+      - unless @listing.order_items.count > 0 || @listing.sold
         = form_for @order_item, remote: true do |f|
           = f.hidden_field :listing_id, value: @listing.id
           = f.submit "Add to Cart", class: "btn btn-info btn-lg btn-block", id: 'submit-btn'
