@@ -14,9 +14,9 @@
         %th Date Purchased
     %tbody
       - @orders.each do |order|
-        - order.order_items.all.each do |item|
+        - order.transactions.all.each do |transaction|
           %tr
-            %td= link_to item.listing.name, confirmation_order_path(order)
-            %td= item.listing.selling_price
-            %td= item.listing.user.username
-            %td= item.created_at.strftime("%B %-d, %Y")
+            %td= link_to transaction.listing.name, confirmation_order_path(order)
+            %td= transaction.listing.selling_price
+            %td= transaction.listing.user.username
+            %td= transaction.created_at.strftime("%B %-d, %Y")

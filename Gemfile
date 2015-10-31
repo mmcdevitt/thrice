@@ -36,6 +36,7 @@ group :development do
   gem "binding_of_caller"
   gem 'faker'
   gem 'fabrication'
+  gem 'letter_opener'
 end
 
 group :development, :test do

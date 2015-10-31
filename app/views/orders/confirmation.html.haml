@@ -21,15 +21,15 @@
         %th
           .pull-right Total
     %tbody
-      - @order.order_items.all.each do |item|
+      - @order.transactions.all.each do |transaction|
         %tr
           %td
-            = link_to item.listing.name, item.listing
+            = link_to transaction.listing.name, transaction.listing
           %td
-            = link_to item.listing.user.username, user_profile_path(item.listing.user)
+            = link_to transaction.listing.user.username, user_profile_path(transaction.listing.user)
           %td
             .pull-right
-              = number_to_currency item.total_price
+              = number_to_currency transaction.subtotal
       %tr
         %td
         %td

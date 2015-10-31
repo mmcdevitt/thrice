@@ -48,6 +48,8 @@ class OrdersController < ApplicationController
     if charge.successful? && @order.save
       destroy_cart
       create_transaction
+      send_email_to_seller
+      send_email_to_buyer
       redirect_to confirmation_order_path(@order)
       flash[:success] = 'Payment was successful.'
     else
@@ -84,6 +86,16 @@ class OrdersController < ApplicationController
         listing_id: item.listing_id
         )
     end
+  end
+
+  def send_email_to_seller
+    @order.order_items.all.each do |item|
+      AppMailer.notify_on_new_order(item.listing.user, item).deliver
+    end
+  end
+
+  def send_email_to_buyer
+    AppMailer.notify_buyer(@order.buyer, @order).deliver
   end
 
   def destroy_cart

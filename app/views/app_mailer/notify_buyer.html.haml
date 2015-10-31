@@ -1,0 +1,5 @@
+%html
+  %body
+    %p You have purchased an item from Thrice.
+    - @order.transactions.all.each do |transaction|
+      %p= transaction.listing.name
