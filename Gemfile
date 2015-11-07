@@ -1,6 +1,6 @@
 source 'https://code.stripe.com'
 source 'https://rubygems.org'
-# ruby "2.1.1"
+ruby "2.2.1"
 
 gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.0'
@@ -24,6 +24,7 @@ gem 'draper'
 gem 'sidekiq'
 gem 'redis-rails'
 gem 'jquery-turbolinks'
+gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'

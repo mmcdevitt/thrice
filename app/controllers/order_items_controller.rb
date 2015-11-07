@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_item_params)
     if @order.save
       if @order_item.order_id == nil
-        @order_item.delay_for(1.minute).destroy
+        @order_item.delay_for(6.minute).destroy
       end
     end
     session[:cart_id] = @order.id
