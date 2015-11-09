@@ -6,7 +6,11 @@ class ListingImage < ActiveRecord::Base
     medium: "300x300#",
     small: "150x150#",
     thumb: "140x140#"
-  }
+  },
+  :storage => :s3,
+  :bucket => ENV['thriceclothing'],
+  :s3_credentials => File.join(Rails.root, 'config', 'application.yml')
+
   validates_attachment_content_type :listing_image, :content_type => /\Aimage/
 
   include Rails.application.routes.url_helpers

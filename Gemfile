@@ -25,6 +25,8 @@ gem 'sidekiq'
 gem 'redis-rails'
 gem 'jquery-turbolinks'
 gem 'nokogiri'
+gem 'aws-sdk', '< 2.0'
+gem 'aws-s3'
 
 group :production do
   gem 'rails_12factor'
