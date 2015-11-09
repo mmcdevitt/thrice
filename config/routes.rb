@@ -23,6 +23,10 @@ Thrice::Application.routes.draw do
     get '/:username', to: 'profiles#show', as: :user_profile
   end
 
+  scope :collections do
+    get '/', to: 'listings#all', as: :collections
+  end
+
   resources :listings do
     resources :listing_images
 
