@@ -6,7 +6,7 @@ class Listing < ActiveRecord::Base
   validates :category_id,    presence: true
   validates :designer_name,  presence: true
   # validates :option_item_id, presence: true
-  validates :tags_attached,  presence: true
+  # validates :tags_attached,  presence: true
   # validates :wear_and_tear,  presence: true
   # validates :selling_price,  presence: true
   # # validates :price, numericality: { greater_than: 0 }
