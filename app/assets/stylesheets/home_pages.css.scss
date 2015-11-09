@@ -1,5 +1,6 @@
 .homepage {
   .nav li a {
+    color: #fff;
   }
   .hero {
     h1 {
@@ -17,11 +18,11 @@
   font-weight: 500;
 }
 .main-image {
-  background: image-url("bg-17.jpg");
+  background: image-url("bg-2.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #2d323d;
+  color: #fff;
   height: 100%
 }

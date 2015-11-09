@@ -1,11 +1,13 @@
-$(document).ready(function(){       
+$(document).ready(function(){
   var scroll_pos = 0;
-  $(document).scroll(function() { 
+  $(document).scroll(function() {
       scroll_pos = $(this).scrollTop();
       if(scroll_pos > 100) {
           $("#navbar_white").css('background-color', 'rgba(255,255,255, 0.95)');
+          $('.nav li a').css('color', '#2d323d');
       } else {
           $("#navbar_white").css('background-color', '');
+          $('.nav li a').css('color', '');
       }
   });
   $(function() {
