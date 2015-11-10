@@ -6,8 +6,8 @@
           %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
             %span Links
           %li
-            = link_to 'Edit Listing', edit_listing_path(@listing)
+            = link_to 'Edit Listing', edit_listing_path(@listing),class: active_class_wo_class(edit_listing_path(@listing))
           %li
-            = link_to 'Upload Photos', listings_images_path(@listing)
+            = link_to 'Upload Photos', listings_images_path(@listing),class: active_class_wo_class(listings_images_path(@listing)), 'data-no-turbolink' => true
           %li
-            = link_to 'Publish Listing', publish_listing_path(@listing)
+            = link_to 'Publish Listing', publish_listing_path(@listing),class: active_class_wo_class(publish_listing_path(@listing))

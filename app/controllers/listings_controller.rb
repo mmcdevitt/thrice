@@ -94,7 +94,9 @@ class ListingsController < ApplicationController
   end
 
   def publish
-
+    add_breadcrumb 'Listings', listings_path
+    add_breadcrumb @listing.name, @listing
+    add_breadcrumb "Publish Listing", ''
   end
 
   private

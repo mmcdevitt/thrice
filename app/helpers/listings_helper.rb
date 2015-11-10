@@ -2,7 +2,7 @@ module ListingsHelper
 
   def listing_btn_title
     if params[:action] == 'new'
-      'Continue'
+      'Step 2: Add Photos'
     elsif params[:action] == 'edit'
       'Update Listing'
     end

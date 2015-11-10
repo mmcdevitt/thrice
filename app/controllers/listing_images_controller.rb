@@ -1,6 +1,7 @@
 class ListingImagesController < ApplicationController
   before_action :set_listing
   add_breadcrumb "Home", :root_path
+  add_breadcrumb "Upload Photos", ''
 
   def index
     @images = @listing.listing_images.all
@@ -8,10 +9,6 @@ class ListingImagesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @images.map{|image| image.to_jq_upload } }
     end
-
-    add_breadcrumb 'Listings', listings_path
-    # add_breadcrumb @listing.name, @listing
-    # add_breadcrumb "Photos", ''
   end
 
   def create

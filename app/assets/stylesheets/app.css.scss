@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  color: #fff;
+  color: #2d323d;
   font-weight:700;
 }
 
@@ -5253,7 +5253,9 @@ a.text-#000000:hover {
   }
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
+.nav > li > a:hover,
+.nav > li > a:focus,
+a.active {
   background-color: transparent;
   color: #2EDACF;
 }
