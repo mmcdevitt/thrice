@@ -8,7 +8,6 @@ class ListingImage < ActiveRecord::Base
     thumb: "140x140#"
   },
   :storage => :s3,
-  :s3_region => 'us-west-2',
   :bucket => ENV['thricemarketplace'],
   :s3_credentials => File.join(Rails.root, 'config', 'application.yml')
 
