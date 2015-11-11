@@ -25,6 +25,10 @@ class OrdersController < ApplicationController
   end
 
   def new
+    if current_cart.order_items.count == 0
+      redirect_to root_path
+      flash[:danger] = 'Your cart is empty. You waited too long.'
+    end
     @order = Order.new
     @current_cart = current_cart
   end
