@@ -9,7 +9,7 @@ class ListingImage < ActiveRecord::Base
   },
   :storage => :s3,
   :bucket => ENV['thricemarketplace'],
-  :s3_credentials => File.join(Rails.root, 'config', 'aws.yml')
+  :s3_credentials => File.join(Rails.root, 'config', 'aws.rb')
 
   validates_attachment_content_type :listing_image, :content_type => /\Aimage/
 
