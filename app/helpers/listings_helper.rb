@@ -10,7 +10,7 @@ module ListingsHelper
 
   def size_title(listing)
     if params[:action] == 'edit'
-      OptionItem.where(id: listing.option_item_id).first.value
+      OptionItem.where(id: listing.option_item_id).first.value if listing.option_item_id
     elsif params[:action] == 'new'
       'Select size'
     end
