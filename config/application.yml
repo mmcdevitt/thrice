@@ -1,0 +1,23 @@
+test:
+  stripe_api_key: 'sk_test_QvQjNczvJ1wKiAfbRt3GmPQT'
+  stripe_publishable_key: 'pk_test_eXBPkJRncUJHAKMq1Y1BnhB3'
+development:
+  stripe_api_key: 'sk_test_QvQjNczvJ1wKiAfbRt3GmPQT'
+  stripe_publishable_key: 'pk_test_eXBPkJRncUJHAKMq1Y1BnhB3'
+production:
+  stripe_api_key: 'sk_live_lB6OYU5zk5QF3NyGF7uplKFP'
+  stripe_publishable_key: 'pk_live_iDD7pN3bSkrwZvzn5c26pivr'
+development:
+  bucket: thricemarketplace
+  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
+  secret_access_key: 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
+test:
+  bucket: thricemarketplace
+  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
+  secret_access_key: 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
+production:
+  bucket: thricemarketplace
+  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
+  secret_access_key: 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
+
+# heroku config:set PUBLISHABLE_KEY=pk_live_iDD7pN3bSkrwZvzn5c26pivr SECRET_KEY=sk_live_lB6OYU5zk5QF3NyGF7uplKFP
