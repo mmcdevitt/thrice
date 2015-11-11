@@ -8,8 +8,8 @@ class ListingImage < ActiveRecord::Base
     thumb: "140x140#"
   },
   :storage => :s3,
-  :bucket => ENV['thricemarketplace']
-  # :s3_credentials => File.join(Rails.root, 'config', 'application.yml')
+  :bucket => ENV['thricemarketplace'],
+  :s3_credentials => File.join(Rails.root, 'config', 'aws.yml')
 
   validates_attachment_content_type :listing_image, :content_type => /\Aimage/
 
