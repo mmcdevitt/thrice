@@ -1,5 +1,5 @@
 AWS::S3::Base.establish_connection!(
-  :access_key_id     => ENV['access_key_id'],
-  :secret_access_key => ENV['secret_access_key'],
-  :bucket            => ENV['bucket']
+  :access_key_id     => ENV['S3_ACCESS_KEY'],
+  :secret_access_key => ENV['S3_SECRET_KEY'],
+  :bucket            => ENV['S3_BUCKET_NAME']
 )
