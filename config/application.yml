@@ -9,15 +9,15 @@ production:
   stripe_publishable_key: 'pk_live_iDD7pN3bSkrwZvzn5c26pivr'
 development:
   bucket: thricemarketplace
-  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
-  secret_access_key: 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
+  access_key_id: AKIAI4BSTR4YAHU2KPMQ
+  secret_access_key: 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
 test:
   bucket: thricemarketplace
-  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
-  secret_access_key: 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
+  access_key_id: AKIAI4BSTR4YAHU2KPMQ
+  secret_access_key: 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
 production:
   bucket: thricemarketplace
-  access_key_id: AKIAJAWTJ2EKPJ3UKDKA
-  secret_access_key: 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
+  access_key_id: AKIAI4BSTR4YAHU2KPMQ
+  secret_access_key: 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
 
 # heroku config:set PUBLISHABLE_KEY=pk_live_iDD7pN3bSkrwZvzn5c26pivr SECRET_KEY=sk_live_lB6OYU5zk5QF3NyGF7uplKFP
