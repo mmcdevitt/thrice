@@ -44,6 +44,7 @@ Thrice::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
+  get '/how-it-works', to: 'pages#how_it_works', as: :how_it_works
 
   get '/:title', to: 'categories#show', as: :category
   root 'home_pages#index'

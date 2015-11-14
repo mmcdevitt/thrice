@@ -1,17 +1,45 @@
-/ %footer{id: 'footer'}
-/   .col-md-10
-/     .col-md-offset-2
-/       %p Sell what you have. Buy what you crave.
-/       %p Join our mailing list for the best tips on using Thrice.
-/   .col-md-12.col-md-offset-4
-/     .subscribe-form
-/       #mc_embed_signup
-/         %form#mc-embedded-subscribe-form.validate{:action => "//CraigCalderone.us10.list-manage.com/subscribe/post?u=fce713ebe2e35c42a06392b51&amp;id=564ff232fe", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
-/           #mc_embed_signup_scroll
-/             .row
-/               .col-sm-2
-/                 %input#mce-EMAIL.form-control{:name => "EMAIL", :placeholder => "Enter your email address", :required => "", :type => "email", :value => ""}
-/                 %div{:style => "position: absolute; left: -5000px;"}
-/                   %input{:name => "b_fce713ebe2e35c42a06392b51_564ff232fe", :tabindex => "-1", :type => "text", :value => ""}/
-/               .col-sm-2
-/                 %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe", :class => "btn btn-border btn-border-white btn-block"}/
+%footer
+  .mailing-list-form
+    .row
+      .col-md-12
+        %h6 Sell what you have. Buy what you crave.
+        %div{style: 'width:40px; margin:0 auto; padding: 15px 0;'}
+          %div{style: 'border-top:3px solid #d4d9e0'}
+        %p Join our mailing list for the best tips on using Thrice.
+    .row
+      .col-md-4.col-md-offset-4
+        .subscribe-form
+          #mc_embed_signup
+            %form#mc-embedded-subscribe-form.validate{:action => "//CraigCalderone.us10.list-manage.com/subscribe/post?u=fce713ebe2e35c42a06392b51&amp;id=564ff232fe", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+              #mc_embed_signup_scroll
+                %input#mce-EMAIL.form-control{:name => "EMAIL", :placeholder => "Enter your email address", :required => "", :type => "email", :value => ""}
+                %div{:style => "position: absolute; left: -5000px;"}
+                  %input{:name => "b_fce713ebe2e35c42a06392b51_564ff232fe", :tabindex => "-1", :type => "text", :value => ""}/
+                %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe", :class => "btn btn-info btn-block btn-lg"}/
+  .footer.clearfix
+    .footer-links
+      %ul.social-links
+        %li
+          = link_to '#' do
+            %i.i.i-facebook
+            Facebook
+        %li
+          = link_to '#' do
+            %i.fa.fa-instagram
+            Instagram
+        %li
+          = link_to '#' do
+            %i.fa.fa-twitter
+            Twitter
+      %ul.about-links
+        %li= link_to 'About', '#'
+        %li= link_to 'Contact', '#'
+        %li= link_to 'How it Works', '#'
+      %ul.order-links
+        %li= link_to 'Shipping', '#'
+        %li= link_to 'Returns', '#'
+    .copyright
+      %span &copy; Thrice Clothing
+      %ul.copyright-links
+        %li= link_to 'Terms', '#'
+        %li= link_to 'Privacy', '#'
