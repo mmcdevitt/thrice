@@ -34,36 +34,36 @@ class OrdersController < ApplicationController
   end
 
   def create
-    begin
-      @order = Order.new(order_params)
-      # @current_cart = current_cart
-      @order.buyer_id = current_user.id
-      @order.subtotal = current_cart.subtotal
-      @order.add_line_items_from_cart(current_cart)
-      @total = (@order.subtotal * 100).floor
+    # begin
+    @order = Order.new(order_params)
+    # @current_cart = current_cart
+    @order.buyer_id = current_user.id
+    @order.subtotal = current_cart.subtotal
+    @order.add_line_items_from_cart(current_cart)
+    @total = (@order.subtotal * 100).floor
 
-      token = params[:stripeToken]
+    token = params[:stripeToken]
 
-      charge = StripeWrapper::Charge.create(
-          :amount => @total,
-          :card => token,
-          :description => "Thrice Charge - Order ##{@order.id}"
-        )
+    charge = StripeWrapper::Charge.create(
+        :amount => @total,
+        :card => token,
+        :description => "Thrice Charge - Order ##{@order.id}"
+      )
 
-      if charge.successful? && @order.save
-        destroy_cart
-        create_transaction
-        send_email_to_seller
-        send_email_to_buyer
-        redirect_to confirmation_order_path(@order)
-        flash[:success] = 'Payment was successful.'
-      else
-        flash[:danger] = charge.message
-      end
-    rescue Stripe::InvalidRequestError
-      redirect_to root_path
-      flash[:danger] = 'Your order was not processed. You waited too long to order.'
+    if charge.successful? && @order.save
+      destroy_cart
+      create_transaction
+      send_email_to_seller
+      send_email_to_buyer
+      redirect_to confirmation_order_path(@order)
+      flash[:success] = 'Payment was successful.'
+    else
+      flash[:danger] = charge.message
     end
+    # rescue Stripe::InvalidRequestError
+    #   redirect_to root_path
+    #   flash[:danger] = 'Your order was not processed. You waited too long to order.'
+    # end
   end
 
   private
