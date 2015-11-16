@@ -20,26 +20,26 @@
     .footer-links
       %ul.social-links
         %li
-          = link_to '#' do
+          = link_to 'http://www.facebook.com/thriceclothing', target: "_blank" do
             %i.i.i-facebook
             Facebook
         %li
-          = link_to '#' do
+          = link_to 'http://www.instagram.com/thrice.io', target: '_blank' do
             %i.fa.fa-instagram
             Instagram
         %li
-          = link_to '#' do
+          = link_to 'http://www.twitter.com/thriceclothing', target: '_blank' do
             %i.fa.fa-twitter
             Twitter
       %ul.about-links
-        %li= link_to 'About', '#'
-        %li= link_to 'Contact', '#'
-        %li= link_to 'How it Works', '#'
+        %li= link_to 'About', about_path
+        %li= link_to 'Contact', contact_path
+        %li= link_to 'How it Works', how_it_works_path
       %ul.order-links
-        %li= link_to 'Shipping', '#'
-        %li= link_to 'Returns', '#'
+        %li= link_to 'Shipping', shipping_path
+        %li= link_to 'Returns', returns_path
     .copyright
       %span &copy; Thrice Clothing
       %ul.copyright-links
-        %li= link_to 'Terms', '#'
-        %li= link_to 'Privacy', '#'
+        %li= link_to 'Terms', terms_path
+        %li= link_to 'Privacy', privacy_path

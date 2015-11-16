@@ -42,11 +42,45 @@ Thrice::Application.routes.draw do
     end
   end
 
-  get "pages/about"
-  get "pages/contact"
+  get "/about", to: 'pages#about', as: :about
+  get "/contact", to: 'pages#contact', as: :contact
   get '/how-it-works', to: 'pages#how_it_works', as: :how_it_works
+  get "/shipping", to: 'pages#shipping', as: :shipping
+  get "/returns", to: 'pages#returns', as: :returns
+  get '/terms', to: 'pages#terms', as: :terms
+  get '/privacy', to: 'pages#privacy', as: :privacy
 
   get '/:title', to: 'categories#show', as: :category
   root 'home_pages#index'
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
