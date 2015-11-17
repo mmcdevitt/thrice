@@ -53,6 +53,7 @@ class OrdersController < ApplicationController
       if charge.successful? && @order.save
         destroy_cart
         create_transaction
+        @order.order_items.destroy_all
         # send_email_to_seller
         # send_email_to_buyer
         redirect_to confirmation_order_path(@order)
@@ -60,10 +61,16 @@ class OrdersController < ApplicationController
       else
         flash[:danger] = charge.message
       end
-      rescue Stripe::InvalidRequestError
-        redirect_to root_path
-        flash[:danger] = 'Your order was not processed. You waited too long to order.'
+    rescue Stripe::InvalidRequestError
+      redirect_to root_path
+      flash[:danger] = 'Your order was not processed. You waited too long to order.'
+    rescue
+      if @order.save
+        redirect_to confirmation_order_path(@order)
+        flash[:success] = 'Payment was successful.'
+        destroy_cart
       end
+    end
   end
 
   private
