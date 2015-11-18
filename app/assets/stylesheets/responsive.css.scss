@@ -1,14 +1,25 @@
 @media (max-width: 767px) {
+  .homepage {
+    .hero h1 {
+      font-size: 24px;
+    }
+  }
   #marketplace-tag {
     text-align: center;
   }
   #top-header-links {
     display: none;
   }
-  .side-nav li{
-    list-style-type: none;
-    a {
-      text-transform: capitalize;
+  .side-nav {
+    padding: 30px;
+    .fa-times {
+      margin: 0px;
+    }
+    li{
+      list-style-type: none;
+      a {
+        text-transform: capitalize;
+      }
     }
   }
 }
