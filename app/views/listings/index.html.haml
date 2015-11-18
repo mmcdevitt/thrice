@@ -14,21 +14,21 @@
       %thead
         %tr
           %th Item
-          %th Designer
-          %th Price
-          %th Category
+          %th.designer Designer
+          %th.price Price
+          %th.category Category
           %th Status
-          %th Date Created
+          %th.date Date Created
           %th Actions
       %tbody
         - @listings.each do |listing|
           %tr
             %td= link_to listing.name, listing
-            %td= listing.designer_name
-            %td= listing.to_currency
-            %td= listing.category_name
+            %td.designer= listing.designer_name
+            %td.price= listing.to_currency
+            %td.category= listing.category_name
             %td= listing.listing_status
-            %td= listing.date_created
+            %td.date= listing.date_created
             %td
               .pull-right
                 =link_to edit_listing_path(listing) do

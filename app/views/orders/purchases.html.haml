@@ -10,13 +10,13 @@
       %tr
         %th Item
         %th Price
-        %th Seller
+        %th.seller Seller
         %th Date Purchased
     %tbody
       - @orders.each do |order|
         - order.transactions.all.each do |transaction|
           %tr
             %td= link_to transaction.listing.name, confirmation_order_path(order)
-            %td= transaction.listing.selling_price
-            %td= transaction.listing.user.username
+            %td= number_to_currency transaction.listing.selling_price
+            %td.seller= transaction.listing.user.username
             %td= transaction.created_at.strftime("%B %-d, %Y")

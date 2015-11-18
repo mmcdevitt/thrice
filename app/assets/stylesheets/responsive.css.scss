@@ -1,4 +1,7 @@
 @media (max-width: 767px) {
+  #navbar_white {
+    background: #fff;
+  }
   .homepage {
     .hero h1 {
       font-size: 24px;
@@ -62,4 +65,36 @@
     -o-background-size: cover;
     background-size: cover;
   }
+  .table {
+    .category,
+    .date,
+    .price,
+    .designer,
+    .seller {
+      display: none;
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

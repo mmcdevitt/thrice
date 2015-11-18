@@ -1,0 +1,38 @@
+%h4 Your item has been sold.
+%p
+  A confirmation email has been sent to
+  = @transaction.listing.user.email
+.order-details
+  %p
+    Order Number:
+    %span.bold= "#{@transaction.order.id}"
+  %p
+    Order Item Number:
+    %span.bold= "#{@transaction.id}"
+  %p
+    Date of Order:
+    %span.bold= "#{@transaction.order.created_at.strftime("%B %-d, %Y")}"
+  %p.bold.m-t-lg BUYERS ADDRESS
+  %p
+    Ship To:
+    %span.bold= "#{@transaction.order.first_name} #{@transaction.order.last_name}"
+  %p
+    Shipping Address:
+    %span.bold{style: 'text-transform:capitalize'}= @transaction.shipping_address
+.order-confirmation
+  %table.table
+    %thead
+      %tr
+        %th Item
+        %th Buyer
+        %th
+          .pull-right Total
+    %tbody
+      %tr
+        %td
+          = link_to @transaction.listing.name, @transaction.listing
+        %td
+          = link_to @transaction.buyer_name, user_profile_path(@transaction.order.buyer)
+        %td
+          .pull-right
+            = @transaction.to_currency

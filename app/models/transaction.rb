@@ -25,4 +25,8 @@ class Transaction < ActiveRecord::Base
   def name
     self.order_item.listing.name
   end
+
+  def shipping_address
+    self.order.shipping_address
+  end
 end
