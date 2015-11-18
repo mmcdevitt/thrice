@@ -13,8 +13,8 @@
       .col-sm-6
         #earnings.pricing-breakdown
           - if @listing.selling_price
-            = number_to_currency(@listing.selling_price * 0.9)
+            = number_to_currency(@listing.selling_price * 0.95)
           - else
             $0.00
         %p.text-muted What you make
-        %span.text-muted *after Thrice's 10% fee
+        %span.text-muted *after Thrice's 5% fee

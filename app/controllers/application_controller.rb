@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_cart
 
+  THRICE_FEE = 0.95
+
   def current_cart
     if !session[:cart_id].nil?
       Cart.find(session[:cart_id])

@@ -98,7 +98,7 @@ class OrdersController < ApplicationController
         seller_id: item.seller_id,
         buyer_id: current_user.id,
         subtotal: item.total_price,
-        total: item.total_price * 0.9,
+        total: item.total_price * THRICE_FEE,
         listing_id: item.listing_id
         )
     end

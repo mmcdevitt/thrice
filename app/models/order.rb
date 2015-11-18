@@ -8,6 +8,10 @@ class Order < ActiveRecord::Base
   after_save :set_order_items_active_false
   after_save :listing_is_sold?
 
+  # validates :address, presence: true
+  # validates :city,    presence: true
+  # validates :state,   presence: true
+
   def order_total
 
   end

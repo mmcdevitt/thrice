@@ -11,7 +11,7 @@
         = f.text_field :last_name, class: 'form-control'
   .form-group
     = f.label :address
-    = f.text_field :address, class: 'form-control'
+    = f.text_field :address, class: 'form-control', value: current_user.shipping_address
   .form-group
     = f.label :second_address, 'Apt, Suite, etc.'
     = f.text_field :second_address, class: 'form-control'
@@ -19,7 +19,7 @@
     .col-md-4
       .form-group
         = f.label :city
-        = f.text_field :city, class: 'form-control'
+        = f.text_field :city, class: 'form-control', value: current_user.city
     .col-md-4
       .form-group
         = f.label :state
@@ -33,7 +33,7 @@
     .col-md-4
       .form-group
         = f.label :zipcode
-        = f.text_field :zipcode, class: 'form-control'
+        = f.text_field :zipcode, class: 'form-control', value: current_user.zipcode
   .form-group
     = f.label :phone_number
     = f.text_field :phone_number, class: 'form-control'
