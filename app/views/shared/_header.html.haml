@@ -2,6 +2,8 @@
   = render 'shared/top_header'
   #navbar_white.wrapper
     .navbar-header
+      %a.navbar-brand.text-lt{:href => "/"}
+        = image_tag('thrice-logo-test3.png')
       %button.pull-left.visible-xs{"data-target" => ".app-aside", "ui-scroll-to" => "app", "ui-toggle-class" => "off-screen"}
         %i.glyphicon.glyphicon-align-justify
       .pull-right{style: 'padding:15px 20px 0 0'}
