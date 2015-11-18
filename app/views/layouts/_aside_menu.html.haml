@@ -1,0 +1,232 @@
+%aside#aside.app-aside.hidden-xs.bg-dark
+  .aside-wrap
+    .navi-wrap
+      / user
+      #aside-user.clearfix.hidden-xs.text-center.hide
+        .dropdown.wrapper
+          %a{:href => "app.page.profile"}
+            %span.thumb-lg.w-auto-folded.avatar.m-t-sm
+              %img.img-full{:alt => "...", :src => "img/a0.jpg"}
+          %a.dropdown-toggle.hidden-folded{"data-toggle" => "dropdown", :href => "#"}
+            %span.clear
+              %span.block.m-t-sm
+                %strong.font-bold.text-lt John.Smith
+                %b.caret
+              %span.text-muted.text-xs.block Art Director
+          / dropdown
+          %ul.dropdown-menu.animated.fadeInRight.w.hidden-folded
+            %li.wrapper.b-b.m-b-sm.bg-info.m-t-n-xs
+              %span.arrow.top.hidden-folded.arrow-info
+              %div
+                %p 300mb of 500mb used
+              .progress.progress-xs.m-b-none.dker
+                .progress-bar.bg-white{"data-original-title" => "50%", "data-toggle" => "tooltip", :style => "width: 50%"}
+            %li
+              %a{:href => ""} Settings
+            %li
+              %a{:href => "page_profile.html"} Profile
+            %li
+              %a{:href => ""}
+                %span.badge.bg-danger.pull-right 3
+                Notifications
+            %li.divider
+            %li
+              %a{:href => "page_signin.html"} Logout
+          / / dropdown
+        .line.dk.hidden-folded
+      / / user
+      / nav
+      %nav.navi.clearfix{"ui-nav" => ""}
+        %ul.nav
+          %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs
+            %span Navigation
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %i.glyphicon.glyphicon-stats.icon.text-primary-dker
+              %span.font-bold Dashboard
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span Dashboard
+              %li
+                %a{:href => "index.html"}
+                  %span Dashboard v1
+              %li
+                %a{:href => "dashboard.html"}
+                  %b.label.bg-info.pull-right N
+                  %span Dashboard v2
+          %li
+            %a{:href => "mail.html"}
+              %b.badge.bg-info.pull-right 9
+              %i.glyphicon.glyphicon-envelope.icon.text-info-lter
+              %span.font-bold Email
+          %li.line.dk
+          %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs
+            %span Components
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %b.badge.bg-info.pull-right 3
+              %i.glyphicon.glyphicon-th
+              %span Layout
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span Layout
+              %li
+                %a{:href => "layout_app.html"}
+                  %span Application
+              %li
+                %a{:href => "layout_fullwidth.html"}
+                  %span Full width
+              %li
+                %a{:href => "layout_boxed.html"}
+                  %span Boxed layout
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %i.glyphicon.glyphicon-briefcase.icon
+              %span UI Kits
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span UI Kits
+              %li
+                %a{:href => "ui_button.html"}
+                  %span Buttons
+              %li
+                %a{:href => "ui_icon.html"}
+                  %b.badge.bg-info.pull-right 3
+                  %span Icons
+              %li
+                %a{:href => "ui_grid.html"}
+                  %span Grid
+              %li
+                %a{:href => "ui_widget.html"}
+                  %b.badge.bg-success.pull-right 13
+                  %span Widgets
+              %li
+                %a{:href => "ui_sortable.html"}
+                  %span Sortable
+              %li
+                %a{:href => "ui_portlet.html"}
+                  %span Portlet
+              %li
+                %a{:href => "ui_timeline.html"}
+                  %span Timeline
+              %li
+                %a{:href => "ui_jvectormap.html"}
+                  %span Vector Map
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %b.label.bg-primary.pull-right 2
+              %i.glyphicon.glyphicon-list
+              %span Table
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span Table
+              %li
+                %a{:href => "table_static.html"}
+                  %span Table static
+              %li
+                %a{:href => "table_datatable.html"}
+                  %span Datatable
+              %li
+                %a{:href => "table_footable.html"}
+                  %span Footable
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %i.glyphicon.glyphicon-edit
+              %span Form
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span Form
+              %li
+                %a{:href => "form_element.html"}
+                  %span Form elements
+          %li
+            %a{:href => "ui_chart.html"}
+              %i.glyphicon.glyphicon-signal
+              %span Chart
+          %li
+            %a.auto{:href => ""}
+              %span.pull-right.text-muted
+                %i.fa.fa-fw.fa-angle-right.text
+                %i.fa.fa-fw.fa-angle-down.text-active
+              %i.glyphicon.glyphicon-file.icon
+              %span Pages
+            %ul.nav.nav-sub.dk
+              %li.nav-sub-header
+                %a{:href => ""}
+                  %span Pages
+              %li
+                %a{:href => "page_profile.html"}
+                  %span Profile
+              %li
+                %a{:href => "page_post.html"}
+                  %span Post
+              %li
+                %a{:href => "page_search.html"}
+                  %span Search
+              %li
+                %a{:href => "page_invoice.html"}
+                  %span Invoice
+              %li
+                %a{:href => "page_price.html"}
+                  %span Price
+              %li
+                %a{:href => "page_lockme.html"}
+                  %span Lock screen
+              %li
+                %a{:href => "page_signin.html"}
+                  %span Signin
+              %li
+                %a{:href => "page_signup.html"}
+                  %span Signup
+              %li
+                %a{:href => "page_forgotpwd.html"}
+                  %span Forgot password
+              %li
+                %a{:href => "page_404.html"}
+                  %span 404
+          %li.line.dk.hidden-folded
+          %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs
+            %span Your Stuff
+          %li
+            %a{:href => "page_profile.html"}
+              %i.icon-user.icon.text-success-lter
+              %b.badge.bg-success.pull-right 30%
+              %span Profile
+          %li
+            %a{:href => ""}
+              %i.icon-question.icon
+              %span Documents
+      / nav
+      / aside footer
+      .wrapper.m-t
+        .text-center-folded
+          %span.pull-right.pull-none-folded 60%
+          %span.hidden-folded Milestone
+        .progress.progress-xxs.m-t-sm.dk
+          .progress-bar.progress-bar-info{:style => "width: 60%;"}
+        .text-center-folded
+          %span.pull-right.pull-none-folded 35%
+          %span.hidden-folded Release
+        .progress.progress-xxs.m-t-sm.dk
+          .progress-bar.progress-bar-primary{:style => "width: 35%;"}
+      / / aside footer

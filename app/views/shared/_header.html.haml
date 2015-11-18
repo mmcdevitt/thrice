@@ -1,7 +1,10 @@
 %header#header.app-header.navbar{:role => "menu"}
   = render 'shared/top_header'
   #navbar_white.wrapper
-    .row.collapse.pos-rlt.navbar-collapse
+    .navbar-header
+      %button.pull-right.visible-xs{"data-target" => ".row-menu", "ui-scroll-to" => "app", "ui-toggle-class" => "off-screen"}
+        %i.glyphicon.glyphicon-align-justify
+    .row.collapse.pos-rlt.navbar-collapse.row-menu
       .col-sm-2
         %ul.nav.navbar-nav
           %a.navbar-brand.text-lt{:href => "/"}

@@ -19,5 +19,6 @@
  *= require home_pages
  *= require footer
  *= require orders
+ *= require responsive
  *= require_self
  */
