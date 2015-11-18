@@ -22,4 +22,21 @@
       }
     }
   }
+  footer {
+    .mailing-list-form {
+      padding:30px;
+    }
+    .footer {
+      .footer-links {
+        float: none;
+        ul {
+          float: none;
+        }
+      }
+      .copyright {
+        float: none;
+        text-align: left;
+      }
+    }
+  }
 }
