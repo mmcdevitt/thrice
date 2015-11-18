@@ -2,40 +2,28 @@
   .aside-wrap
     .navi-wrap
       %nav.navi.clearfix{"ui-nav" => ""}
-        %ul.nav
-          %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs
-            %span= link_to 'x', '#', id: 'close-menu'
-          %li
-            %a.auto{:href => ""}
-              %span.pull-right.text-muted
-                %i.fa.fa-fw.fa-angle-right.text
-                %i.fa.fa-fw.fa-angle-down.text-active
-              %i.glyphicon.glyphicon-stats.icon.text-primary-dker
-              %span.font-bold Dashboard
-            %ul.nav.nav-sub.dk
-              %li.nav-sub-header
-                %a{:href => ""}
-                  %span Dashboard
-              %li
-                %a{:href => "index.html"}
-                  %span Dashboard v1
-              %li
-                %a{:href => "dashboard.html"}
-                  %b.label.bg-info.pull-right N
-                  %span Dashboard v2
-          %li
-            %a{:href => "mail.html"}
-              %b.badge.bg-info.pull-right 9
-              %i.glyphicon.glyphicon-envelope.icon.text-info-lter
-              %span.font-bold Email
+        %ul.side-nav
+          .clearfix
+            %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs.pull-right
+              %span
+                = link_to '#', id: 'close-menu' do
+                  %i.fa.fa-times.fa-fw
+          - Category.all.each do |category|
+            %li
+              = link_to category.title, category
           %li.line.dk
-          %li.hidden-folded.padder.m-t.m-b-sm.text-muted.text-xs
-            %span Components
-          %li
-            %a.auto{:href => ""}
-              %span.pull-right.text-muted
-                %i.fa.fa-fw.fa-angle-right.text
-                %i.fa.fa-fw.fa-angle-down.text-active
-              %b.badge.bg-info.pull-right 3
-              %i.glyphicon.glyphicon-th
-              %span Layout
+          - if current_user
+            %li= link_to 'Your Listings', listings_path
+            %li= link_to 'Your Purchases', purchases_path
+            %li= link_to 'Your Sales', sales_path
+            %li= link_to 'Payout', '#'
+            %li= link_to 'My Profile', user_profile_path(current_user)
+            %li= link_to 'Profile Settings', profile_edit_path
+            %li.divider
+            %li
+              = link_to "Logout", destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Login', login_path
+            %li= link_to 'Sign Up', register_path
+          %li.line.dk
+          %li= link_to 'Sell', sell_path

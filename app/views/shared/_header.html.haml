@@ -2,8 +2,10 @@
   = render 'shared/top_header'
   #navbar_white.wrapper
     .navbar-header
-      %button.pull-right.visible-xs{"data-target" => ".app-aside", "ui-scroll-to" => "app", "ui-toggle-class" => "off-screen"}
+      %button.pull-left.visible-xs{"data-target" => ".app-aside", "ui-scroll-to" => "app", "ui-toggle-class" => "off-screen"}
         %i.glyphicon.glyphicon-align-justify
+      .pull-right{style: 'padding:15px 20px 0 0'}
+        = render 'layouts/cart_text'
     .row.collapse.pos-rlt.navbar-collapse.row-menu
       .col-sm-2
         %ul.nav.navbar-nav
