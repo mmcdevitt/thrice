@@ -12,7 +12,7 @@
           = render 'billing_info', f: f
         .col-md-4
           = render 'order_details'
-          = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg payment_submit"
+          = f.submit "Complete Order", class: "btn btn-info btn-block btn-lg payment_submit", disabled: "disabled"
 
 
 

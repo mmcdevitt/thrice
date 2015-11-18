@@ -20,4 +20,5 @@
 //= require header
 //= require alert
 //= require app
+//= require checkout
 //= require_tree .
