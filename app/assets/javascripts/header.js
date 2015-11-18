@@ -25,4 +25,12 @@ $(document).ready(function(){
     }
     });
   });
+
+  $('.navbar-header button').click(function() {
+    $('.app-aside').addClass('off-screen');
+  });
+  $('#close-menu').click(function() {
+    $('.app-aside').removeClass('off-screen');
+  });
 });
+
