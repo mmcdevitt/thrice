@@ -11,6 +11,6 @@ class AppMailer < ActionMailer::Base
 
   def notify_on_new_user(user)
     @user = user
-    mail from: 'Thrice Clothing', to: 'mmcdevi1@gmail.com, mmcdevitt@eastgate.io', subject: 'Thrice has a new user.'
+    mail from: 'Thrice Clothing', to: 'mmcdevi1@gmail.com, calderonecraig@gmail.com', subject: 'Thrice has a new user.'
   end
 end
