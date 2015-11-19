@@ -1,5 +1,9 @@
 Thrice::Application.routes.draw do
 
+  namespace :admin do
+    resources :users, only: [:index]
+  end
+
   get 'seller', to: "listings#seller"
   get 'sales', to: "orders#sales"
   get 'purchases', to: "orders#purchases"

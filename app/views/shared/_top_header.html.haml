@@ -4,7 +4,10 @@
       Marketplace for Used Premium Mens Clothes
     #top-header-links.col-lg-6
       %ul.top-header-nav.navbar-right{style: 'margin:0'}
-        - if current_user
+        - if user_signed_in?
+          - if current_user.admin?
+            %li
+              = link_to 'Go to Admin Dashboard', 'admin_path', 'data-no-turbolink' => true
           %li.dropdown
             %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
               %span.hidden-sm.hidden-md
