@@ -31,7 +31,18 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      AppMailer.notify_on_new_user(@user).deliver
+      redirect_to root_path
+    end
+  end
+
   private
+  def user_params
+    params.require(:user).permit(:email, :username, :password, :first_name, :last_name, :shipping_address, :city, :state, :zipcode)
+  end
 
   # check if we need password to update user data
   # ie if password or email was changed

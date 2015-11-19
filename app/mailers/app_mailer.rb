@@ -8,4 +8,9 @@ class AppMailer < ActionMailer::Base
     @order = order
     mail from: 'info@thrice.io', to: user.email, subject: 'Your item has been sold.'
   end
+
+  def notify_on_new_user(user)
+    @user = user
+    mail from: 'Thrice Clothing', to: 'mmcdevi1@gmail.com', subject: 'Thrice has a new user.'
+  end
 end
