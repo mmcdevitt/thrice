@@ -7,7 +7,7 @@
         - if user_signed_in?
           - if current_user.admin?
             %li
-              = link_to 'Go to Admin Dashboard', 'admin_path', 'data-no-turbolink' => true
+              = link_to 'Go to Admin Dashboard', admin_users_path, 'data-no-turbolink' => true
           %li.dropdown
             %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
               %span.hidden-sm.hidden-md
