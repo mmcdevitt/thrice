@@ -55,9 +55,14 @@ body {
     }
   }
 }
-
-
-
+.modal-content {
+  webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+.modal-footer {
+  border:none;
+}
 
 
 

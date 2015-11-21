@@ -989,6 +989,9 @@ body {
   .app-aside,
   .navbar-header {
     width: 240px;
+  }
+  .display-none,
+  .navbar-header {
     display: none !important;
   }
   .navbar-collapse {}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119234229) do
+ActiveRecord::Schema.define(version: 20151121045821) do
 
   create_table "carts", force: true do |t|
     t.integer  "order_status_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20151119234229) do
     t.boolean  "published"
     t.integer  "option_id"
     t.integer  "option_item_id"
+    t.boolean  "best_offer"
   end
 
   create_table "option_items", force: true do |t|

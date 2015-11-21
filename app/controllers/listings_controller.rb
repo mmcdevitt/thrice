@@ -117,7 +117,8 @@ class ListingsController < ApplicationController
         :tags_attached,
         :wear_and_tear,
         :selling_price,
-        :published
+        :published,
+        :best_offer
         )
     end
 

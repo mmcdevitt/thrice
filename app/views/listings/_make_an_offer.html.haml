@@ -1,0 +1,16 @@
+.row.item-row
+  .col-sm-2
+    %h6 Make an Offer
+  .col-sm-10
+    .row
+      .col-sm-3
+        .form-group
+          %label.control-label{style: 'display:block'} Would you like to add "Make an Offer" an option?
+          .btn-group{"data-toggle" => "buttons"}
+            %label{class: 'btn btn-lg btn-default'}
+              = f.radio_button :best_offer, true
+              Yes
+            %label{class: 'btn btn-lg btn-default'}
+              = f.radio_button :best_offer, false
+              No
+  

@@ -27,10 +27,28 @@
         %h6 Description
         %p= @listing.description
       - unless @listing.order_items.count > 0 || @listing.sold
-        = form_for @order_item, remote: true do |f|
-          = f.hidden_field :listing_id, value: @listing.id
-          = f.submit "Add to Cart", class: "btn btn-info btn-lg btn-block", id: 'submit-btn'
-          = link_to "Added to Cart", cart_path, class: "btn btn-info btn-lg btn-block", id: 'added_to_cart_btn'
+        - if @listing.best_offer
+          %button.btn.btn-danger.btn-lg.btn-block{'data-target' => '#make_an_offer_modal', "data-toggle" => "modal", :href => ""} Make an offer
+        - else
+          = form_for @order_item, remote: true do |f|
+            = f.hidden_field :listing_id, value: @listing.id
+            = f.submit "Add to Cart", class: "btn btn-info btn-lg btn-block", id: 'submit-btn'
+            = link_to "Added to Cart", cart_path, class: "btn btn-info btn-lg btn-block", id: 'added_to_cart_btn'
       .description
         %h6 Return Policy
         %p Return's accepted
+.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "make_an_offer_modal", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Make an Offer
+      .modal-body
+        .row
+          .col-sm-4
+            .input-group
+              .input-group-addon $
+              %input#exampleInputAmount.form-control{:placeholder => "Amount", :type => "text"}
+      .modal-footer
+        %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-success{"data-dismiss" => "modal", :type => "button"} Submit
