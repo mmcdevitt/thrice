@@ -22,7 +22,7 @@
         = @listing.condition
       .seller
         %span Listed by
-        = link_to @listing.seller_name, '#'
+        = link_to @listing.seller_name, user_profile_path(@listing.user)
       .description
         %h6 Description
         %p= @listing.description
