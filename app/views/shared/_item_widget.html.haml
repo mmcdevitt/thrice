@@ -9,7 +9,7 @@
             - else
               = link_to image_tag('thrice-logo-bg.jpg', class: 'img-responsive'), listing
           .item-title
-            = link_to truncate(listing.name, length: 30), listing
+            = link_to truncate(listing.name, length: 35), listing
           .item-price
             %p
               = listing.to_currency
