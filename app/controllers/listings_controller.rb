@@ -41,6 +41,7 @@ class ListingsController < ApplicationController
       redirect_to root_path
     end
 
+    @comments = @listing.comments
     @order_item = current_cart.order_items.new
     @listing_image = @listing.listing_images.first
     add_breadcrumb @listing.category.title, @listing.category

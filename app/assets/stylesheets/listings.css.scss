@@ -95,8 +95,21 @@
     }
   }
 }
-
-
+.comment {
+  margin-bottom: 10px;
+  p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 5px;
+    span {
+      color:#999;
+    }
+  }
+}
+.comments-area textarea.form-control {
+  height: 100px;
+}
 
 
 

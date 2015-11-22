@@ -52,3 +52,54 @@
       .modal-footer
         %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
         %button.btn.btn-success{"data-dismiss" => "modal", :type => "button"} Submit
+%section.listings-comments
+  .row
+    .col-sm-10
+      = form_for [@listing, Comment.new], remote: true do |f|
+        %fieldset
+          .form-group
+            %label Write Comment
+            .row
+              .col-sm-8.comments-area
+                = f.text_area :content, class: "form-control"
+        %fieldset.form-group.actions.clearfix
+          = f.submit "Submit", class: "btn btn-default"
+      %header.m-b-lg
+        %h5 Comments (#{@comments.count})
+      #comments
+        = render @comments, locals: { listing: @listing }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

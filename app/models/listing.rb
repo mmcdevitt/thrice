@@ -17,6 +17,7 @@ class Listing < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
   has_many :listing_images, :dependent => :destroy
   has_many :transactions
+  has_many :comments
 
   scope :active, -> { where(sold: false, published: true ) }
   scope :published?, -> { where(published: true) }

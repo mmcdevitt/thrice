@@ -33,6 +33,7 @@ Thrice::Application.routes.draw do
 
   resources :listings do
     resources :listing_images
+    resources :comments, only: :create
 
     member do
       get '/publish', to: 'listings#publish'

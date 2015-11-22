@@ -1,0 +1,12 @@
+%article.comment
+  .row
+    .col-sm-8
+      %p
+        = link_to comment.user.username, user_profile_path(comment.user)
+        %span
+          = time_ago_in_words comment.created_at
+          ago
+        - if comment.user == @listing.user
+          %b.label.bg-primary Seller
+      %p
+        = comment.content
