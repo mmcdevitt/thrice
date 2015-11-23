@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123010026) do
+ActiveRecord::Schema.define(version: 20151123172309) do
 
   create_table "carts", force: true do |t|
     t.integer  "order_status_id"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20151123010026) do
     t.text     "content"
     t.integer  "listing_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "name"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -124,6 +131,16 @@ ActiveRecord::Schema.define(version: 20151123010026) do
     t.string   "expiry_month"
     t.string   "expiry_year"
     t.string   "cc_cvv"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "listing_id"
+    t.integer  "feedback_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "transactions", force: true do |t|
