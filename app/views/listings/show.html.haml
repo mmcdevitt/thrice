@@ -13,6 +13,9 @@
       %h3= @listing.name
       %h3.price
         = @listing.to_currency
+      / .watch-list
+      /   %span Saved by
+      /   10 people
       .size
         - if @listing.option_item_id
           %span Size:
