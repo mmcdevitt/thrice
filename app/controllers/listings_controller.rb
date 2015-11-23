@@ -40,8 +40,7 @@ class ListingsController < ApplicationController
     if !@listing.published? && @listing.user != current_user
       redirect_to root_path
     end
-
-    @comments = @listing.comments
+    @comments = @listing.comments.all.order("created_at DESC")
     @order_item = current_cart.order_items.new
     @listing_image = @listing.listing_images.first
     add_breadcrumb @listing.category.title, @listing.category
