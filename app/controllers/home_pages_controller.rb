@@ -1,4 +1,5 @@
 class HomePagesController < ApplicationController
+  before_action :authenticate_user!
   layout :homepage_layout
 
   def index

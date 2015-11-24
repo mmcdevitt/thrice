@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  before_action :authenticate_user!
   add_breadcrumb 'Home', :root_path
   add_breadcrumb 'Order Item', '/'
 

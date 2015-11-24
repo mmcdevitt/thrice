@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy, :index]
+  before_action :authenticate_user!
+   # only: [:seller, :new, :create, :edit, :update, :destroy, :index]
   before_action :check_user, only: [:edit, :update, :destroy]
   # before_action :redirect_if_sold, only: [:show]
   add_breadcrumb "Home", :root_path

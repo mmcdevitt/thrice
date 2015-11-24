@@ -1,4 +1,5 @@
 class ListingImagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_listing
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Upload Photos", ''
