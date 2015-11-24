@@ -1,5 +1,7 @@
 = form_for [:admin, :blog, @post], html: {class: 'form-horizontal'} do |f|
   .form-group
+    = f.file_field :post_image, as: :file
+  .form-group
     = f.label :title, class: 'col-lg-2 control-label'
     .col-lg-8
       = f.text_field :title, class: 'form-control'

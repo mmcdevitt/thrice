@@ -90,7 +90,7 @@ class ListingsController < ApplicationController
 
   private
     def set_listing
-      @listing = Listing.friendly.find(params[:id]).decorate
+      @listing = Listing.find(params[:id]).decorate
     end
 
     def listing_params

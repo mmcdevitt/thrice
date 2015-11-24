@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.0.3.0'
-gem "paperclip", "~> 3.0"
+gem "paperclip"
 gem "figaro"
 gem 'devise'
 gem 'pg'
@@ -27,7 +27,7 @@ gem 'nokogiri'
 gem 'aws-sdk', '< 2.0'
 gem 'aws-s3'
 gem 'redcarpet'
-gem 'friendly_id'
+# gem 'friendly_id'
 
 group :production do
   gem 'rails_12factor'

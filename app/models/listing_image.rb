@@ -1,6 +1,4 @@
 class ListingImage < ActiveRecord::Base
-  extend FriendlyId
-
   belongs_to :listing
 
   has_attached_file :listing_image, :default_url => "assets/thrice-logo-bg.jpg", styles: {
@@ -10,7 +8,6 @@ class ListingImage < ActiveRecord::Base
     thumb: "140x140#"
   },
   :storage => :s3,
-  :bucket => ENV['thricemarketplace'],
   :s3_credentials => File.join(Rails.root, 'config', 's3.yml')
 
   validates_attachment_content_type :listing_image, :content_type => /\Aimage/
