@@ -2,6 +2,7 @@ Thrice::Application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
+    resources :listings, only: [:index]
 
     namespace :blog do
       resources :posts
