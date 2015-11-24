@@ -3,6 +3,7 @@
     .title
       %h2= @post.title
     .author
-      %h6= @post.user.username
+      = link_to @post.user.username, user_profile_path(@post.user)
+      %p= "#{time_ago_in_words @post.created_at} ago"
     .article
       = markdown @post.content
