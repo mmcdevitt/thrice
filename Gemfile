@@ -27,7 +27,7 @@ gem 'nokogiri'
 gem 'aws-sdk', '< 2.0'
 gem 'aws-s3'
 gem 'redcarpet'
-# gem 'friendly_id'
+gem 'friendly_id'
 
 group :production do
   gem 'rails_12factor'

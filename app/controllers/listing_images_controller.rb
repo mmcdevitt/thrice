@@ -43,7 +43,7 @@ class ListingImagesController < ApplicationController
 
   private
   def set_listing
-    @listing = Listing.find(params[:listing_id])
+    @listing = Listing.friendly.find(params[:listing_id])
   end
 
   def images_params
