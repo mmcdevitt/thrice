@@ -11,7 +11,8 @@
         %a{"data-target" => "#post_#{post.id}", "data-toggle" => "modal", :href => ""}
           %i.fa.fa-fw.fa-times{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
       .clear
-        = link_to post.title, edit_admin_blog_post_path(post)
+        .title
+          = link_to post.title, edit_admin_blog_post_path(post)
       .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "post_#{post.id}", :role => "dialog", :tabindex => "-1"}
         .modal-dialog
           .modal-content
