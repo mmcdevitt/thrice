@@ -1,8 +1,25 @@
 .m-b-lg
   = link_to "New Post", new_admin_blog_post_path, class: 'btn btn-info'
-- @posts.each do |post|
-  %div
-    = post.title
-    = link_to "Show", blog_post_path(post)
-    = link_to "Edit", edit_admin_blog_post_path(post)
-    = link_to "Delete", admin_blog_post_path(post), method: :delete
+%ul.list-group.list-group-lg.list-group-sp
+  - @posts.each do |post|
+    %li.list-group-item{:draggable => "true"}
+      %span.pull-right
+        = link_to edit_admin_blog_post_path(post) do
+          %i.fa.fa-fw.m-r-xs.fa-pencil{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
+        = link_to blog_post_path(post) do
+          %i.i.i-popup{"data-placement" => "top", "data-toggle" => "tooltip", :title => "View"}
+        %a{"data-target" => "#post_#{post.id}", "data-toggle" => "modal", :href => ""}
+          %i.fa.fa-fw.fa-times{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
+      .clear
+        = link_to post.title, edit_admin_blog_post_path(post)
+      .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "post_#{post.id}", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+              %h4#myModalLabel.modal-title Are you sure?
+            .modal-body
+              Once the post is deleted, it's gone forever!
+            .modal-footer
+              %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+              = link_to "Delete", admin_blog_post_path(post), method: :delete, class: "btn btn-danger"
