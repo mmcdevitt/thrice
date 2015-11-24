@@ -23,6 +23,9 @@
       .condition
         %span Condition:
         = @listing.condition
+      .condition
+        %span Brand:
+        = @listing.designer_name
       .seller
         %span Listed by
         = link_to @listing.seller_name, user_profile_path(@listing.user)
