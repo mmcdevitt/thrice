@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   validates :name,           presence: true
   validates :description,    presence: true

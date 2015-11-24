@@ -1,4 +1,6 @@
 class ListingImage < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :listing
 
   has_attached_file :listing_image, :default_url => "assets/thrice-logo-bg.jpg", styles: {

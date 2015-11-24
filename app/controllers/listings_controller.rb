@@ -15,17 +15,6 @@ class ListingsController < ApplicationController
   end
 
   def index
-    # @filterrific = initialize_filterrific(
-    #   Listing,
-    #   params[:filterrific],
-    #   select_options: {
-    #     sorted_by: Listing.options_for_sorted_by,
-    #     with_category: Listing.options_for_select
-    #   }
-    # ) or return
-    # @listings = @filterrific.find.page(params[:page])
-    # @listings = current_user.listings.filterrific_find(@filterrific).page(params[:page]).with_category
-
     @listings = current_user.listings.all.decorate
     @order_item = current_cart.order_items.new
     add_breadcrumb "Your Listings", ''
@@ -101,7 +90,7 @@ class ListingsController < ApplicationController
 
   private
     def set_listing
-      @listing = Listing.find(params[:id]).decorate
+      @listing = Listing.friendly.find(params[:id]).decorate
     end
 
     def listing_params
