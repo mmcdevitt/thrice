@@ -1,0 +1,8 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .title
+      %h2= @post.title
+    .author
+      %h6= @post.user.username
+    .article
+      = markdown @post.content

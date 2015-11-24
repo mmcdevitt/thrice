@@ -20,5 +20,7 @@
  *= require footer
  *= require orders
  *= require responsive
+ *= require admin
+ *= require post
  *= require_self
  */

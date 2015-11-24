@@ -1,15 +1,15 @@
 !!!
 %html
   = render 'shared/head'
-  %body.thrice
-    = render 'layouts/aside_menu'
+  %body.admin
     .app.app-header-fixed
-      = render 'shared/header'
+      = render 'layouts/admin/header'
       = render 'shared/flash'
+      = render 'layouts/admin/aside'
       #content.app-content{:role => "main"}
         .app-content-body
           .hbox.hbox-auto-xs.hbox-auto-sm{"ng-init" => "\n            app.settings.asideFolded = false; \n            app.settings.asideDock = false;\n          "}
             / main
             .col
-              .container.m-t-md
+              .wrapper-lg
                 = yield

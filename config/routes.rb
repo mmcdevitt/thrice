@@ -2,6 +2,14 @@ Thrice::Application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
+
+    namespace :blog do
+      resources :posts
+    end
+  end
+
+  namespace :blog do
+    resources :posts, only: :show
   end
 
   get 'seller', to: "listings#seller"
@@ -46,6 +54,8 @@ Thrice::Application.routes.draw do
       get '/confirmation', to: 'orders#confirmation'
     end
   end
+
+  resources :ratings
 
   resources :transactions, only: [:show]
 

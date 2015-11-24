@@ -19,11 +19,12 @@ class Listing < ActiveRecord::Base
   has_many :transactions
   has_many :comments
   has_many :watchers
+  has_one :rating
 
   scope :active, -> { where(sold: false, published: true ) }
   scope :published?, -> { where(published: true) }
   scope :sold, -> { where(sold: true) }
-  
+
   accepts_nested_attributes_for :listing_images,
                                 reject_if: proc { |attributes| attributes['image'].blank? },
                                 allow_destroy: true

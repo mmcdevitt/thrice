@@ -1,0 +1,13 @@
+/ aside
+%aside#aside.app-aside.hidden-xs.bg-white.b-r{:style => "position:fixed; height:100%;"}
+  .aside-wrap
+    .navi-wrap
+      / nav
+      %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}
+        %ul.nav
+          %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
+            %span Menu
+          %li
+            = link_to 'Blog', admin_blog_posts_path
+          %li
+            = link_to 'Users', admin_users_path

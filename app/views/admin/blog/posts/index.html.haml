@@ -1,0 +1,8 @@
+.m-b-lg
+  = link_to "New Post", new_admin_blog_post_path, class: 'btn btn-info'
+- @posts.each do |post|
+  %div
+    = post.title
+    = link_to "Show", blog_post_path(post)
+    = link_to "Edit", edit_admin_blog_post_path(post)
+    = link_to "Delete", admin_blog_post_path(post), method: :delete

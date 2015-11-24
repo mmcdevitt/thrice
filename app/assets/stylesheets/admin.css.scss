@@ -1,0 +1,25 @@
+.admin {
+  .app-header-fixed {
+    padding-top: 40px;
+  }
+  .btn-fixed {
+    position:fixed;
+    right:30px;
+    bottom:30px;
+  }
+  .nav {
+    text-align: left;
+  }
+  header {
+    a {
+      color: #fff;
+    }
+    ul {
+      li {
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

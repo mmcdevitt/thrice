@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123172309) do
+ActiveRecord::Schema.define(version: 20151124002406) do
 
   create_table "carts", force: true do |t|
     t.integer  "order_status_id"
@@ -131,6 +131,15 @@ ActiveRecord::Schema.define(version: 20151123172309) do
     t.string   "expiry_month"
     t.string   "expiry_year"
     t.string   "cc_cvv"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "ratings", force: true do |t|

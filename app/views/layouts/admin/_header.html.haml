@@ -1,0 +1,24 @@
+%header#header.app-header.navbar{:role => "menu"}
+  .top-header
+    .row
+      #marketplace-tag.col-lg-6
+        = link_to 'Go Back to Thrice', root_path
+      #top-header-links.col-lg-6
+        %ul.top-header-nav.navbar-right{style: 'margin:0'}
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
+                %span.hidden-sm.hidden-md
+                = current_user.username
+                %i.i.i-arrow-down5
+              %ul.dropdown-menu
+                / %li= link_to 'Watch List', ''
+                %li= link_to 'Your Listings', listings_path
+                %li= link_to 'Your Purchases', purchases_path
+                %li= link_to 'Your Sales', sales_path
+                %li= link_to 'Payout', '#'
+                %li= link_to 'My Profile', user_profile_path(current_user)
+                %li= link_to 'Profile Settings', profile_edit_path
+                %li.divider
+                %li
+                  = link_to "Logout", destroy_user_session_path, method: :delete
