@@ -1,12 +1,19 @@
 = form_for @rating, remote: true do |f|
   %fieldset
     .form-group
+      = f.label :listing_id, "Listing"
+      .btn-group{"data-toggle" => "buttons"}
+        - @orders.each do |order|
+          - order.transactions.all.each do |transaction|
+            %label{class: 'btn btn-lg btn-default'}
+              = f.radio_button :listing_id, transaction.listing.id
+              = transaction.listing.name
+    .form-group
       = f.label :feedback_id, "Feedback"
       .btn-group{"data-toggle" => "buttons"}
         - Feedback.all.each do |feedback|
           %label{class: 'btn btn-lg btn-default'}
-            = f.radio_button :feedback_id, feedback.id
-            = f.hidden_field :feedback_value, feedback.value
+            = f.radio_button :feedback_value, feedback.value
             = feedback.name
     .form-group
       %label Write Comment
