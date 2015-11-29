@@ -58,7 +58,9 @@ Thrice::Application.routes.draw do
 
   resources :ratings
 
-  resources :transactions, only: [:show]
+  resources :transactions, only: [:show] do 
+    resources :ratings
+  end
 
   get "/about", to: 'pages#about', as: :about
   get "/contact", to: 'pages#contact', as: :contact
