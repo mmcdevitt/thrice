@@ -13,6 +13,9 @@ Thrice::Application.routes.draw do
     resources :posts, only: :show
   end
 
+  get 'people', to: "relationships#index"
+  resources :relationships, only: [:create, :destroy]
+
   get 'seller', to: "listings#seller"
   get 'sales', to: "orders#sales"
   get 'purchases', to: "orders#purchases"
@@ -58,7 +61,7 @@ Thrice::Application.routes.draw do
 
   resources :ratings
 
-  resources :transactions, only: [:show] do 
+  resources :transactions, only: [:show] do
     resources :ratings
   end
 

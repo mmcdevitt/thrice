@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -14,6 +13,21 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :ratings
   has_many :posts
+  has_many :relationships, foreign_key: :follower_id
+  has_many :followings, through: :relationships
+  has_many :followers, through: :relationships
+
+  def follows?(another_user)
+    relationships.map(&:following).include?(another_user)
+  end
+
+  def follow(another_user)
+    relationships.create(following: another_user)
+  end
+
+  def can_follow?(another_user)
+    !(self.follows?(another_user) || self == another_user)
+  end
 
   # Before Thrice's 10% cut
   def sub_total_earnings

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    @listing = Listing.find(params[:listing_id])
+    @listing = Listing.friendly.find(params[:listing_id])
     @comment = @listing.comments.new(comments_params)
     @comment.user = current_user
     if @comment.save

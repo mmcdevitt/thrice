@@ -1,5 +1,9 @@
 %h4
   = "#{@user.username}"
   %small Rating comming soon...
+- if current_user.can_follow?(@user)
+  = link_to "Follow", relationships_path(following_id: @user), method: :post, class: "btn btn-default pull-right"
+- else
+  = link_to "Unfollow", relationship_path(@relationship), method: :delete, class: "btn btn-default pull-right"
 %p= "Items for sale: #{@user.number_of_active_listings}"
 = render 'shared/item_widget'
