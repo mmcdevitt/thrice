@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     !(self.follows?(another_user) || self == another_user)
   end
 
+  def is_not(another_user)
+    self != another_user
+  end
+
   # Before Thrice's 10% cut
   def sub_total_earnings
     number_to_currency Transaction.where(seller_id: self).sum(:subtotal)
