@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :followings, through: :relationships
   has_many :followers, through: :relationships
 
+  # scope :myfollowers, -> { Relationship.where(following_id: self).count }
+
   def follows?(another_user)
     relationships.map(&:following).include?(another_user)
   end
@@ -61,5 +63,11 @@ class User < ActiveRecord::Base
 
   def to_param
     username
+  end
+
+  def short_address
+    if self.city && self.state
+      self.city + ", " + self.state
+    end
   end
 end
