@@ -1,16 +1,31 @@
-%section
-  %h4
-    = "#{@user.username}"
-  %p= @user.short_address
-  - if current_user
-    - if current_user.is_not(@user)
-      - if current_user.can_follow?(@user)
-        = link_to "Follow", relationships_path(following_id: @user), method: :post, class: "btn btn-default pull-right"
-      - elsif
-        = link_to "Unfollow", relationship_path(@relationship), method: :delete, class: "btn btn-default pull-right"
-%section
-  %ul
-    %li= "Items for sale: #{@user.number_of_active_listings}"
-    %li= "Followers #{Relationship.where(following_id: @user).count}"
-    %li= "Following #{@user.relationships.count}"
+.seller-header
+  .row
+    .col-sm-3
+      %h4
+        = "#{@user.username}"
+      %p= @user.short_address
+    .col-sm-9
+      .seller-stats
+        .seller-stats-item
+          - if current_user
+            - if current_user.is_not(@user)
+              - if current_user.can_follow?(@user)
+                = link_to "Follow", relationships_path(following_id: @user), method: :post, class: "btn btn-default pull-right"
+              - elsif
+                = link_to "Unfollow", relationship_path(@relationship), method: :delete, class: "btn btn-default pull-right"
+        .seller-stats-item
+          .stat-value
+            = "#{@user.number_of_active_listings}"
+          .stat-name
+            Items
+        .seller-stats-item
+          .stat-value
+            = "#{Relationship.where(following_id: @user).count}"
+          .stat-name
+            Following
+        .seller-stats-item
+          .stat-value
+            = "#{@user.relationships.count}"
+          .stat-name
+            Followers
 = render 'shared/item_widget'
