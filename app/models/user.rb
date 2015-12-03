@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def short_address
-    if self.city && self.state
+    if !self.city.empty? && !self.state.empty?
       self.city + ", " + self.state
     end
   end
