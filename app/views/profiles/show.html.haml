@@ -22,10 +22,10 @@
           .stat-value
             = "#{Relationship.where(following_id: @user).count}"
           .stat-name
-            Following
+            Followers
         .seller-stats-item
           .stat-value
             = "#{@user.relationships.count}"
           .stat-name
-            Followers
+            Following
 = render 'shared/item_widget'
