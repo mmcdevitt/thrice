@@ -1,7 +1,22 @@
 - if @listings.empty?
   .jumbotron.b-a
     %h4
-      = "There are no #{@category.title} at the moment!"
-    = link_to 'Sell ' + @category.title, sell_path, class: 'btn btn-info'
+      = "There are no items at the moment!"
+    = link_to 'Sell an Item', sell_path, class: 'btn btn-info'
 - else
-  = render 'shared/item_widget'
+.row
+  .col-sm-4
+    .search
+      = search_form_for @search, url: collections_path do |f|
+        %div
+          = f.label :name_cont
+        %div
+          = f.search_field :name_cont
+        %div
+          - OptionItem.where(option_id: 1).each do |option_item|
+            = check_box_tag 'q[option_item_id_eq_any][]', "#{option_item.id}"
+            = option_item.value
+        .submit
+          = f.submit
+  .col-sm-8
+    = render 'shared/item_widget'

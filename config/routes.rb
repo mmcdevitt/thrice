@@ -1,5 +1,9 @@
 Thrice::Application.routes.draw do
 
+  namespace :api do
+    resources :listings
+  end
+
   namespace :admin do
     resources :users, only: [:index]
     resources :listings, only: [:index]

@@ -3,10 +3,10 @@ class Listing < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  validates :name,           presence: true
-  validates :description,    presence: true
-  validates :category_id,    presence: true
-  validates :designer_name,  presence: true
+  # validates :name,           presence: true
+  # validates :description,    presence: true
+  # validates :category_id,    presence: true
+  # validates :designer_name,  presence: true
   # validates :option_item_id, presence: true
   # validates :tags_attached,  presence: true
   # validates :wear_and_tear,  presence: true

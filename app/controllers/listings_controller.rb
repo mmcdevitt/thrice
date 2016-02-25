@@ -10,7 +10,8 @@ class ListingsController < ApplicationController
   end
 
   def all
-    @listings = Listing.active.decorate
+    @search = Listing.ransack(params[:q])
+    @listings = @search.result.active.decorate
     add_breadcrumb "Collections", ''
   end
 

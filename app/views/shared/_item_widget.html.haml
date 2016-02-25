@@ -1,7 +1,7 @@
 .item-widget.text-center
   .row
     - @listings.each do |listing|
-      .col-md-3
+      .col-md-4
         .m-b
           .item-image
             - if listing.listing_images.first && listing.listing_images.first.listing_image_file_name != nil
