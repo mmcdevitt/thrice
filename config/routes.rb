@@ -4,6 +4,8 @@ Thrice::Application.routes.draw do
     resources :listings
   end
 
+  # as;ldkjf
+
   namespace :admin do
     resources :users, only: [:index]
     resources :listings, only: [:index]
