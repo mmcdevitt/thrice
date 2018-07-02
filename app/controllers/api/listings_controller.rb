@@ -2,7 +2,7 @@ module Api
   class ListingsController < ApplicationController
     skip_before_filter :verify_authenticity_token
     before_action :set_listing, only: [:show, :edit, :update, :destroy]
-    # before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy, :index]
+    # before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy, :index]asdf
 
     def index
       @listings = Listing.all
