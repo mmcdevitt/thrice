@@ -15,7 +15,7 @@ module Api
 
     def create
       @listing = Listing.new(listings_params)
-      # @listing.user_id = current_user.idasdfasfasdfasdfasdf
+      # @listing.user_id = current_user.idasdfasfasdfasdfasdfsadf
 
       if @listing.save
         head 200
